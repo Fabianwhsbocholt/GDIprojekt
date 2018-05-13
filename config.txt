@@ -1,0 +1,5 @@
+server-IP:193.175.198.25
+datenbank:wm2018thm
+port:3306
+benutzer:thm
+passwort:thm

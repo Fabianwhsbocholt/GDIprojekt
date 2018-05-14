@@ -1,5 +1,5 @@
-server-IP:193.175.198.25
-datenbank:wm2018thm
+server-IP:localhost
+datenbank:wm2018
 port:3306
-benutzer:thm
-passwort:thm
+benutzer:Seb
+passwort:Seb

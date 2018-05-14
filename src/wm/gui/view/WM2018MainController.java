@@ -80,9 +80,20 @@ public class WM2018MainController
 			primaryStage.setTitle("Verbindung");
 			primaryStage.setScene(new Scene (rootLayout));
 			primaryStage.show();*/
-			
-	
 		}
+		        if(auswahl.toString().equals("Spielergebnisse eingeben")){
+					
+					//Neues Fenster öffnen
+					loader = new FXMLLoader(getClass().getResource("Eingabe.fxml"));
+					Scene scene1 = new Scene(loader.load());
+					Stage stage1 = new Stage();
+					
+				     stage1.setTitle("New Window");
+				        stage1.setScene(scene1);
+				        stage1.show();
+		        }
+		        
+		
 		
 	}
 	@FXML

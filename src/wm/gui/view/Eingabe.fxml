@@ -34,7 +34,7 @@
             </AnchorPane>
             <Button fx:id="speichern" layoutX="116.0" layoutY="279.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" text="Speichern" />
             <Label layoutX="75.0" layoutY="46.0" text="Bitte geben Sie die Ergebnisse ein." />
-            <Button fx:id="speichern1" layoutX="207.0" layoutY="279.0" mnemonicParsing="false" onAction="#connect" prefHeight="31.0" prefWidth="112.0" text="DB Verbinden" />
+            <Button fx:id="speichern1" layoutX="207.0" layoutY="279.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="112.0" text="DB Verbinden" />
             <Button fx:id="speichern2" layoutX="207.0" layoutY="322.0" mnemonicParsing="false" onAction="#ausgabe" prefHeight="32.0" prefWidth="91.0" text="Db Trennen" />
          </children>
       </Pane>

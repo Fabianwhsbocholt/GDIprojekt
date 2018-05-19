@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -18,11 +19,24 @@ import wm.controller.WMHandler;
 import wm.gui.FXML_Loader;
 import wm.gui.WM2018;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+
+import wm.controller.Hilfsfunktionen;
+import wm.interfaces.DBConnectorI;
 
 
 
 
-public class WM2018MainController
+
+public class WM2018MainController 
 {
 	
 	private FXMLLoader loader;
@@ -88,6 +102,7 @@ public class WM2018MainController
 					Scene scene1 = new Scene(loader.load());
 					Stage stage1 = new Stage();
 					
+					
 				     stage1.setTitle("New Window");
 				        stage1.setScene(scene1);
 				        stage1.show();
@@ -95,6 +110,28 @@ public class WM2018MainController
 		        
 		
 		
+	}
+	
+	public void test()
+	{
+		System.out.print("hihi");
+	}
+	//Anzeige der Spielgruppe
+	public void ausgabe() {  
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		String sql ="Select * From spiele where spielort = Moskau";
+		
+	
+	try {
+		rs = stmt.executeQuery(sql);
+		System.out.println(rs);
+		
+	} catch (SQLException e) {
+		
+		e.printStackTrace();
+	}
 	}
 	@FXML
 	/*private void verbindung() throws IOException {

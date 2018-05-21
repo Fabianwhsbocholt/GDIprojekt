@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wm.gui.view.MyController">
+   <left>
+      <Pane prefHeight="434.0" prefWidth="388.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="47.0" layoutY="55.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         
+               <children>
+                  <TextField fx:id="tf3" editable="false" layoutX="196.0" layoutY="34.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf2" editable="false" layoutX="121.0" layoutY="34.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf4" editable="false" layoutX="121.0" layoutY="61.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf5" editable="false" layoutX="196.0" layoutY="61.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf6" layoutX="121.0" layoutY="88.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf7" layoutX="196.0" layoutY="88.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf8" layoutX="121.0" layoutY="115.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf9" layoutX="196.0" layoutY="115.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf10" layoutX="121.0" layoutY="142.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf11" layoutX="196.0" layoutY="142.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf12" layoutX="121.0" layoutY="169.0" prefHeight="27.0" prefWidth="75.0" />
+                  <TextField fx:id="tf13" layoutX="196.0" layoutY="169.0" prefHeight="27.0" prefWidth="75.0" />
+                  <Label layoutX="-21.0" layoutY="91.0" prefHeight="21.0" prefWidth="131.0" text="Halbzeitergebnis" />
+                  <Label layoutX="-21.0" layoutY="119.0" prefHeight="20.0" prefWidth="148.0" text="Ergebnis reg. Spielzeit" />
+                  <Label layoutX="-22.0" layoutY="146.0" prefHeight="20.0" prefWidth="90.0" text="Gelbe Karten" />
+                  <Label layoutX="-20.0" layoutY="173.0" prefHeight="20.0" prefWidth="82.0" text="Rote Karten" />
+                  <TextField fx:id="tf1" editable="false" layoutX="-20.0" layoutY="34.0" prefHeight="27.0" prefWidth="118.0" />
+                  <Label layoutX="-19.0" layoutY="61.0" prefHeight="21.0" prefWidth="97.0" text="Spielpaarung" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="speichern" layoutX="116.0" layoutY="279.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" text="Speichern" />
+            <Label layoutX="75.0" layoutY="46.0" text="Bitte geben Sie die Ergebnisse ein." />
+            <Button fx:id="speichern1" layoutX="207.0" layoutY="279.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="112.0" text="DB Verbinden" />
+            <Button fx:id="speichern2" layoutX="207.0" layoutY="322.0" mnemonicParsing="false" onAction="#ausgabe" prefHeight="32.0" prefWidth="91.0" text="Db Trennen" />
+         </children>
+      </Pane>
+   </left>
+</BorderPane>

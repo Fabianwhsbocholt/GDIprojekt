@@ -57,10 +57,11 @@
            	<items>
            		<FXCollections fx:factory="observableArrayList">
            			<String fx:value="Auswählen..." />
-           			<String fx:value="Verbindung zu Datenbank aufbauen" />
+           			<String fx:value="Verbindung zur Datenbank aufbauen" />
            			<String fx:value="Tabellen löschen und neu anlegen" />
            			<String fx:value="Echtdaten einlesen" />
-           			<String fx:value="Testdaten einlesen" />
+           			<String fx:value="Testdaten einlesen (mit spiele Tabelle)" />
+           			<String fx:value="Testdaten einlesen (ohne spiele Tabelle)" />
            			<String fx:value="Spielplan ausgeben" />
            			<String fx:value="Spielergebnisse eingeben" />
            			<String fx:value="Ergebnisse ausgeben" />

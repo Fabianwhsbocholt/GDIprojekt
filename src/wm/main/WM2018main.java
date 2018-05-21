@@ -6,7 +6,7 @@ import wm.objekte.DBConnector;
 
 // Diese Klasse dient nur Testzwecken, die hier dargestellte Funktionalität soll
 // über eine graphische Benutzungsoberfläche realisiert werden
-// Gestartet wird das Programm dann über die Klasse "WM2018mainGUI.java" 
+// Gestartet wird das Programm dann über die Klasse "WM2018mainGUI.java"
 
 public class WM2018main
 {
@@ -40,7 +40,7 @@ public class WM2018main
 			System.out.println(datenbank.tabellenAnlegen());
 			
 			// Einlesen der Echt- oder Testdaten
-			boolean testdaten=true;
+			boolean testdaten=false;
 			System.out.println(datenbank.datenEinlesen(testdaten));
 			
 			// Verbindung zur Datenbank trennen

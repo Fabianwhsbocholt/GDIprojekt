@@ -1,8 +1,5 @@
 package wm.controller;
 
-// An den Funktionen dieser Klasse sollten keine Änderungen vorgenommen werden
-// Es ist möglich - sofern erforderlich - weitere Funktionen zu ergänzen
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -13,19 +10,6 @@ import java.util.Date;
 
 public class Hilfsfunktionen
 {
-	public static String leerzeichen (int anzahl, String text)
-	{
-		String ergebnis="";
-		for (int space=0; space<(anzahl-text.length()); space++)
-			ergebnis+=" ";
-		return ergebnis;
-	}
-	
-	public static String datumWandeln (Date datum) throws ParseException
-	{
-		return new SimpleDateFormat("dd.MM.yyyy HH:mm").format(datum);
-	}	
-	
 	public static String[] leseConfig (String datei)
 	{
 		File file=new File(datei);
@@ -67,4 +51,38 @@ public class Hilfsfunktionen
 		return configDaten;
 	}
 	
+	public static String leerzeichen (int anzahl, String text)
+	{
+		String ergebnis="";
+		for (int space=0; space<(anzahl-text.length()); space++)
+			ergebnis+=" ";
+		return ergebnis;
+	}
+	
+	public static String datumWandeln (String datum)
+	{
+		SimpleDateFormat simpleDateFormatParse=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try
+		{
+			Date zeitstempel=simpleDateFormatParse.parse(datum);
+			SimpleDateFormat simpleDateFormatAusgabe=new SimpleDateFormat("dd.MM.yyyy HH:mm");
+			return simpleDateFormatAusgabe.format(zeitstempel)+" Uhr";
+		}
+		catch (ParseException e)
+		{
+			return datum;
+		}
+	}
+	
+	public static String nullTest (String pruefwert)
+	{
+		if (pruefwert!=null)
+		{
+			if (pruefwert.equals(""))
+				return "null";
+			else
+				return pruefwert;
+		}
+		return "null";
+	}
 }

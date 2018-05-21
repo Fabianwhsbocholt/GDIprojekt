@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
@@ -14,31 +15,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wm.gui.view.WM2018MainController1">
    <center>
-      <ImageView fitHeight="455.0" fitWidth="722.0" pickOnBounds="true" preserveRatio="true" scaleX="0.7" BorderPane.alignment="CENTER">
+      <ImageView fitHeight="481.0" fitWidth="721.0" pickOnBounds="true" preserveRatio="true" scaleX="0.7" scaleY="1.4" BorderPane.alignment="CENTER">
          <image>
             <Image url="@../../../../../../../Documents/Uni/2.%20Semester/GDI_2_Neu/Projekt/WM2018_Framework_GUI_1.30/bilder/rasen.png" />
          </image>
          <BorderPane.margin>
-            <Insets right="50.0" top="5.0" />
+            <Insets right="50.0" top="150.0" />
          </BorderPane.margin>
       </ImageView>
    </center>
-   <top>
-      <Label text="Verbindungsart auswählen:" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets top="40.0" />
-         </BorderPane.margin>
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-   </top>
    <left>
       <HBox prefHeight="225.0" prefWidth="501.0" BorderPane.alignment="CENTER">
          <children>
-            <RadioButton fx:id="radio1" mnemonicParsing="false" prefHeight="20.0" prefWidth="211.0" selected="true" text="manuelle Eingabe">
+            <RadioButton fx:id="radio1" mnemonicParsing="false" prefHeight="20.0" prefWidth="211.0" selected="false" text="manuelle Eingabe">
                <font>
                   <Font size="15.0" />
                </font>
@@ -49,47 +40,71 @@
                   <ToggleGroup fx:id="verbindungsart" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="radio2" mnemonicParsing="false" prefHeight="20.0" prefWidth="112.0" selected="false" text="Live-Server" toggleGroup="$verbindungsart">
+            <RadioButton fx:id="radio2" mnemonicParsing="false" prefHeight="20.0" prefWidth="250.0" selected="true" text="Live-Server" toggleGroup="$verbindungsart">
                <font>
                   <Font size="15.0" />
                </font>
                <HBox.margin>
-                  <Insets bottom="50.0" left="50.0" />
+                  <Insets bottom="50.0" />
                </HBox.margin>
             </RadioButton>
          </children>
          <BorderPane.margin>
-            <Insets />
+            <Insets top="20.0" />
          </BorderPane.margin>
-         <padding>
-            <Insets top="30.0" />
-         </padding>
       </HBox>
    </left>
    <right>
-      <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="202.0" BorderPane.alignment="CENTER">
+      <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="235.0" prefWidth="201.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="IP-Adresse:" />
-            <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="100.0" />
+            <TextField fx:id="ip" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="100.0" />
             <Label text="Datenbank:" />
-            <TextField />
+            <TextField fx:id="datenbank" />
             <Label text="Port:" />
-            <TextField />
+            <TextField fx:id="port" />
             <Label text="Benutzer:" />
-            <TextField />
+            <TextField fx:id="benutzer" />
             <Label text="Passwort:" />
-            <PasswordField />
+            <PasswordField fx:id="passwort" />
+            <Label text="Ausgabe:">
+               <VBox.margin>
+                  <Insets left="310.0" top="80.0" />
+               </VBox.margin>
+            </Label>
          </children>
          <BorderPane.margin>
-            <Insets right="250.0" top="80.0" />
+            <Insets right="250.0" top="50.0" />
          </BorderPane.margin>
       </VBox>
    </right>
+   <top>
+      <Label text="Verbindungsart auswählen:" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
    <bottom>
-      <Button fx:id="absenden" mnemonicParsing="false" prefHeight="27.0" prefWidth="410.0" text="Absenden" BorderPane.alignment="CENTER">
+      <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="498.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="ausgabeVerb" minHeight="-Infinity" minWidth="-Infinity" prefHeight="151.0" prefWidth="494.0" scaleX="0.8">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </TextArea>
+            <Button fx:id="absenden" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#initialize" prefHeight="31.0" prefWidth="410.0" text="Absenden">
+               <VBox.margin>
+                  <Insets bottom="100.0" left="50.0" />
+               </VBox.margin>
+            </Button>
+         </children>
          <BorderPane.margin>
             <Insets bottom="40.0" />
          </BorderPane.margin>
-      </Button>
+      </VBox>
    </bottom>
 </BorderPane>

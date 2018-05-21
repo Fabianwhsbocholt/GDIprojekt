@@ -5,7 +5,6 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import wm.controller.WMHandler;
 
 // Aus Gr�nden der Programmstrukturierung gibt es eine eigene Klasse f�r die FXML_Loader
 // Hier sind jetzt wieder Sie am Zug
@@ -36,9 +35,9 @@ public class FXML_Loader
 	
 	public void showWM2018 (WM2018 mainapp)
 	{
-	
-	
-	
+
 	}
+	
+	
 	
 }

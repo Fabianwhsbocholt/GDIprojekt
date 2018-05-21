@@ -4,7 +4,6 @@ package wm.gui;
 // Startklasse, hier sind jetzt Sie gefragt
 
 import javafx.application.Application;
-
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 

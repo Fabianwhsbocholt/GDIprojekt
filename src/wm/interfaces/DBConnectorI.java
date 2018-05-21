@@ -1,8 +1,10 @@
 package wm.interfaces;
 
-// Dieses Interface gibt die Funktionen vor, die in der Klasse DBConnector ausprogrammiert werden müssen
+import java.util.List;
 
 import wm.objekte.Configuration;
+import wm.objekte.WM2018Benutzer;
+import wm.objekte.WM2018Mannschaft;
 
 public interface DBConnectorI
 {
@@ -12,7 +14,29 @@ public interface DBConnectorI
 	
 	public String datenEinlesen (boolean testdaten);
 	
-	public String spielplan ();
+	public List<String[]> spielplanAusgeben ();
 	
-	public String close ();
+	public List<String[]> spieleSammeln ();
+	
+	public String ergebnisseEintragen (String[] rsInhalte);
+	
+	public List<String[]> ergebnisseAusgeben ();
+	
+	public List<String[]> benutzerSammeln ();
+	
+	public List<String[]> spieleFuerRankingSammeln ();
+	
+	public List<String[]> tippsFuerRankingSammeln ();
+	
+	public String rankingEintragen (String datum, List<WM2018Benutzer> benutzer);
+	
+	public List<String[]> rankingAusgeben ();
+	
+	public List<String[]> mannschaftenSammeln ();
+	
+	public List<String[]> abgeschlosseneGruppenSpiele ();
+	
+	public List<String[]> direkterVergleich (WM2018Mannschaft heim, WM2018Mannschaft gast);
+	
+	public String close ();	
 }

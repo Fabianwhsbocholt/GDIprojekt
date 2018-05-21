@@ -1,8 +1,8 @@
-﻿;Gruppe A;Moskau;2018-06-14 17:00:00;Russland;Saudiarabien;1;1;2;2;;;;;;;2;1;0;1endOfLine
-;Gruppe A;Ekaterinburg;2018-06-15 14:00:00;Ägypten;Uruguay;2;1;3;1;;;;;;;1;3;0;0endOfLine
-;Gruppe B;St.Petersburg;2018-06-15 17:00:00;Marokko;IranendOfLine
+﻿;Gruppe A;Moskau;2018-04-14 17:00:00;Russland;Saudiarabien;1;1;2;2;;;;;;;2;1;0;1;0;1endOfLine
+;Gruppe A;Ekaterinburg;2018-04-15 14:00:00;Ägypten;Uruguay;2;1;3;1;;;;;;;1;3;0;0;1;0endOfLine
+;Gruppe B;St.Petersburg;2018-04-15 17:00:00;Marokko;IranendOfLine
 ;Gruppe B;Sochi;2018-06-15 20:00:00;Portugal;SpanienendOfLine
-;Gruppe C;Kazan;2018-06-16 12:00:00;Frankreich;AustralienendOfLine
+;Gruppe C;Kazan;2018-04-16 12:00:00;Frankreich;AustralienendOfLine
 ;Gruppe D;Moskau;2018-06-16 15:00:00;Argentinien;IslandendOfLine
 ;Gruppe C;Saransk;2018-06-16 18:00:00;Peru;DänemarkendOfLine
 ;Gruppe D;Kaliningrad;2018-06-16 21:00:00;Kroatien;NigeriaendOfLine
@@ -11,7 +11,7 @@
 ;Gruppe E;Rostov-on-Don;2018-06-17 20:00:00;Brasilien;SchweizendOfLine
 ;Gruppe F;Nizhny Novgorod;2018-06-18 14:00:00;Schweden;Korea RepublikendOfLine
 ;Gruppe G;Sochi;2018-06-18 17:00:00;Belgien;PanamaendOfLine
-;Gruppe G;Volgograd;2018-06-18 20:00:00;Tunesien;EnglandendOfLine
+;Gruppe G;Volgograd;2018-04-18 20:00:00;Tunesien;EnglandendOfLine
 ;Gruppe H;Saransk;2018-06-19 14:00:00;Kolumbien;JapanendOfLine
 ;Gruppe H;Moskau;2018-06-19 17:00:00;Polen;SenegalendOfLine
 ;Gruppe A;St.Petersburg;2018-06-19 20:00:00;Russland;ÄgyptenendOfLine
@@ -34,7 +34,7 @@
 ;Gruppe A;Volgograd;2018-06-25 16:00:00;Saudiarabien;ÄgyptenendOfLine
 ;Gruppe B;Kaliningrad;2018-06-25 20:00:00;Spanien;MarokkoendOfLine
 ;Gruppe B;Saransk;2018-06-25 20:00:00;Iran;PortugalendOfLine
-;Gruppe C;Moskau;2018-06-26 16:00:00;Dänemark;Frankreich;0;0;2;2;1;5;6;;;;1;3;0;0endOfLine
+;Gruppe C;Moskau;2018-06-26 16:00:00;Dänemark;FrankreichendOfLine
 ;Gruppe C;Sochi;2018-06-26 16:00:00;Australien;PeruendOfLine
 ;Gruppe D;Rostov-on-Don;2018-06-26 20:00:00;Island;KroatienendOfLine
 ;Gruppe D;St.Petersburg;2018-06-26 20:00:00;Nigeria;ArgentinienendOfLine
@@ -47,9 +47,9 @@
 ;Gruppe G;Kaliningrad;2018-06-28 20:00:00;England;BelgienendOfLine
 ;Gruppe G;Saransk;2018-06-28 20:00:00;Panama;TunesienendOfLine
 ;Achtelfinale;Kazan;2018-06-30 16:00:00;Sieger Gruppe C;Zweiter Gruppe DendOfLine
-;Achtelfinale;Sochi;2018-06-30 20:00:00;Sieger Gruppe A;Zweiter Gruppe BendOfLine
-;Achtelfinale;Moskau;2018-07-01 16:00:00;Sieger Gruppe B;Zweiter Gruppe AendOfLine
-;Achtelfinale;Nizhny Novgorod;2018-07-01 20:00:00;Sieger Gruppe D;Zweiter Gruppe CendOfLine
+;Achtelfinale;Sochi;2018-04-30 20:00:00;Sieger Gruppe A;Zweiter Gruppe B;0;0;2;2;1;2;3;;;;1;3;0;0;0;0endOfLine
+;Achtelfinale;Moskau;2018-07-01 16:00:00;Sieger Gruppe B;Zweiter Gruppe A;0;0;2;2;1;3;3;1;5;6;1;3;0;1;0;1endOfLine
+;Achtelfinale;Nizhny Novgorod;2018-05-01 20:00:00;Sieger Gruppe D;Zweiter Gruppe CendOfLine
 ;Achtelfinale;Samara;2018-07-02 16:00:00;Sieger Gruppe E;Zweiter Gruppe FendOfLine
 ;Achtelfinale;Rostov-on-Don;2018-07-02 20:00:00;Sieger Gruppe G;Zweiter Gruppe HendOfLine
 ;Achtelfinale;St.Petersburg;2018-07-03 16:00:00;Sieger Gruppe F;Zweiter Gruppe EendOfLine

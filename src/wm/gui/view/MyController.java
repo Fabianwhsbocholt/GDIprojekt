@@ -92,7 +92,7 @@ public class MyController implements Initializable  {
 	String benutzerName = "Seb";
 	String passwort = "Seb";
 
-	@FXML
+	
 	 public static String connect (String ipAdresse, String db, String port, String benutzerName, String passwort)
 	    {
 	        try

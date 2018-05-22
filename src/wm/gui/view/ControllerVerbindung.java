@@ -24,7 +24,7 @@ import wm.objekte.DBConnector;
 import java.sql.Connection;
 
 
-public class WM2018MainController1 {
+public class ControllerVerbindung {
 	
 	
 	

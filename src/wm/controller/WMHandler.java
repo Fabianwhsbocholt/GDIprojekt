@@ -4,16 +4,11 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -21,12 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import wm.gui.view.WM2018MainController;
 import wm.objekte.DBConnector;
 import wm.objekte.Preparation;
-import wm.gui.FXML_Loader;
-import wm.gui.WM2018;
-import wm.gui.view.*;
+
 
 // In dieser Klasse k�nnen die Funktionen ausprogrammiert werden, die beim Ausl�sen von Events
 // (z.B. Dr�cken eines Buttons) ausgef�hrt werden sollen
@@ -83,7 +75,7 @@ public class WMHandler implements EventHandler
 		//Versuch 1
 		//loader = new FXMLLoader(getClass().getResource("../gui/view/Verbindung.fxml"));
 		loader = FXMLLoader.load(getClass().getResource("../gui/view/Verbindung.fxml"));
-		/*primaryStage = new Stage();
+		primaryStage = new Stage();
 
 		primaryStage.setTitle("Verbindung");
 		
@@ -91,8 +83,7 @@ public class WMHandler implements EventHandler
 		//rootLayout = loader.load();
 		
 		primaryStage.setScene(scene);
-		primaryStage.show();*/
-
+		primaryStage.show();
 	}
 	
 	@FXML
@@ -160,6 +151,40 @@ public class WMHandler implements EventHandler
 	public void beenden() {
 			System.exit(0);	
 	}
+	
+	
+	//Sebastian 
+	/*public void spielergebnisse() {
+	   // if(auswahl.toString().equals("Spielergebnisse eingeben"))
+	    						
+		//Neues Fenster öffnen
+		loader = new FXMLLoader(getClass().getResource("Eingabe.fxml"));
+		Scene scene1 = new Scene(loader.load());
+		Stage stage1 = new Stage();
+		
+	    stage1.setTitle("New Window");
+	    stage1.setScene(scene1);
+	    stage1.show();
+	    			        
+	}*/
+	
+	//Anzeige der Spielgruppe
+	/*public void ausgabe() {  
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		String sql ="Select * From spiele where spielort = Moskau";
+		
+		
+		try {
+			rs = stmt.executeQuery(sql);
+			System.out.println(rs);
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}*/
 	
 }
 

@@ -2,17 +2,17 @@ package wm.gui.view;
 
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 // Jedes Formular ben�tigt einen Controller f�r die in ihm enthaltenen Elemente
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
+
 import wm.controller.WMHandler;
 import wm.gui.WM2018;
 
@@ -64,6 +64,8 @@ public class WM2018MainController
 		
 		
 	}
+	
+
 
 	public void setMainApp (WM2018 mainApp)
 	{

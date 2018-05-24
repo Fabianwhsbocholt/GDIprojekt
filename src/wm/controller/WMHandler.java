@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
+
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -186,5 +188,12 @@ public class WMHandler implements EventHandler
 		}
 	}*/
 	
+	public static List<String[]> spielplanAusgabe(DBConnector dbConnector)
+	{
+
+		return dbConnector.spielplanAusgeben();
+	}
+
 }
 
+	

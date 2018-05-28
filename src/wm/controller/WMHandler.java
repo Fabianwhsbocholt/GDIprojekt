@@ -3,7 +3,12 @@ package wm.controller;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
+
+
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import wm.objekte.Configuration;
 import wm.objekte.DBConnector;
 import wm.objekte.Preparation;
 
@@ -186,5 +192,21 @@ public class WMHandler implements EventHandler
 		}
 	}*/
 	
+	public static void spielplanAusgabe(DBConnector dbcon)
+	{
+	
+		
+		List<String[]> spielplan = dbcon.spielplanAusgeben();
+		
+		
+		System.out.println("| Spielbezeichnung | DatumUhrzeit | Heimmannschaft | Gastmannschaft | Spielort |");
+		
+		for(String[] spiel : spielplan) {
+			System.out.println("| "+spiel[0]+" | "+spiel[1]+" | "+spiel[2]+" | "+spiel[3]+" | "+spiel[4]+" |");
+		}
+
+	}
+
 }
 
+	

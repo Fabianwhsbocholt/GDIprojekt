@@ -59,6 +59,7 @@ public class RankingCalculator {
      * @param spielergebnis
      * @return Integer
      */
+    
     private static int berechnePunkteFuerTipp(Tipp tipp, Spielergebnis spielergebnis){
 
         int erreichtePunkte = 0;

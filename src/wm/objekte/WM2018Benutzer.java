@@ -5,7 +5,7 @@ public class WM2018Benutzer implements Comparable<WM2018Benutzer>
 	String	benutzerID;
 	String	nickname;
 	String	gruppe;
-	int			punkte;
+	int		punkte;
 	
 	public WM2018Benutzer ( String benutzerID, String nickname, String gruppe )
 	{

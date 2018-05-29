@@ -4,24 +4,14 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 import javafx.event.*;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import wm.gui.FXML_Loader;
 import wm.gui.WM2018;
 import wm.objekte.DBConnector;
-import wm.objekte.Preparation;
+
 
 
 // In dieser Klasse k�nnen die Funktionen ausprogrammiert werden, die beim Ausl�sen von Events
@@ -32,11 +22,6 @@ import wm.objekte.Preparation;
 public class WMHandler implements EventHandler
 {
 
-	//GUI Button
-	
-
-	
-	
 	DBConnector connect = new DBConnector();
 	Connection connection;
 
@@ -174,5 +159,22 @@ public class WMHandler implements EventHandler
 		}
 	}*/
 	
+	//Spielplan ausgeben (Fabian)
+	public static void spielplanAusgabe(DBConnector dbcon)
+	{
+	
+		
+		List<String[]> spielplan = dbcon.spielplanAusgeben();
+		
+		
+		System.out.println("| Spielbezeichnung | DatumUhrzeit | Heimmannschaft | Gastmannschaft | Spielort |");
+		
+		for(String[] spiel : spielplan) {
+			System.out.println("| "+spiel[0]+" | "+spiel[1]+" | "+spiel[2]+" | "+spiel[3]+" | "+spiel[4]+" |");
+		}
+
+	}
+
 }
 
+	

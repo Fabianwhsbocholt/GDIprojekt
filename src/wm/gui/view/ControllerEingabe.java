@@ -26,16 +26,19 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 
 import wm.controller.Hilfsfunktionen;
+import wm.gui.WM2018;
 import wm.interfaces.DBConnectorI;
  
-public class MyController implements Initializable  {
+public class ControllerEingabe implements Initializable  {
  
-   @FXML
-   private Button myButton;
-   private Button speichern;
-   
+   @FXML private Button myButton;
+   @FXML private Button speichern;
+   @FXML TextArea ausgabe = new TextArea();
+   WM2018 mainapp;
   
-   @FXML //Textfelder aus denen später die Daten übernommen werden.
+
+
+@FXML //Textfelder aus denen später die Daten übernommen werden.
    static TextField toreheimhz;
    static TextField toregasthz;
    static TextField toreheimende;
@@ -76,7 +79,7 @@ public class MyController implements Initializable  {
 	private static String			sql;
 	private static ResultSet		rs;
 	
-	public MyController ()
+	public ControllerEingabe ()
 	{
 		this.statement=null;
 		this.connection=null;
@@ -142,24 +145,24 @@ public class MyController implements Initializable  {
 	       
 	       String spieleid ="";
 	       
-	       toreheimhz = MyController.toreheimhz.getText();
-	       toregasthz = MyController.toreheimhz.getText();
-	       toregastende =MyController.toregastende.getText();
-	       toreheimende =MyController.toreheimende.getText();
-	       gelbekartenheim = MyController.gelbekartenheim.getText();
-	       rotekartenheim = MyController.rotekartenheim.getText();
-	       gelbekartengast = MyController.gelbekartengast.getText();
-	       rotekartengast = MyController.rotekartengast.getText();
-	       toreverlheim = MyController.toreverlheim.getText();
-	       toreverlgast = MyController.toreverlgast.getText();
+	       toreheimhz = ControllerEingabe.toreheimhz.getText();
+	       toregasthz = ControllerEingabe.toreheimhz.getText();
+	       toregastende =ControllerEingabe.toregastende.getText();
+	       toreheimende =ControllerEingabe.toreheimende.getText();
+	       gelbekartenheim = ControllerEingabe.gelbekartenheim.getText();
+	       rotekartenheim = ControllerEingabe.rotekartenheim.getText();
+	       gelbekartengast = ControllerEingabe.gelbekartengast.getText();
+	       rotekartengast = ControllerEingabe.rotekartengast.getText();
+	       toreverlheim = ControllerEingabe.toreverlheim.getText();
+	       toreverlgast = ControllerEingabe.toreverlgast.getText();
 	       
 	       //Felder fehlen noch
-	       toreelfheim =MyController.toreelfheim.getText();
-	       toreelfgast =MyController.toreelfgast.getText();
-	       verlaengerung =MyController.verlaengerung.getText();	   
+	       toreelfheim =ControllerEingabe.toreelfheim.getText();
+	       toreelfgast =ControllerEingabe.toreelfgast.getText();
+	       verlaengerung =ControllerEingabe.verlaengerung.getText();	   
 	       
 	       //überprüfen
-	       spieleid = MyController.spieleid.getText();
+	       spieleid = ControllerEingabe.spieleid.getText();
 	       hzcheck = true;
 	       endecheck = true;
 	       verlcheck = true;
@@ -167,12 +170,12 @@ public class MyController implements Initializable  {
 	       
 	       if (!hzcheck == true && endecheck == true && verlcheck == true && elfcheck == true)
 	       { 
-	       toreheimhz = MyController.toreheimhz.getText();
-	       toregasthz = MyController.toreheimhz.getText();
-	       gelbekartenheim = MyController.gelbekartenheim.getText();
-	       rotekartenheim = MyController.rotekartenheim.getText();
-	       gelbekartengast = MyController.gelbekartengast.getText();
-	       rotekartengast = MyController.rotekartengast.getText();
+	       toreheimhz = ControllerEingabe.toreheimhz.getText();
+	       toregasthz = ControllerEingabe.toreheimhz.getText();
+	       gelbekartenheim = ControllerEingabe.gelbekartenheim.getText();
+	       rotekartenheim = ControllerEingabe.rotekartenheim.getText();
+	       gelbekartengast = ControllerEingabe.gelbekartengast.getText();
+	       rotekartengast = ControllerEingabe.rotekartengast.getText();
 	      
            sql = "UPDATE spiele "
                + "SET heimmannschafthz = " + toreheimhz
@@ -186,14 +189,14 @@ public class MyController implements Initializable  {
        }       
 	       if (!hzcheck == true && !endecheck == true && verlcheck == true && elfcheck == true)
 	       {
-	    	   toreheimhz = MyController.toreheimhz.getText();
-		       toregasthz = MyController.toreheimhz.getText();
-		       toregastende =MyController.toregastende.getText();
-		       toreheimende =MyController.toreheimende.getText();
-		       gelbekartenheim = MyController.gelbekartenheim.getText();
-		       rotekartenheim = MyController.rotekartenheim.getText();
-		       gelbekartengast = MyController.gelbekartengast.getText();
-		       rotekartengast = MyController.rotekartengast.getText();
+	    	   toreheimhz = ControllerEingabe.toreheimhz.getText();
+		       toregasthz = ControllerEingabe.toreheimhz.getText();
+		       toregastende =ControllerEingabe.toregastende.getText();
+		       toreheimende =ControllerEingabe.toreheimende.getText();
+		       gelbekartenheim = ControllerEingabe.gelbekartenheim.getText();
+		       rotekartenheim = ControllerEingabe.rotekartenheim.getText();
+		       gelbekartengast = ControllerEingabe.gelbekartengast.getText();
+		       rotekartengast = ControllerEingabe.rotekartengast.getText();
 	            
 	            
 	       sql = "UPDATE spiele "
@@ -211,19 +214,19 @@ public class MyController implements Initializable  {
 	       if (!hzcheck == true && !endecheck == true && !verlcheck == true && elfcheck == true)
 
 	       {
-	    	   toreheimhz = MyController.toreheimhz.getText();
-		       toregasthz = MyController.toreheimhz.getText();
-		       toregastende =MyController.toregastende.getText();
-		       toreheimende =MyController.toreheimende.getText();
-		       gelbekartenheim = MyController.gelbekartenheim.getText();
-		       rotekartenheim = MyController.rotekartenheim.getText();
-		       gelbekartengast = MyController.gelbekartengast.getText();
-		       rotekartengast = MyController.rotekartengast.getText();
-		       toreverlheim = MyController.toreverlheim.getText();
-		       toreverlgast = MyController.toreverlgast.getText();
+	    	   toreheimhz = ControllerEingabe.toreheimhz.getText();
+		       toregasthz = ControllerEingabe.toreheimhz.getText();
+		       toregastende =ControllerEingabe.toregastende.getText();
+		       toreheimende =ControllerEingabe.toreheimende.getText();
+		       gelbekartenheim = ControllerEingabe.gelbekartenheim.getText();
+		       rotekartenheim = ControllerEingabe.rotekartenheim.getText();
+		       gelbekartengast = ControllerEingabe.gelbekartengast.getText();
+		       rotekartengast = ControllerEingabe.rotekartengast.getText();
+		       toreverlheim = ControllerEingabe.toreverlheim.getText();
+		       toreverlgast = ControllerEingabe.toreverlgast.getText();
 		       //vermutlich falsch --  verlaengerung = ErgebnisFrame.getVerl();
 
-	           verlaengerung = MyController.verlaengerung.getText();
+	           verlaengerung = ControllerEingabe.verlaengerung.getText();
 	            
 	           sql = "UPDATE spiele "
 	                   + "SET heimmannschafthz = " + toreheimhz
@@ -253,10 +256,24 @@ public class MyController implements Initializable  {
 	        
 	       return  "Ergebnis erfolgreich gespeichert";
 	}
+
+
+   public WM2018 getMainapp() {
+		return mainapp;
+   }
+   
+   public void setMainapp(WM2018 mainapp) {
+		this.mainapp = mainapp;
+   }
 	
-	
-	
-	
+   public void setTextArea(TextArea ausgabe) {
+		this.ausgabe = ausgabe;
+		
+	}
+
+	public TextArea getAusgabeVerb() {
+		return ausgabe;
+	}
   
 
 }

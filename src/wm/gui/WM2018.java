@@ -6,13 +6,20 @@ package wm.gui;
 import javafx.application.Application;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import wm.objekte.Preparation;
 
 public class WM2018 extends Application
 {	
     private Stage primaryStage;
 	private BorderPane	rootLayout;
+	private Stage DialogStage;
+	private BorderPane DialogLayout;
+	private Stage eingabeStage;
+	private BorderPane eingabeLayout;
 	private FXML_Loader fxml;
-	
+	private Preparation prep;
+
+
 
 
 	@Override
@@ -21,6 +28,7 @@ public class WM2018 extends Application
 		this.primaryStage.setTitle("WM2018");
 		fxml.showWM2018(this);
 		fxml.initRootLayout(this);
+		
 	}
 	
 	
@@ -28,9 +36,63 @@ public class WM2018 extends Application
 	public WM2018() {
 		this.rootLayout = new BorderPane();
 		this.primaryStage = new Stage();
+		this.DialogStage = new Stage();
+		this.DialogLayout = new BorderPane();
+		this.eingabeStage = new Stage();
+		this.eingabeLayout = new BorderPane();
 		this.fxml = new FXML_Loader();
+		this.prep = new Preparation();
 	}
 	
+	public Stage getEingabeStage() {
+		return eingabeStage;
+	}
+
+
+	public void setEingabeStage(Stage eingabeStage) {
+		this.eingabeStage = eingabeStage;
+	}
+
+
+	public BorderPane getEingabeLayout() {
+		return eingabeLayout;
+	}
+
+
+	public void setEingabeLayout(BorderPane eingabeLayout) {
+		this.eingabeLayout = eingabeLayout;
+	}
+	
+	public Stage getDialogStage() {
+		return DialogStage;
+	}
+
+
+	public void setDialogStage(Stage dialogStage) {
+		DialogStage = dialogStage;
+	}
+
+
+	public BorderPane getDialogLayout() {
+		return DialogLayout;
+	}
+
+
+	public void setDialogLayout(BorderPane dialogLayout) {
+		DialogLayout = dialogLayout;
+	}
+	
+	
+	
+	public Preparation getPrep() {
+		return prep;
+	}
+
+
+	public void setPrep(Preparation prep) {
+		this.prep = prep;
+	}
+
 	
 	public BorderPane getRootLayout ()
 	{
@@ -64,4 +126,7 @@ public class WM2018 extends Application
 	{
 		launch();
 	}
+
+
+	
 }

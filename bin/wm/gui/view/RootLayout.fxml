@@ -39,7 +39,7 @@
       </ImageView>
    </center>
    <right>
-      <Button fx:id="ok" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#initialize" prefHeight="25.0" prefWidth="70.0" scaleZ="2.0" text="OK" BorderPane.alignment="CENTER">
+      <Button fx:id="ok" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ok" prefHeight="25.0" prefWidth="70.0" scaleZ="2.0" text="OK" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="180.0" right="50.0" />
          </BorderPane.margin>
@@ -60,8 +60,7 @@
            			<String fx:value="Verbindung zur Datenbank aufbauen" />
            			<String fx:value="Tabellen löschen und neu anlegen" />
            			<String fx:value="Echtdaten einlesen" />
-           			<String fx:value="Testdaten einlesen (mit spiele Tabelle)" />
-           			<String fx:value="Testdaten einlesen (ohne spiele Tabelle)" />
+           			<String fx:value="Testdaten einlesen" />           
            			<String fx:value="Spielplan ausgeben" />
            			<String fx:value="Spielergebnisse eingeben" />
            			<String fx:value="Ergebnisse ausgeben" />

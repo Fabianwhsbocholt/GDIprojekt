@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import wm.objekte.DBConnector;
 import wm.controller.Hilfsfunktionen;
 import wm.controller.WMHandler;
+import wm.gui.WM2018;
 import wm.main.WM2018main;
 import wm.objekte.Configuration;
 import wm.objekte.Preparation;
@@ -28,26 +29,71 @@ public class ControllerVerbindung {
 	
 	
 	
-	private WMHandler handler = new WMHandler();
-	@FXML Button absenden;
-	@FXML RadioButton radio1;
-	@FXML RadioButton radio2;
+	//private WMHandler handler = new WMHandler();
+	@FXML Button absenden = new Button();
+	@FXML RadioButton radio1 = new RadioButton();
+	@FXML RadioButton radio2 = new RadioButton();
+	@FXML TextArea ausgabeVerb = new TextArea();
+	
+	@FXML TextField ip = new TextField();
+	@FXML TextField datenbank = new TextField();
+	@FXML TextField port = new TextField();
+	@FXML TextField benutzer = new TextField();
+	@FXML PasswordField passwort = new PasswordField();
+
+	WM2018 mainapp;
+	Preparation prep;
+	
 	
 
-	
+	private WMHandler WMHandler = new WMHandler();
+
 	@FXML
 	// Diese Funktion wird ausgef�hrt, wenn sich das Formular �ffnet
-	private void initialize () throws IOException
+	private void initialize () 
 	{	
-		System.out.println("Test");
 		
-		
+	}
+	
+	public void absenden () throws IOException {
+
 		if(radio2.isSelected()) {
-			handler.verbindungLive();
+			WMHandler.verbindungLive(mainapp, ausgabeVerb);
 		}
 		else {
-			handler.verbindungManuelle();
+			WMHandler.verbindungManuelle(mainapp, ausgabeVerb, ip, datenbank, port, benutzer ,passwort);
 		}
 	}
+
+	public Preparation getPrep() {
+		return prep;
+	}
+
+	public void setPrep(Preparation prep) {
+		this.prep = prep;
+	}
+
+	public WM2018 getMainapp() {
+		return mainapp;
+	}
+
+	public void setMainapp(WM2018 mainapp) {
+		this.mainapp = mainapp;
+	}
+
+	public void setTextArea(TextArea ausgabeVerb) {
+		this.ausgabeVerb = ausgabeVerb;
+		
+	}
+
+	public TextArea getAusgabeVerb() {
+		return ausgabeVerb;
+	}
+
+	public void setAusgabeVerb(TextArea ausgabeVerb) {
+		this.ausgabeVerb = ausgabeVerb;
+	}
+
+	
 
 }

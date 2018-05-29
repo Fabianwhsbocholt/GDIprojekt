@@ -9,13 +9,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import wm.gui.FXML_Loader;
+import wm.gui.WM2018;
 import wm.objekte.DBConnector;
 import wm.objekte.Preparation;
 
@@ -28,77 +32,68 @@ import wm.objekte.Preparation;
 public class WMHandler implements EventHandler
 {
 
-	private Stage primaryStage;
-	private BorderPane	rootLayout;
-	
 	//GUI Button
-		
-	@FXML TextArea ausgabe;
-	@FXML ToggleGroup verbindungsart;
+	
 
-	
-	//GUI Button
-	@FXML private Button absenden;
-	@FXML RadioButton radio1;
-	@FXML RadioButton radio2;
-	@FXML TextField ip;
-	@FXML TextField datenbank;
-	@FXML TextField port;
-	@FXML TextField benutzer;
-	@FXML PasswordField passwort;
-	@FXML TextArea ausgabeVerb;
 	
 	
 	DBConnector connect = new DBConnector();
-	Preparation preparation = new Preparation();
 	Connection connection;
-	@FXML FXMLLoader loader;
-	
-	//Konstruktor
-	public WMHandler()
-	{
+
+	public WMHandler() {
 		
-	}
+	}	
 	
 	@Override
 	public void handle(Event event) {
 		// TODO Auto-generated method stub
+
+	}
+	
+	
+	public void wahl(WM2018 mainapp, ChoiceBox<String> StatusBox, TextArea ausgabe) {
+		
+		String auswahl = StatusBox.getValue();
+		switch(auswahl) {
+		
+		case "Verbindung zur Datenbank aufbauen" : 
+			mainapp.getFxml().showVerbindung(mainapp, ausgabe);
+		break;
+		
+		
+		case "Tabellen löschen und neu anlegen" :
+			tabellenAnlegen(mainapp, ausgabe);
+			break;
+		case "Testdaten einlesen" : 
+			ausgabe.appendText(mainapp.getPrep().getDbConnect().datenEinlesen(true));	
+			break;
+		case "Spielergebnisse eingeben" : 
+			mainapp.getFxml().showEingabe(mainapp);
+			break;
+		case "Programm beenden" :
+			beenden(mainapp);
+			break;
+		
+			
+		}	
+		
 		
 	}
 		
 	
 	
-	@FXML
-	public void neuesFenster () throws IOException {
-
-		
-		//Versuch 1
-		//loader = new FXMLLoader(getClass().getResource("../gui/view/Verbindung.fxml"));
-		loader = FXMLLoader.load(getClass().getResource("../gui/view/Verbindung.fxml"));
-		primaryStage = new Stage();
-
-		primaryStage.setTitle("Verbindung");
-		
-		Scene scene = new Scene(rootLayout);
-		//rootLayout = loader.load();
-		
-		primaryStage.setScene(scene);
-		primaryStage.show();
-	}
-	
-	@FXML
-	public void verbindungManuelle() throws IOException {
+	public void verbindungManuelle(WM2018 mainapp, TextArea ausgabeVerb, TextField ip, TextField datenbank, TextField port, TextField benutzer, TextField passwort) throws IOException {
 		//manuelle Verbindung
 
 		//Prüfen ob alle Felder gefüllt wurden
 		if(ip.getText().equals("")) {
-			ip.setText("Bitte IP Adresse angeben.");
+			ausgabeVerb.appendText("Bitte IP Adresse angeben. \n");
 		}if(datenbank.getText().equals("")) {
-			datenbank.setText("Bitte Datenbank angeben.");
+			ausgabeVerb.appendText("Bitte Datenbank angeben. \n");
 		}if(port.getText().equals("")) {
-			port.setText("Bitte Port angeben.");
+			ausgabeVerb.appendText("Bitte Port angeben. \n");
 		}if(benutzer.getText().equals("")) {
-			benutzer.setText("Bitte Benutzer angeben.");
+			ausgabeVerb.appendText("Bitte Benutzer angeben. \n");
 		}
 		else {
 			
@@ -125,32 +120,25 @@ public class WMHandler implements EventHandler
 		
 	}
 	
-	public void verbindungLive() throws IOException{
-		
+	public void verbindungLive(WM2018 mainapp, TextArea ausgabeVerb) throws IOException{
 		ausgabeVerb.appendText("Konfigurationsdaten aus Datei lesen...\n");
-		preparation.erstelleKonfiguration();
+		mainapp.getPrep().erstelleKonfiguration();
 		ausgabeVerb.appendText("Konfiguration erstellt...\n");
 		ausgabeVerb.appendText("Verbinde mich mit der Datenbank...\n");
-		ausgabeVerb.appendText(connect.connect(preparation.getConfig()));
-
+		ausgabeVerb.appendText(mainapp.getPrep().getDbConnect().connect(mainapp.getPrep().getConfig()));
 	}
 	
-	public void tabellenAnlegen () {
-		ausgabe.setText("Test");
-		System.out.println("Test");
+	public void tabellenAnlegen (WM2018 mainapp, TextArea ausgabe) {
 
-		ausgabeVerb.appendText("Konfigurationsdaten aus Datei lesen...\n");
-		preparation.erstelleKonfiguration();
-		ausgabeVerb.appendText("Konfiguration erstellt...\n");
-		ausgabeVerb.appendText("Verbinde mich mit der Datenbank...\n");
-		ausgabe.appendText(connect.connect(preparation.getConfig()));
-		ausgabe.appendText(connect.tabellenAnlegen());
-
+		ausgabe.appendText(mainapp.getPrep().getDbConnect().tabellenAnlegen());	
 	}
 
-	public void beenden() {
+	public void beenden(WM2018 mainapp) {
 			System.exit(0);	
 	}
+
+
+	
 	
 	
 	//Sebastian 

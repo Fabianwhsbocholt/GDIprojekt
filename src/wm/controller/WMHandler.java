@@ -1,9 +1,11 @@
 package wm.controller;
 
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javafx.event.*;
 import javafx.scene.control.ChoiceBox;
@@ -43,17 +45,21 @@ public class WMHandler implements EventHandler
 		
 		case "Verbindung zur Datenbank aufbauen" : 
 			mainapp.getFxml().showVerbindung(mainapp, ausgabe);
-		break;
-		
-		
+			break;
 		case "Tabellen löschen und neu anlegen" :
 			tabellenAnlegen(mainapp, ausgabe);
+			break;
+		case "Echtdaten einlesen" :
+			
 			break;
 		case "Testdaten einlesen" : 
 			ausgabe.appendText(mainapp.getPrep().getDbConnect().datenEinlesen(true));	
 			break;
+		case "Spielplan ausgeben" :
+			spielplanAusgabe(mainapp, mainapp.getPrep().getDbConnect(), ausgabe);
+			break;
 		case "Spielergebnisse eingeben" : 
-			mainapp.getFxml().showEingabe(mainapp);
+			mainapp.getFxml().showEingabe(mainapp, ausgabe);
 			break;
 		case "Programm beenden" :
 			beenden(mainapp);
@@ -71,19 +77,12 @@ public class WMHandler implements EventHandler
 		//manuelle Verbindung
 
 		//Prüfen ob alle Felder gefüllt wurden
-		if(ip.getText().equals("")) {
-			ausgabeVerb.appendText("Bitte IP Adresse angeben. \n");
-		}if(datenbank.getText().equals("")) {
-			ausgabeVerb.appendText("Bitte Datenbank angeben. \n");
-		}if(port.getText().equals("")) {
-			ausgabeVerb.appendText("Bitte Port angeben. \n");
-		}if(benutzer.getText().equals("")) {
-			ausgabeVerb.appendText("Bitte Benutzer angeben. \n");
+		if(ip.getText().equals("") | datenbank.getText().equals("") | port.getText().equals("") | benutzer.getText().equals("") | passwort.getText().equals("")) {
+			ausgabeVerb.appendText("Bitte alle Felder ausfüllen. \n");
 		}
 		else {
 			
 			ausgabeVerb.appendText("Verbinde mich mit der Datenbank...\n");
-			ausgabeVerb.appendText(passwort.getText());
 			try {
 				connection=DriverManager.getConnection(
 					    "jdbc:mariadb://"+ip.getText()+":"+port.getText()+"/"+datenbank.getText()+"?useSSL=false",
@@ -116,6 +115,23 @@ public class WMHandler implements EventHandler
 	public void tabellenAnlegen (WM2018 mainapp, TextArea ausgabe) {
 
 		ausgabe.appendText(mainapp.getPrep().getDbConnect().tabellenAnlegen());	
+	}
+	
+	//Spielplan ausgeben (Fabian)
+	public static void spielplanAusgabe(WM2018 mainapp, DBConnector dbcon, TextArea ausgabe)
+	{
+	
+		
+		List<String[]> spielplan = dbcon.spielplanAusgeben();
+		
+	//	SimpleDateFormat sdf = new SimpleDateFormat("jjjj:MM:dd" + "HH:mm:ss");
+		
+		ausgabe.appendText("| Spielbezeichnung \t | DatumUhrzeit \t \t \t \t | Heimmannschaft \t | Gastmannschaft \t \t | Spielort| \n");
+		
+		for(String[] spiel : spielplan) {
+			ausgabe.appendText("| "+spiel[0]+" \t \t \t | "+spiel[1]+" \t \t | "+spiel[2]+" \t \t \t | "+spiel[3]+" \t \t| "+spiel[4]+" | \n");
+		}
+
 	}
 
 	public void beenden(WM2018 mainapp) {
@@ -159,22 +175,7 @@ public class WMHandler implements EventHandler
 		}
 	}*/
 	
-	//Spielplan ausgeben (Fabian)
-	public static void spielplanAusgabe(DBConnector dbcon)
-	{
 	
-		
-		List<String[]> spielplan = dbcon.spielplanAusgeben();
-		
-		
-		System.out.println("| Spielbezeichnung | DatumUhrzeit | Heimmannschaft | Gastmannschaft | Spielort |");
-		
-		for(String[] spiel : spielplan) {
-			System.out.println("| "+spiel[0]+" | "+spiel[1]+" | "+spiel[2]+" | "+spiel[3]+" | "+spiel[4]+" |");
-		}
-
-	}
-
 }
 
 	

@@ -10,9 +10,9 @@ import wm.objekte.Configuration;
 import wm.objekte.DBConnector;
 import wm.objekte.*;
 
-// Diese Klasse dient nur Testzwecken, die hier dargestellte Funktionalität soll
-// über eine graphische Benutzungsoberfläche realisiert werden
-// Gestartet wird das Programm dann über die Klasse "WM2018mainGUI.java"
+// Diese Klasse dient nur Testzwecken, die hier dargestellte Funktionalitï¿½t soll
+// ï¿½ber eine graphische Benutzungsoberflï¿½che realisiert werden
+// Gestartet wird das Programm dann ï¿½ber die Klasse "WM2018mainGUI.java"
 
 public class WM2018main
 {
@@ -32,7 +32,7 @@ public class WM2018main
 		
 		if (!configDaten[0].startsWith("Fehler"))
 		{
-			// Die Konfigurationsdaten konnten gelesen werden, wir können das
+			// Die Konfigurationsdaten konnten gelesen werden, wir kï¿½nnen das
 			// Configurations-Objekt erstellen
 			Configuration config=new Configuration(configDaten);
 			
@@ -44,14 +44,14 @@ public class WM2018main
 			//DBConnector datenbank=new DBConnector();
 			System.out.println(datenbank.connect(config));
 			
-			// Anlegen der benötigten Tabellen
+			// Anlegen der benï¿½tigten Tabellen
 			System.out.println(datenbank.tabellenAnlegen());
 			
 			// Einlesen der Echt- oder Testdaten
 			boolean testdaten=false;
 			System.out.println(datenbank.datenEinlesen(testdaten));
 			
-			wm.controller.WMHandler.spielplanAusgabe(datenbank);
+			//wm.controller.WMHandler.spielplanAusgabe(datenbank);
 			
 			ArrayList<Benutzer> benutzerliste = new ArrayList<Benutzer>(); 
 			for(int i = 0 ; i<5;i++) {

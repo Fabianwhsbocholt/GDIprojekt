@@ -71,7 +71,7 @@ public class FXML_Loader
 		
 	}
 	
-	public void showEingabe(WM2018 mainapp) {
+	public void showEingabe(WM2018 mainapp, TextArea ausgabe) {
 		try
         {
             FXMLLoader loader=new FXMLLoader();
@@ -80,11 +80,11 @@ public class FXML_Loader
 			
             ControllerEingabe ConEing = loader.getController();
             ConEing.setMainapp(mainapp);
-           // ConEing.setTextArea(ausgabe);
+            ConEing.setTextArea(ausgabe);
             
-            Scene scene=new Scene(mainapp.getDialogLayout());
-            mainapp.getDialogStage().setScene(scene);
-            mainapp.getDialogStage().show();
+            Scene scene=new Scene(mainapp.getEingabeLayout());
+            mainapp.getEingabeStage().setScene(scene);
+            mainapp.getEingabeStage().show();
         }
         catch (IOException e)
         {

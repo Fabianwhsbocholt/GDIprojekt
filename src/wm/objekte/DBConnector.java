@@ -191,8 +191,9 @@ public class DBConnector implements DBConnectorI
 				if (statement==null)
 					statement=connection.createStatement();
 				
-				sql="UPDATE spiele SET heimmannschafthz="+Hilfsfunktionen.nullTest(rsInhalte[6])+","
-				    +"gastmannschafthz="+Hilfsfunktionen.nullTest(rsInhalte[7])+","+"heimmannschaftende="
+				sql="UPDATE spiele SET heimmannschafthz="
+					+Hilfsfunktionen.nullTest(rsInhalte[6])+","+"gastmannschafthz="
+					+Hilfsfunktionen.nullTest(rsInhalte[7])+","+"heimmannschaftende="
 				    +Hilfsfunktionen.nullTest(rsInhalte[8])+","+"gastmannschaftende="
 				    +Hilfsfunktionen.nullTest(rsInhalte[9])+","+"verlaengerung="
 				    +Hilfsfunktionen.nullTest(rsInhalte[10])+","+"heimmannschaftverl="

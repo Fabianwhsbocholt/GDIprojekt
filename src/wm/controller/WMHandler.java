@@ -144,8 +144,7 @@ public class WMHandler implements EventHandler
 		
 		List<String[]> spielplan = mainapp.getPrep().getDbConnect().spielplanAusgeben();
 		
-	//	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		  
+		//Funktion für datum umwandeln aus der Klasse Hilfsfunktionen
 		
 		ausgabe.appendText("| Spielbezeichnung \t | DatumUhrzeit \t \t \t \t | Heimmannschaft \t | Gastmannschaft \t \t | Spielort| \n");
 		
@@ -194,8 +193,37 @@ public class WMHandler implements EventHandler
 	}
 	
 	
-	public void spielergebnisseEingabe(WM2018 mainapp) {
+	public void spielergebnisseEingabe(WM2018 mainapp, TextArea ausgabe, TextField gruppe, TextField datetime, 
+			TextField heimmannschaft, TextField gastmannschaft, TextField toreheimhz, TextField toregasthz, 
+			TextField toreheimende, TextField toregastende, TextField heimgelb, TextField gastgelb, 
+			TextField heimrot, TextField gastrot, TextField heimgelbrot, TextField  gastgelbrot) {
 		
+		//Gruppe, Datum & Zeit, Heim und Gastmannschaft fest setzen
+		List<String []> spieleSammeln = mainapp.getPrep().getDbConnect().spieleSammeln();
+		
+		for(String [] spiele : spieleSammeln) {
+			//ausgabe.appendText(spiele[1] + spiele[3] + spiele[4] + spiele[5] + "\n");
+			gruppe.setText(spiele[1]);
+			datetime.setText(spiele[3]);
+			heimmannschaft.setText(spiele[4]);
+			gastmannschaft.setText(spiele[5]);
+			
+		}
+		
+		String [] eingetrageneErgebnisse = new String [21];
+		
+		eingetrageneErgebnisse[6] = toreheimhz.getText();
+		eingetrageneErgebnisse[7] = toregasthz.getText();
+		eingetrageneErgebnisse[8] = toreheimende.getText();
+		eingetrageneErgebnisse[9] = toregastende.getText();		
+		eingetrageneErgebnisse[16] = heimgelb.getText();
+		eingetrageneErgebnisse[17] = gastgelb.getText();	
+		eingetrageneErgebnisse[20] = heimrot.getText();
+		eingetrageneErgebnisse[21] = gastrot.getText();
+		eingetrageneErgebnisse[18] = heimgelbrot.getText();
+		eingetrageneErgebnisse[19] = gastgelbrot.getText();
+		
+		mainapp.getPrep().getDbConnect().ergebnisseEintragen(eingetrageneErgebnisse);
 		
 	}
 

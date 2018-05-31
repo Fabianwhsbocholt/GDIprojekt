@@ -37,22 +37,23 @@ public class ControllerEingabe implements Initializable  {
    private WMHandler WMHandler = new WMHandler();
    WM2018 mainapp;
   
+   //Textfelder für die Spielergebniseingabe
+   @FXML TextField gruppe = new TextField();
+   @FXML TextField datetime = new TextField();
+   @FXML TextField heimmannschaft = new TextField();
+   @FXML TextField gastmannschaft = new TextField();
+   @FXML TextField toreheimhz = new TextField();
+   @FXML TextField toregasthz = new TextField();
+   @FXML TextField toreheimende = new TextField();
+   @FXML TextField toregastende = new TextField();
+   @FXML TextField heimgelb = new TextField();
+   @FXML TextField gastgelb = new TextField();
+   @FXML TextField heimrot = new TextField();
+   @FXML TextField gastrot = new TextField();
+   @FXML TextField heimgelbrot = new TextField();
+   @FXML TextField gastgelbrot = new TextField();
 
-
-@FXML //Textfelder aus denen später die Daten übernommen werden.
-   static TextField toreheimhz;
-   static TextField toregasthz;
-   static TextField toreheimende;
-   static TextField toregastende;
-   static TextField gelbekartenheim;
-   static TextField gelbekartengast;
-   static TextField rotekartenheim;
-   static TextField rotekartengast;
-   static TextField toreelfheim;
-   static TextField toreelfgast;
-   static TextField toreverlheim;
-   static TextField toreverlgast;
-   
+ 
    //Check
    static TextField verlaengerung;
    static TextField spieleid;
@@ -69,9 +70,11 @@ public class ControllerEingabe implements Initializable  {
       
    }
    @FXML
-   public void Spielergebnisse(ActionEvent Event)
+   public void speichern ()
 	{
-	   WMHandler.spielergebnisseEingabe(mainapp);
+	   WMHandler.spielergebnisseEingabe(mainapp, ausgabe, gruppe, datetime, 
+			   heimmannschaft, gastmannschaft, toreheimhz, toregasthz, toreheimende, toregastende, 
+			   heimgelb, gastgelb, heimrot, gastrot, heimgelbrot, gastgelbrot);
 	   
 	}
 

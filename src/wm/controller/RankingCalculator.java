@@ -1,56 +1,70 @@
 package wm.controller;
 
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
 import wm.objekte.*;
+import java.util.Date;
 
 public class RankingCalculator {
 
     /**
-     * Erwartet eine Liste mit Spielergebis-Objekten, eine Liste mit Tipp-Objekten und eine Liste mit Benutzer-Objekten
-     * und gibt eine Liste mit Rank-Objekten zurueck (Ranking-Tabelle)
-     * @param spielergebnisse
-     * @param tipps
-     * @param benutzerliste
-     * @return List<Rank>
+     * Holt aus der Datenbank die Spielergebnisse, die Benutzer und die Tipps und ermittelt damit die erspielten
+     * Punkte und traegt diese dann in der Rangliste (ranking Tabelle) der Datenbank ein.
+     *
+     * Bei Erfolg wird TRUE zurueckgegeben bei einem Fehler wird FALSE zurueckgegeben
+     *
+     * @param dbConnector
+     * @return boolean Erfolg oder Miserfolg
      */
-    public static List<Rank> getNeuesRanking(List<Spielergebnis> spielergebnisse, List<Tipp> tipps,
-                                             List<Benutzer> benutzerliste){
+    public static boolean neuesRankingErstellen(DBConnector dbConnector){
 
-        ArrayList<Rank> rankingList = new ArrayList<Rank>();
+        try {
+            List<String[]> benutzerliste = dbConnector.benutzerSammeln();
+            List<String[]> spiele = dbConnector.spieleFuerRankingSammeln();
+            List<String[]> tipps = dbConnector.tippsFuerRankingSammeln();
 
-        //geht alle Benutzer in der Benutzerliste durch
-        for (Benutzer benutzer: benutzerliste){
+            List<WM2018Benutzer> rankingList = new ArrayList<WM2018Benutzer>();
 
-            //Punkte fuer den aktuellen Benutzer
-            int punkteDesBenutzers=0;
+            //geht alle Benutzer in der Benutzerliste durch
+            for (String[] benutzer : benutzerliste) {
 
-            //geht alle Tipps durch
-            for (Tipp tipp : tipps){
+                //Punkte fuer den aktuellen Benutzer
+                int punkteDesBenutzers = 0;
 
-                //gehoert der aktuelle tipp zu dem aktuellen Benutzer
-                if (benutzer.getBenutzerid() == tipp.getBenutzerid()){
+                //geht alle Tipps durch
+                for (String[] tipp : tipps) {
 
-                    Spielergebnis aktuellesSpielergebniss = getSpielergebnisById(tipp.getSpielid(),spielergebnisse);
-                    if (aktuellesSpielergebniss != null ){
-                        //addiert die Punkte fuer diesen tipp zu dem Benutzer dazu
-                        punkteDesBenutzers = punkteDesBenutzers+berechnePunkteFuerTipp(tipp,aktuellesSpielergebniss);
+                    //gehoert der aktuelle tipp zu dem aktuellen Benutzer
+                    if (benutzer[0] == tipp[0]) {
+
+                        String[] aktuellesSpielergebnis = getSpielergebnisById(Integer.parseInt(tipp[0]), spiele);
+                        if (aktuellesSpielergebnis != null) {
+                            //addiert die Punkte fuer diesen tipp zu dem Benutzer dazu
+                            punkteDesBenutzers = punkteDesBenutzers + berechnePunkteFuerTipp(tipp, aktuellesSpielergebnis);
+                        }
                     }
                 }
+                rankingList.add(new WM2018Benutzer(benutzer[0], benutzer[1], benutzer[2]));
             }
-            rankingList.add(new Rank(benutzer.getBenutzerid(),benutzer.getBenutzername(),benutzer.getGruppe(),
-                    punkteDesBenutzers));
+
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String s = formatter.format(date);
+
+            dbConnector.rankingEintragen(s, rankingList);
+
+            return true;
+        }catch (Exception e){
+
+            return false;
+
         }
 
 
-        //Platz des Benutzers in der Ranking-Tabelle hinzufuegen
-        for (Rank rank : rankingList){
-                rank.setPlatz(getRank(rank.getPunkte(),rankingList));
-        }
-
-
-        return rankingList;
     }
 
     /**
@@ -59,84 +73,84 @@ public class RankingCalculator {
      * @param spielergebnis
      * @return Integer
      */
-    
-    private static int berechnePunkteFuerTipp(Tipp tipp, Spielergebnis spielergebnis){
+    private static int berechnePunkteFuerTipp(String[] tipp, String[] spielergebnis){
 
         int erreichtePunkte = 0;
 
         // Halbzeitergebis!
             // 6 Punkte fuer Halbzeitergbnis korrekt
-            if(tipp.getHalbzeitGastmannschaft() == spielergebnis.getHalbzeitGastmannschaft() &&
-                    tipp.getHalbzeitHeimmannschaft() == spielergebnis.getHalbzeitHeimmannschaft()){
+            if(Integer.parseInt(tipp[5]) == Integer.parseInt(spielergebnis[7]) &&
+                    Integer.parseInt(tipp[4]) == Integer.parseInt(spielergebnis[6])){
                 erreichtePunkte = erreichtePunkte+6;
             }
             // 3 Punkte fuer Halbzeitergebnis korrekte Tendenz  (Differenz oder Tendenz ???? )
-            else if (tipp.getHalbzeitGastmannschaft()-tipp.getHalbzeitHeimmannschaft() ==
-                    spielergebnis.getHalbzeitGastmannschaft()-spielergebnis.getHalbzeitHeimmannschaft()){
+            else if (Integer.parseInt(tipp[5])-Integer.parseInt(tipp[4]) ==
+                    Integer.parseInt(spielergebnis[7])-Integer.parseInt(spielergebnis[6])){
                 erreichtePunkte = erreichtePunkte + 3;
             }
 
         //Endergebis!
             // 11 Punkte fuer Endergbnis korrekt
-            if(tipp.getEndeGastmannschaft() == spielergebnis.getEndeGastmannschaft() &&
-                    tipp.getEndeHeimmannschaft() == spielergebnis.getEndeHeimmannschaft()){
+            if(Integer.parseInt(tipp[7]) == Integer.parseInt(spielergebnis[9]) &&
+                    Integer.parseInt(tipp[6]) == Integer.parseInt(spielergebnis[8])){
                 erreichtePunkte = erreichtePunkte+11;
             }
             // 3 Punkte fuer Endergebnis korrekte Tendenz  (Differenz oder Tendenz ???? )
-            else if (tipp.getEndeGastmannschaft()-tipp.getEndeHeimmannschaft() ==
-                    spielergebnis.getEndeGastmannschaft()-spielergebnis.getEndeHeimmannschaft()){
+            else if (Integer.parseInt(tipp[7])-Integer.parseInt(tipp[6]) ==
+                    Integer.parseInt(spielergebnis[9])-Integer.parseInt(spielergebnis[8])){
                 erreichtePunkte = erreichtePunkte + 5;
             }
 
         //Verlaengerung!
-            if (spielergebnis.isVerlaengerung()){
+            if(Integer.parseInt(spielergebnis[10])==1) {
+
                 // 11 Punkte fuer Verlaengerung korrekt
-                if(tipp.getVerlaengerungGastmannschaft() == spielergebnis.getVerlaengerungGastmannschaft() &&
-                        tipp.getVerlaengerungHeimmannschaft() == spielergebnis.getVerlaengerungHeimmannschaft()){
-                    erreichtePunkte = erreichtePunkte+11;
+                if (Integer.parseInt(tipp[9]) == Integer.parseInt(spielergebnis[12]) &&
+                        Integer.parseInt(tipp[8]) == Integer.parseInt(spielergebnis[11])) {
+                    erreichtePunkte = erreichtePunkte + 11;
                 }
                 // 3 Punkte fuer Verlaengerung korrekte Tendenz  (Differenz oder Tendenz ???? )
-                else if (tipp.getVerlaengerungGastmannschaft()-tipp.getVerlaengerungHeimmannschaft() ==
-                        spielergebnis.getVerlaengerungGastmannschaft()-spielergebnis.getVerlaengerungHeimmannschaft()){
+                else if (Integer.parseInt(tipp[9]) - Integer.parseInt(tipp[8]) ==
+                        Integer.parseInt(spielergebnis[12]) - Integer.parseInt(spielergebnis[11])) {
                     erreichtePunkte = erreichtePunkte + 5;
                 }
-            }
 
+            }
         //Elfmeterschiessen!
-        if (spielergebnis.isElfmeterschiessen()){
+        if (Integer.parseInt(spielergebnis[13])==1){
             // 11 Punkte fuer Elfmeterschiessen korrekt
-            if(tipp.getElfmeterschiessenGastmannschaft() == spielergebnis.getElfmeterschiessenGastmannschaft() &&
-                    tipp.getElfmeterschiessenHeimmannschaft() == spielergebnis.getElfmeterschiessenHeimmannschaft()){
+            if(Integer.parseInt(tipp[11]) == Integer.parseInt(spielergebnis[15]) &&
+                    tipp[10] == spielergebnis[14]){
                 erreichtePunkte = erreichtePunkte+11;
             }
             // 3 Punkte fuer Elfmeterschiessen korrekte Tendenz  (Differenz oder Tendenz ???? )
-            else if (tipp.getElfmeterschiessenGastmannschaft()-tipp.getElfmeterschiessenHeimmannschaft() ==
-                    spielergebnis.getElfmeterschiessenGastmannschaft()-spielergebnis.getElfmeterschiessenHeimmannschaft()){
+            else if (Integer.parseInt(tipp[11])-Integer.parseInt(tipp[10]) ==
+                    Integer.parseInt(spielergebnis[15])-Integer.parseInt(spielergebnis[14])){
                 erreichtePunkte = erreichtePunkte + 5;
             }
         }
 
         //Gelbe Karten
-        if (tipp.getGelbeKartenGastmannschaft() == spielergebnis.getGelbeKartenGastmannschaft()){
+        if (Integer.parseInt(tipp[13]) == Integer.parseInt(spielergebnis[17])){
             erreichtePunkte = erreichtePunkte + 3;
         }
-        if (tipp.getGelbeKartenHeimmannschaft() == spielergebnis.getGelbeKartenHeimmannschaft()){
+        if (Integer.parseInt(tipp[12]) == Integer.parseInt(spielergebnis[16])){
             erreichtePunkte = erreichtePunkte + 3;
         }
 
         //Gelb-Rote Karten
-        if (tipp.getGelbRoteKartenGastmannschaft() == spielergebnis.getGelbRoteKartenGastmannschaft()){
+        if (Integer.parseInt(tipp[15]) == Integer.parseInt(spielergebnis[19])){
             erreichtePunkte = erreichtePunkte + 4;
         }
-        if (tipp.getGelbRoteKartenHeimmannschaft() == spielergebnis.getGelbRoteKartenHeimmannschaft()){
+        if (Integer.parseInt(tipp[14]) == Integer.parseInt(spielergebnis[18])){
             erreichtePunkte = erreichtePunkte + 4;
         }
 
         //Rote Karten
-        if (tipp.getRoteKartenGastmannschaft() == spielergebnis.getRoteKartenGastmannschaft()){
+        if (Integer.parseInt(tipp[17]) == Integer.parseInt(spielergebnis[21])){
             erreichtePunkte = erreichtePunkte + 5;
         }
-        if (tipp.getRoteKartenHeimmannschaft() == spielergebnis.getRoteKartenHeimmannschaft()){
+        if (Integer.parseInt(tipp[16]) == Integer.parseInt(spielergebnis[20])){
             erreichtePunkte = erreichtePunkte + 5;
         }
 
@@ -145,35 +159,18 @@ public class RankingCalculator {
     }
 
     /**
-     * Ermittelt das Spielergebnis Objekt zu einer Id in der Liste von Spielergebnissen
+     * Ermittelt das Spielergebnis zu einer Id in der Liste von Spielergebnissen
      * @param spielid
      * @param spielergebnisse
-     * @return Spielergebnis
+     * @return String[]
      */
-    private static Spielergebnis getSpielergebnisById(int spielid, List<Spielergebnis> spielergebnisse){
-        for (Spielergebnis spielergebnis : spielergebnisse){
-            if(spielergebnis.getSpielid() == spielid){
+    private static String[] getSpielergebnisById(int spielid, List<String[]> spielergebnisse){
+        for (String[] spielergebnis : spielergebnisse){
+            if(Integer.parseInt(spielergebnis[0]) == spielid){
                 return spielergebnis;
             }
         }
         return null;
-    }
-
-    /**
-     * Ermittelt den Platz des Bentuzers anhand der erspielten Punkte
-     * @param punkte
-     * @param rankList
-     * @return Integer
-     */
-    private static int getRank(int punkte, List<Rank> rankList){
-
-        int platz = 1;
-        for (Rank rank : rankList){
-            if (rank.getPunkte() > punkte){
-                platz++;
-            }
-        }
-        return platz;
     }
 
 }

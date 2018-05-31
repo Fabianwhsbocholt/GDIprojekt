@@ -35,8 +35,12 @@ public interface DBConnectorI
 	public List<String[]> mannschaftenSammeln ();
 	
 	public List<String[]> abgeschlosseneGruppenSpiele ();
-	
+
 	public List<String[]> direkterVergleich (WM2018Mannschaft heim, WM2018Mannschaft gast);
+
+	public List<String[]> koSpieleSammeln ();
+	
+	public String koSpieleEintragen (String[] koSpiele);
 	
 	public String close ();	
 }

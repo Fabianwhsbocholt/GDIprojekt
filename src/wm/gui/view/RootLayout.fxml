@@ -66,7 +66,8 @@
            			<String fx:value="Ergebnisse ausgeben" />
            			<String fx:value="Tipps auswerten - Ranking speichern" />
            			<String fx:value="Aktuelles Ranking ansehen" />
-           			<String fx:value="Tabellen berechnen und anzeigen" />
+           			<String fx:value="Tabellen berechnen und anzeigen" />   
+   			        <String fx:value="Verbindung trennen" />                			
            			<String fx:value="Programm beenden" />
            		</FXCollections>
            	</items>

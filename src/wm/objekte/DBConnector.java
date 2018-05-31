@@ -86,9 +86,9 @@ public class DBConnector implements DBConnectorI
 				    +"spieleid INT(10),"+"tippdatum DATETIME(0),"+"tippheimhz INT(4),"+"tippgasthz INT(4),"
 				    +"tippheimende INT(4),"+"tippgastende INT(4),"+"tippheimverl INT(4),"
 				    +"tippgastverl INT(4),"+"tippheimelf INT(4),"+"tippgastelf INT(4),"
-				    +"tippgelbeheim INT(4),"+"tippgelbegast INT(4), "
-				    +"tippgelbroteheim INT(4),"+"tippgelbrotegast INT(4),"+"tipproteheim INT(4),"
-				    +"tipprotegast INT(4),"+"PRIMARY KEY (tippid),"+"INDEX FK_tipps_benutzer (benutzerid),"
+				    +"tippgelbeheim INT(4),"+"tippgelbegast INT(4), "+"tippgelbroteheim INT(4),"
+				    +"tippgelbrotegast INT(4),"+"tipproteheim INT(4),"+"tipprotegast INT(4),"
+				    +"PRIMARY KEY (tippid),"+"INDEX FK_tipps_benutzer (benutzerid),"
 				    +"INDEX FK_tipps_spiele (spieleid),"
 				    +"CONSTRAINT FK_tipps_benutzer FOREIGN KEY (benutzerid) REFERENCES benutzer (benutzerid),"
 				    +"CONSTRAINT FK_tipps_spiele FOREIGN KEY (spieleid) REFERENCES spiele (spieleid))";
@@ -330,7 +330,7 @@ public class DBConnector implements DBConnectorI
 		return datenAusDBholen(sql);
 	}
 	
-	//@Override
+	@Override
 	public List<String[]> direkterVergleich (WM2018Mannschaft heim, WM2018Mannschaft gast)
 	{
 		/*sql="SELECT heimmannschaft, heimmannschaftende, gastmannschaft, gastmannschaftende FROM spiele "
@@ -339,6 +339,43 @@ public class DBConnector implements DBConnectorI
 		    +"') "+"OR (heimmannschaft = '"+gast.getNation()+"' AND gastmannschaft = '"+heim.getNation()
 		    +"'))";*/
 		return datenAusDBholen(sql);
+	}
+	
+	@Override
+	public List<String[]> koSpieleSammeln ()
+	{
+		sql="select s.heimmannschaft, s.gastmannschaft "+"from spiele as s "+"where s.spieleid > 48";
+		
+		return datenAusDBholen(sql);
+	}
+	
+	@Override
+	public String koSpieleEintragen (String[] koSpiele)
+	{
+		if (connection!=null)
+		{
+			try
+			{
+				if (statement==null)
+					statement=connection.createStatement();
+				
+				for (int index=0; index<koSpiele.length; index+=2)
+				{
+					sql="UPDATE spiele SET heimmannschaft='"+Hilfsfunktionen.nullTest(koSpiele[index])+"',"
+					    +"gastmannschaft='"+Hilfsfunktionen.nullTest(koSpiele[index+1])+"' WHERE spieleid="
+					    +(49+index/2);
+					statement.addBatch(sql);
+				}
+				statement.executeBatch();
+			}
+			catch (SQLException e)
+			{
+				e.printStackTrace();
+			}
+			return ("Daten gespeichert!\n");
+		}
+		else
+			return ("Keine Verbindung!\n");
 	}
 	
 	@Override

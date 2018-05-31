@@ -34,7 +34,6 @@ public class ControllerVerbindung {
 	@FXML RadioButton radio1 = new RadioButton();
 	@FXML RadioButton radio2 = new RadioButton();
 	@FXML TextArea ausgabeVerb = new TextArea();
-	
 	@FXML TextField ip = new TextField();
 	@FXML TextField datenbank = new TextField();
 	@FXML TextField port = new TextField();
@@ -44,8 +43,6 @@ public class ControllerVerbindung {
 	WM2018 mainapp;
 	Preparation prep;
 	
-	
-
 	private WMHandler WMHandler = new WMHandler();
 
 	@FXML

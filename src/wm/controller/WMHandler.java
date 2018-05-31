@@ -50,7 +50,7 @@ public class WMHandler implements EventHandler
 			tabellenAnlegen(mainapp, ausgabe);
 			break;
 		case "Echtdaten einlesen" :
-			
+			ausgabe.appendText(mainapp.getPrep().getDbConnect().datenEinlesen(false));	
 			break;
 		case "Testdaten einlesen" : 
 			ausgabe.appendText(mainapp.getPrep().getDbConnect().datenEinlesen(true));	
@@ -60,6 +60,15 @@ public class WMHandler implements EventHandler
 			break;
 		case "Spielergebnisse eingeben" : 
 			mainapp.getFxml().showEingabe(mainapp, ausgabe);
+			break;
+		case "Tipps auswerten - Ranking speichern" : 
+			mainapp.getFxml().showEingabe(mainapp, ausgabe);
+			break;
+		case "Aktuelles Ranking ansehen" : 
+			mainapp.getFxml().showEingabe(mainapp, ausgabe);
+			break;
+		case "Verbindung trennen" :
+			ausgabe.appendText(mainapp.getPrep().getDbConnect().close());
 			break;
 		case "Programm beenden" :
 			beenden(mainapp);
@@ -137,26 +146,12 @@ public class WMHandler implements EventHandler
 	public void beenden(WM2018 mainapp) {
 			System.exit(0);	
 	}
-
-
 	
-	
-	
-	//Sebastian 
-	/*public void spielergebnisse() {
-	   // if(auswahl.toString().equals("Spielergebnisse eingeben"))
-	    						
-		//Neues Fenster öffnen
-		loader = new FXMLLoader(getClass().getResource("Eingabe.fxml"));
-		Scene scene1 = new Scene(loader.load());
-		Stage stage1 = new Stage();
+	public void spielergebnisseEingabe(WM2018 mainapp) {
 		
-	    stage1.setTitle("New Window");
-	    stage1.setScene(scene1);
-	    stage1.show();
-	    			        
-	}*/
-	
+		
+	}
+
 	//Anzeige der Spielgruppe
 	/*public void ausgabe() {  
 		Statement stmt = null;

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import javafx.event.*;
@@ -61,11 +62,17 @@ public class WMHandler implements EventHandler
 		case "Spielergebnisse eingeben" : 
 			mainapp.getFxml().showEingabe(mainapp, ausgabe);
 			break;
+		case "Ergebnisse ausgeben" :
+			ergebnisseAusgeben(mainapp, mainapp.getPrep().getDbConnect(), ausgabe);
+			break;
 		case "Tipps auswerten - Ranking speichern" : 
 			mainapp.getFxml().showEingabe(mainapp, ausgabe);
 			break;
 		case "Aktuelles Ranking ansehen" : 
 			mainapp.getFxml().showEingabe(mainapp, ausgabe);
+			break;
+		case "Tabellen berechnen und anzeigen" :
+			ausgabe.appendText(mainapp.getPrep().getDbConnect().close());
 			break;
 		case "Verbindung trennen" :
 			ausgabe.appendText(mainapp.getPrep().getDbConnect().close());
@@ -133,42 +140,68 @@ public class WMHandler implements EventHandler
 		
 		List<String[]> spielplan = dbcon.spielplanAusgeben();
 		
-	//	SimpleDateFormat sdf = new SimpleDateFormat("jjjj:MM:dd" + "HH:mm:ss");
+	//	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		  
 		
 		ausgabe.appendText("| Spielbezeichnung \t | DatumUhrzeit \t \t \t \t | Heimmannschaft \t | Gastmannschaft \t \t | Spielort| \n");
 		
+		//Jedes Spiel aus der Liste spielplan durchlaufen
 		for(String[] spiel : spielplan) {
 			ausgabe.appendText("| "+spiel[0]+" \t \t \t | "+spiel[1]+" \t \t | "+spiel[2]+" \t \t \t | "+spiel[3]+" \t \t| "+spiel[4]+" | \n");
 		}
-
 	}
 
+	
+	public static void ergebnisseAusgeben(WM2018 mainapp, DBConnector dbcon, TextArea ausgabe) 
+	{
+		List<String[]> ergebnisse = dbcon.ergebnisseAusgeben();
+		
+		//ausgabe.appendText(" Spielmodus \t  Heimmanschaft - Gastmanschaft \t Halbzeit \t Regul. Spielz. \t Verl�ngerung \t Elfmeter \t Gelbe Karten \t Rote Katen");
+		System.out.println(" Spielmodus \t  Heimmanschaft - Gastmanschaft \t Halbzeit \t Regul. Spielz. \t Verl�ngerung \t Elfmeter \t Gelbe Karten \t Rote Katen");;
+		
+		
+		for(String[] ergebnis : ergebnisse) {
+		//	ausgabe.appendText(ergebnis[0]+" \t "+ergebnis[4]+" - "+ergebnis[5]+" \t "+ergebnis[6] +":" +ergebnis[7]+" \t "+ergebnis[8]+":"+ergebnis[9]+"\t"+ergebnis[11]+":"+ergebnis[12]+ "\t"+
+		//			ergebnis[14]+":"+ergebnis[15]+"\t"+ergebnis[16]+" - "+ergebnis[17]+"\t"+ergebnis[20]+" - "+ergebnis[21]);
+		System.out.println(ergebnis[0]+" \t "+ergebnis[4]+" - "+ergebnis[5]+" \t "+ergebnis[6] +":" +ergebnis[7]+" \t "+ergebnis[8]+":"+ergebnis[9]+"\t"+ergebnis[11]+":"+ergebnis[12]+ "\t"+
+				ergebnis[14]+":"+ergebnis[15]+"\t"+ergebnis[16]+" - "+ergebnis[17]+"\t"+ergebnis[20]+" - "+ergebnis[21]);;
+		
+		}
+	}
+	
+	public static void rankingAusgeben(WM2018 mainapp, DBConnector dbcon, TextArea ausgabe)
+	{
+		List<String[]> ranking = dbcon.rankingAusgeben();
+		
+		//ausgabe.appendText(" Platz \t Tipper \t Punkte \t Gruppe") 
+		System.out.println(" Platz \t Tipper \t Punkte \t Gruppe");
+		
+		for (String[] rank : ranking)
+		{
+			//ausgabe.appendText(rank[1]+" \t "+rank[2]+ " \t "+rank[3]+" \t" +rank[4]);
+			System.out.println(rank[1]+" \t "+rank[2]+ " \t "+rank[3]+" \t" +rank[4]);
+		}
+	}
+	
+	
+	
 	public void beenden(WM2018 mainapp) {
 			System.exit(0);	
 	}
+	
 	
 	public void spielergebnisseEingabe(WM2018 mainapp) {
 		
 		
 	}
 
-	//Anzeige der Spielgruppe
-	/*public void ausgabe() {  
-		Statement stmt = null;
-		ResultSet rs = null;
-		
-		String sql ="Select * From spiele where spielort = Moskau";
-		
-		
-		try {
-			rs = stmt.executeQuery(sql);
-			System.out.println(rs);
-			
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-	}*/
+
+
+
+
+	
+	
+
 	
 	
 }

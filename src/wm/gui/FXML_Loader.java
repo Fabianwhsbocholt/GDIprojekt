@@ -1,10 +1,12 @@
 package wm.gui;
 
 import java.io.IOException;
+import java.util.List;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import wm.gui.view.ControllerEingabe;
 import wm.gui.view.ControllerVerbindung;
@@ -85,6 +87,8 @@ public class FXML_Loader
             Scene scene=new Scene(mainapp.getEingabeLayout());
             mainapp.getEingabeStage().setScene(scene);
             mainapp.getEingabeStage().show();
+            
+         
         }
         catch (IOException e)
         {

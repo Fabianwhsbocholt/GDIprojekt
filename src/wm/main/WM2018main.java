@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import wm.controller.Hilfsfunktionen;
-import wm.controller.RankingCalculator;
 import wm.controller.WMHandler;
 import wm.objekte.Configuration;
 import wm.objekte.DBConnector;
@@ -56,11 +55,11 @@ public class WM2018main
 
 
 			//Ausführen des RankingCalculator 
-		if(RankingCalculator.neuesRankingErstellen(datenbank)){
+/*		if(RankingCalculator.neuesRankingErstellen(datenbank)){
 				System.out.println("Ranking erfolgreich erstellt!");
 			}else {
 				System.out.println("Ranking erstellen ist fehlgeschlagen!");
-			}
+	}*/
 
 			
 			// Verbindung zur Datenbank trennen

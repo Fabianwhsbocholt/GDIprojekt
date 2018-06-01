@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 
@@ -72,11 +73,13 @@ public class ControllerEingabe implements Initializable  {
    @FXML
    public void speichern ()
 	{
-	   WMHandler.spielergebnisseEingabe(mainapp, ausgabe, gruppe, datetime, 
-			   heimmannschaft, gastmannschaft, toreheimhz, toregasthz, toreheimende, toregastende, 
-			   heimgelb, gastgelb, heimrot, gastrot, heimgelbrot, gastgelbrot);
+	   WMHandler.spielergebnisseEingabe(mainapp, ausgabe, gruppe, datetime, heimmannschaft, gastmannschaft, 
+			   toreheimhz, toregasthz, toreheimende, toregastende, heimgelb, gastgelb, heimrot, 
+			   gastrot, heimgelbrot, gastgelbrot);
 	   
 	}
+   
+  
 
 
    public WM2018 getMainapp() {

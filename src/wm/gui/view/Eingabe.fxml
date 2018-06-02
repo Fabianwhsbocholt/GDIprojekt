@@ -23,27 +23,34 @@
                               <Image url="@../../../../../../../Documents/Uni/2.%20Semester/GDI_2_Neu/Projekt/WM2018_Framework_GUI_1.30/bilder/rasen.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="speichern" layoutX="122.0" layoutY="227.0" mnemonicParsing="false" onAction="#speichern" prefHeight="32.0" prefWidth="150.0" text="Speichern" />
+                        <Button fx:id="speichern" layoutX="122.0" layoutY="290.0" mnemonicParsing="false" onAction="#speichern" prefHeight="32.0" prefWidth="170.0" text="Speichern" />
                      </children>
                   </Pane>
                   <TextField fx:id="datetime" editable="false" layoutX="121.0" layoutY="34.0" prefHeight="27.0" prefWidth="170.0" />
                   <TextField fx:id="heimmannschaft" editable="false" layoutX="121.0" layoutY="61.0" prefHeight="27.0" prefWidth="85.0" />
-                  <TextField fx:id="gastmannschaft" editable="false" layoutX="196.0" layoutY="61.0" prefHeight="27.0" prefWidth="85.0" />
+                  <TextField fx:id="gastmannschaft" editable="false" layoutX="206.0" layoutY="61.0" prefHeight="27.0" prefWidth="85.0" />
                   <TextField fx:id="toreheimhz" layoutX="121.0" layoutY="88.0" prefHeight="27.0" prefWidth="85.0" />
-                  <TextField fx:id="toregasthz" layoutX="196.0" layoutY="88.0" prefHeight="27.0" prefWidth="85.0" />
+                  <TextField fx:id="toregasthz" layoutX="206.0" layoutY="88.0" prefHeight="27.0" prefWidth="85.0" />
                   <TextField fx:id="toreheimende" layoutX="121.0" layoutY="115.0" prefHeight="27.0" prefWidth="85.0" />
-                  <TextField fx:id="toregastende" layoutX="196.0" layoutY="115.0" prefHeight="27.0" prefWidth="85.0" />
+                  <TextField fx:id="toregastende" layoutX="206.0" layoutY="115.0" prefHeight="27.0" prefWidth="85.0" />
                   <TextField fx:id="heimgelb" layoutX="121.0" layoutY="142.0" prefHeight="27.0" prefWidth="85.0" />
-                  <TextField fx:id="gastgelb" layoutX="196.0" layoutY="142.0" prefHeight="27.0" prefWidth="85.0" />
+                  <TextField fx:id="gastgelb" layoutX="206.0" layoutY="142.0" prefHeight="27.0" prefWidth="85.0" />
                   <TextField fx:id="heimrot" layoutX="121.0" layoutY="169.0" prefHeight="27.0" prefWidth="85.0" />
-                  <TextField fx:id="gastrot" layoutX="196.0" layoutY="169.0" prefHeight="27.0" prefWidth="85.0" />
+                  <TextField fx:id="gastrot" layoutX="206.0" layoutY="169.0" prefHeight="27.0" prefWidth="85.0" />
                   <TextField fx:id="heimgelbrot" layoutX="121.0" layoutY="196.0" prefHeight="27.0" prefWidth="85.0" />
-                  <TextField fx:id="gastgelbrot" layoutX="196.0" layoutY="196.0" prefHeight="27.0" prefWidth="85.0" />
+                  <TextField fx:id="gastgelbrot" layoutX="206.0" layoutY="196.0" prefHeight="27.0" prefWidth="85.0" />
+                  <TextField fx:id="heimverlängerung" layoutX="121.0" layoutY="223.0" prefHeight="27.0" prefWidth="85.0" visible="false" />
+                  <TextField fx:id="gastverlängerung" layoutX="206.0" layoutY="223.0" prefHeight="27.0" prefWidth="85.0" visible="false" />
+                  <TextField fx:id="heimelfmeter" layoutX="121.0" layoutY="250.0" prefHeight="27.0" prefWidth="85.0" visible="false" />
+                  <TextField fx:id="gastelfmeter" layoutX="206.0" layoutY="250.0" prefHeight="27.0" prefWidth="85.0" visible="false" />
+
                   <Label layoutX="-21.0" layoutY="91.0" prefHeight="21.0" prefWidth="131.0" text="Halbzeitergebnis:" />
                   <Label layoutX="-21.0" layoutY="119.0" prefHeight="20.0" prefWidth="148.0" text="Ergebnis reg. Spielzeit:" />
                   <Label layoutX="-22.0" layoutY="146.0" prefHeight="20.0" prefWidth="90.0" text="Gelbe Karten:" />
                   <Label layoutX="-20.0" layoutY="173.0" prefHeight="20.0" prefWidth="82.0" text="Rote Karten:" />
-                  <Label layoutX="-19.0" layoutY="200.0" prefHeight="20.0" prefWidth="148.0" text="Gelb-Rote Karten:" />             
+                  <Label layoutX="-19.0" layoutY="200.0" prefHeight="20.0" prefWidth="148.0" text="Gelb-Rote Karten:" />  
+                  <Label layoutX="-18.0" layoutY="227.0" prefHeight="20.0" prefWidth="148.0" text="Verlängerung:" visible="false" />             
+                  <Label layoutX="-17.0" layoutY="254.0" prefHeight="20.0" prefWidth="148.0" text="Elfmeterschießen:" visible="false" />                                        
                   <TextField fx:id="gruppe" editable="false" layoutX="-20.0" layoutY="34.0" prefHeight="27.0" prefWidth="118.0" />
                   <Label layoutX="-19.0" layoutY="61.0" prefHeight="21.0" prefWidth="97.0" text="Spielpaarung:" />
                </children>

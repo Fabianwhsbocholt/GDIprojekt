@@ -53,6 +53,10 @@ public class ControllerEingabe implements Initializable  {
    @FXML TextField gastrot = new TextField();
    @FXML TextField heimgelbrot = new TextField();
    @FXML TextField gastgelbrot = new TextField();
+   @FXML TextField heimverlängerung = new TextField();  
+   @FXML TextField gastverlängerung = new TextField();
+   @FXML TextField heimelfmeter = new TextField();
+   @FXML TextField gastelfmeter = new TextField();
 
    String id;
   
@@ -101,7 +105,32 @@ public class ControllerEingabe implements Initializable  {
 	public void setId(String id) {
 		this.id = id;
 	}
-		
+	
+    public TextField getHeimverlängerung() {
+		return heimverlängerung;
+	}
+	public void setHeimverlängerung(TextField heimverlängerung) {
+		this.heimverlängerung = heimverlängerung;
+	}
+	public TextField getGastverlängerung() {
+		return gastverlängerung;
+	}
+	public void setGastverlängerung(TextField gastverlängerung) {
+		this.gastverlängerung = gastverlängerung;
+	}
+	public TextField getHeimelfmeter() {
+		return heimelfmeter;
+	}
+	public void setHeimelfmeter(TextField heimelfmeter) {
+		this.heimelfmeter = heimelfmeter;
+	}
+	public TextField getGastelfmeter() {
+		return gastelfmeter;
+	}
+	public void setGastelfmeter(TextField gastelfmeter) {
+		this.gastelfmeter = gastelfmeter;
+	}
+	
    public TextField getGruppe() {
 		return gruppe;
 	}

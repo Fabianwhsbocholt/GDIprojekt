@@ -184,6 +184,7 @@ public class DBConnector implements DBConnectorI
 	@Override
 	public String ergebnisseEintragen (String[] rsInhalte)
 	{
+		//System.out.println(rsInhalte[6]);
 		if (connection!=null)
 		{
 			try

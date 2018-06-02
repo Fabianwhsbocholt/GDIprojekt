@@ -84,10 +84,15 @@ public class FXML_Loader
             ConEing.setMainapp(mainapp);
             ConEing.setTextArea(ausgabe);
             
+            TextField datetime = ConEing.getDatetime();
+            TextField gruppe = ConEing.getGruppe();
+            TextField heim = ConEing.getHeimmannschaft();
+            TextField gast = ConEing.getGastmannschaft();
+            ConEing.festeWerte(mainapp, ausgabe, gruppe, datetime, heim, gast);
+            
             Scene scene=new Scene(mainapp.getEingabeLayout());
             mainapp.getEingabeStage().setScene(scene);
             mainapp.getEingabeStage().show();
-            
          
         }
         catch (IOException e)

@@ -66,6 +66,7 @@ public class WMHandler implements EventHandler
 			break;
 		case "Spielergebnisse eingeben" : 
 			mainapp.getFxml().showEingabe(mainapp, ausgabe);
+			//festeWerte(mainapp);
 			break;
 		case "Ergebnisse ausgeben" :
 			ergebnisseAusgeben(mainapp, ausgabe);
@@ -194,25 +195,13 @@ public class WMHandler implements EventHandler
 	}
 	
 	
+
 	
+	public void spielergebnisseEingabe(WM2018 mainapp, TextArea ausgabe, String id, TextField toreheimhz, TextField toregasthz, 		
+		TextField toreheimende, TextField toregastende, TextField heimgelb, TextField gastgelb, 
+		TextField heimrot, TextField gastrot, TextField heimgelbrot, TextField  gastgelbrot) {
 	
-	public void spielergebnisseEingabe(WM2018 mainapp, TextArea ausgabe, TextField gruppe, TextField datetime, 
-			TextField heimmannschaft, TextField gastmannschaft, TextField toreheimhz, TextField toregasthz, 
-			TextField toreheimende, TextField toregastende, TextField heimgelb, TextField gastgelb, 
-			TextField heimrot, TextField gastrot, TextField heimgelbrot, TextField  gastgelbrot) {
-		
-   //Gruppe, Datum & Zeit, Heim und Gastmannschaft fest setzen
-		List<String []> spieleSammeln = mainapp.getPrep().getDbConnect().spieleSammeln();
-		
-		for(String [] spiele : spieleSammeln) {
-			//ausgabe.appendText(spiele[1] + spiele[3] + spiele[4] + spiele[5] + "\n");
-			gruppe.setText(spiele[1]);
-			datetime.setText(spiele[3]);
-			heimmannschaft.setText(spiele[4]);
-			gastmannschaft.setText(spiele[5]);
-		}
-		
-		String [] eingetrageneErgebnisse = new String [21];
+		String [] eingetrageneErgebnisse = new String [22];
 		
 		eingetrageneErgebnisse[6] = toreheimhz.getText();
 		eingetrageneErgebnisse[7] = toregasthz.getText();
@@ -224,8 +213,20 @@ public class WMHandler implements EventHandler
 		eingetrageneErgebnisse[21] = gastrot.getText();
 		eingetrageneErgebnisse[18] = heimgelbrot.getText();
 		eingetrageneErgebnisse[19] = gastgelbrot.getText();
+		eingetrageneErgebnisse[0] =  id;
 		
-		mainapp.getPrep().getDbConnect().ergebnisseEintragen(eingetrageneErgebnisse);
+		ausgabe.appendText(mainapp.getPrep().getDbConnect().ergebnisseEintragen(eingetrageneErgebnisse));
+		
+		toreheimhz.clear();
+		toregasthz.clear();
+		toreheimende.clear();
+		toregastende.clear();
+		heimgelb.clear();
+		gastgelb.clear();
+		heimrot.clear();
+		gastrot.clear();
+		heimgelbrot.clear();
+		gastgelbrot.clear();
 		
 	}
 

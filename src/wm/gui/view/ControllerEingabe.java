@@ -54,7 +54,9 @@ public class ControllerEingabe implements Initializable  {
    @FXML TextField heimgelbrot = new TextField();
    @FXML TextField gastgelbrot = new TextField();
 
- 
+   String id;
+  
+   
    //Check
    static TextField verlaengerung;
    static TextField spieleid;
@@ -62,25 +64,68 @@ public class ControllerEingabe implements Initializable  {
    static boolean endecheck;
    static boolean verlcheck;
    static boolean elfcheck;
-   
   
    @Override
    public void initialize(URL location, ResourceBundle resources) {
- 
        // TODO (don't really need to do anything here).
-      
    }
    @FXML
    public void speichern ()
 	{
-	   WMHandler.spielergebnisseEingabe(mainapp, ausgabe, gruppe, datetime, heimmannschaft, gastmannschaft, 
-			   toreheimhz, toregasthz, toreheimende, toregastende, heimgelb, gastgelb, heimrot, 
+	   WMHandler.spielergebnisseEingabe(mainapp, ausgabe, getId(), toreheimhz, toregasthz, toreheimende, toregastende, heimgelb, gastgelb, heimrot, 
 			   gastrot, heimgelbrot, gastgelbrot);
+	   festeWerte(mainapp, ausgabe, gruppe, datetime, heimmannschaft, gastmannschaft);
 	   
 	}
-   
-  
-
+ 
+	public void festeWerte(WM2018 mainapp, TextArea ausgabe, TextField gruppe, TextField datetime, TextField heimmannschaft, TextField gastmannschaft) {
+	  // Stage stage = mainapp.getEingabeStage();
+	List<String []> spieleSammeln = mainapp.getPrep().getDbConnect().spieleSammeln();
+	   
+		for(String [] spiele : spieleSammeln) {
+		//ausgabe.appendText(spiele[1] + spiele[3] + spiele[4] + spiele[5] + "\n");
+		
+		
+			setId(spiele[0]);
+			gruppe.setText(spiele[1]);
+			datetime.setText(spiele[3]);
+			heimmannschaft.setText(spiele[4]);
+			gastmannschaft.setText(spiele[5]);
+		}
+	}
+	
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+		
+   public TextField getGruppe() {
+		return gruppe;
+	}
+	public void setGruppe(TextField gruppe) {
+		this.gruppe = gruppe;
+	}
+	public TextField getDatetime() {
+		return datetime;
+	}
+	public void setDatetime(TextField datetime) {
+		this.datetime = datetime;
+	}
+	public TextField getHeimmannschaft() {
+		return heimmannschaft;
+	}
+	public void setHeimmannschaft(TextField heimmannschaft) {
+		this.heimmannschaft = heimmannschaft;
+	}
+	public TextField getGastmannschaft() {
+		return gastmannschaft;
+	}
+	public void setGastmannschaft(TextField gastmannschaft) {
+		this.gastmannschaft = gastmannschaft;
+	}
 
    public WM2018 getMainapp() {
 		return mainapp;

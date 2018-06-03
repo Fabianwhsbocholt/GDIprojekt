@@ -9,6 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import wm.gui.view.ControllerEingabe;
+import wm.gui.view.ControllerKOSpiele;
 import wm.gui.view.ControllerVerbindung;
 import wm.gui.view.WM2018MainController;
 
@@ -57,7 +58,7 @@ public class FXML_Loader
             FXMLLoader loader=new FXMLLoader();
             loader.setLocation(WM2018.class.getResource("view/Verbindung.fxml"));	         
 			mainapp.setDialogLayout((BorderPane)loader.load());
-			
+			mainapp.getDialogStage().setTitle("Verbindung");
             ControllerVerbindung ConVerb = loader.getController();
             ConVerb.setMainapp(mainapp);
             ConVerb.setTextArea(ausgabeVerb);
@@ -79,7 +80,7 @@ public class FXML_Loader
             FXMLLoader loader=new FXMLLoader();
             loader.setLocation(WM2018.class.getResource("view/Eingabe.fxml"));	         
 			mainapp.setEingabeLayout((BorderPane)loader.load());
-			
+			mainapp.getEingabeStage().setTitle("Eingabe");
             ControllerEingabe ConEing = loader.getController();
             ConEing.setMainapp(mainapp);
             ConEing.setTextArea(ausgabe);
@@ -94,6 +95,28 @@ public class FXML_Loader
             mainapp.getEingabeStage().setScene(scene);
             mainapp.getEingabeStage().show();
          
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+	}
+	
+	public void showKOSpiele(WM2018 mainapp, TextArea ausgabe) {
+		try
+        {
+            FXMLLoader loader=new FXMLLoader();
+            loader.setLocation(WM2018.class.getResource("view/KOSpiele.fxml"));	         
+			mainapp.setKospieleLayout((BorderPane)loader.load());
+			mainapp.getKospieleStage().setTitle("KO-Spiele");
+			
+            ControllerKOSpiele kospiele = loader.getController();
+            kospiele.setMainapp(mainapp);
+            kospiele.setTextArea(ausgabe);
+            
+            Scene scene=new Scene(mainapp.getKospieleLayout());
+            mainapp.getKospieleStage().setScene(scene);
+            mainapp.getKospieleStage().show();
         }
         catch (IOException e)
         {

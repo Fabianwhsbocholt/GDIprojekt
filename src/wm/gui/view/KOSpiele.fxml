@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wm.gui.view.ControllerKOSpiele">
+   <left>
+      <Pane prefHeight="645.0" prefWidth="515.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="47.0" layoutY="55.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="650.0" fitWidth="1072.0" layoutX="-308.0" layoutY="-56.0" pickOnBounds="true" preserveRatio="true" scaleX="0.5">
+                           <image>
+                              <Image url="@../../../../../../../Documents/Uni/2.%20Semester/GDI_2_Neu/Projekt/WM2018_Framework_GUI_1.30/bilder/rasen.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="speichern" layoutX="131.0" layoutY="540.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="255.0" text="Speichern" />
+                     </children>
+                  </Pane>
+                
+                  <TextField fx:id="achtelfinaleheim1" layoutX="131.0" layoutY="7.0" prefHeight="27.0" prefWidth="120.0" /> 
+                  <TextField fx:id="achtelfinalegast1" layoutX="266.0" layoutY="7.0" prefHeight="27.0" prefWidth="120.0" />  
+                  <TextField fx:id="achtelfinaleheim2" layoutX="131.0" layoutY="40.0" prefHeight="27.0" prefWidth="120.0" />                                                               
+                  <TextField fx:id="achtelfinalegast2" layoutX="266.0" layoutY="40.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinaleheim3" layoutX="131.0" layoutY="73.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinalegast3" layoutX="266.0" layoutY="73.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinaleheim4" layoutX="131.0" layoutY="106.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinalegast4" layoutX="266.0" layoutY="106.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinaleheim5" layoutX="131.0" layoutY="139.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinalegast5" layoutX="266.0" layoutY="139.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinaleheim6" layoutX="131.0" layoutY="172.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinalegast6" layoutX="266.0" layoutY="172.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinaleheim7" layoutX="131.0" layoutY="205.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinalegast7" layoutX="266.0" layoutY="205.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinaleheim8" layoutX="131.0" layoutY="238.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="achtelfinalegast8" layoutX="266.0" layoutY="238.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="viertelfinaleheim1" layoutX="131.0" layoutY="271.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="viertelfinalegast1" layoutX="266.0" layoutY="271.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="viertelfinaleheim2" layoutX="131.0" layoutY="304.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="viertelfinalegast2" layoutX="266.0" layoutY="304.0" prefHeight="27.0" prefWidth="120.0" />
+				  <TextField fx:id="viertelfinaleheim3" layoutX="131.0" layoutY="337.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="viertelfinalegast3" layoutX="266.0" layoutY="337.0" prefHeight="27.0" prefWidth="120.0" />
+				  <TextField fx:id="viertelfinaleheim4" layoutX="131.0" layoutY="370.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="viertelfinalegast4" layoutX="266.0" layoutY="370.0" prefHeight="27.0" prefWidth="120.0" />
+				  <TextField fx:id="halbfinaleheim1" layoutX="131.0" layoutY="403.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="halbfinalegast1" layoutX="266.0" layoutY="403.0" prefHeight="27.0" prefWidth="120.0" />
+				  <TextField fx:id="halbfinaleheim2" layoutX="131.0" layoutY="436.0" prefHeight="27.0" prefWidth="120.0" />
+				  <TextField fx:id="halbfinalegast2" layoutX="266.0" layoutY="436.0" prefHeight="27.0" prefWidth="120.0" />
+				  <TextField fx:id="platz3heim" layoutX="131.0" layoutY="469.0" prefHeight="27.0" prefWidth="120.0" />
+                  <TextField fx:id="platz3gast" layoutX="266.0" layoutY="469.0" prefHeight="27.0" prefWidth="120.0" />
+				  <TextField fx:id="finaleheim" layoutX="131.0" layoutY="502.0" prefHeight="27.0" prefWidth="120.0" />
+				  <TextField fx:id="finalegast" layoutX="266.0" layoutY="502.0" prefHeight="27.0" prefWidth="120.0" />
+				  
+				  
+				  <Label layoutX="-20.0" layoutY="7.0" prefHeight="20.0" prefWidth="110.0" text="Achtelfinale 1:" />
+				  <Label layoutX="-20.0" layoutY="40.0" prefHeight="20.0" prefWidth="110.0" text="Achtelfinale 2:" />
+				  <Label layoutX="-20.0" layoutY="73.0" prefHeight="20.0" prefWidth="110.0" text="Achtelfinale 3:" />
+                  <Label layoutX="-20.0" layoutY="106.0" prefHeight="20.0" prefWidth="110.0" text="Achtelfinale 4:" />
+                  <Label layoutX="-20.0" layoutY="139.0" prefHeight="20.0" prefWidth="110.0" text="Achtelfinale 5:" />
+                  <Label layoutX="-20.0" layoutY="172.0" prefHeight="20.0" prefWidth="110.0" text="Achtelfinale 6:" />
+                  <Label layoutX="-20.0" layoutY="205.0" prefHeight="20.0" prefWidth="110.0" text="Achtelfinale 7:" />
+                  <Label layoutX="-20.0" layoutY="238.0" prefHeight="20.0" prefWidth="110.0" text="Achtelfinale 8:" />               
+                  <Label layoutX="-20.0" layoutY="271.0" prefHeight="20.0" prefWidth="110.0" text="Viertelfinale 1:" />  
+                  <Label layoutX="-20.0" layoutY="304.0" prefHeight="20.0" prefWidth="110.0" text="Viertelfinale 2:" />             
+                  <Label layoutX="-20.0" layoutY="337.0" prefHeight="20.0" prefWidth="110.0" text="Viertelfinale 3:" />                                        
+                  <Label layoutX="-20.0" layoutY="370.0" prefHeight="20.0" prefWidth="110.0" text="Viertelfinale 4:" />             
+                  <Label layoutX="-20.0" layoutY="403.0" prefHeight="20.0" prefWidth="110.0" text="Halbfinale 1:" />
+                  <Label layoutX="-20.0" layoutY="436.0" prefHeight="20.0" prefWidth="110.0" text="Halbfinale 2:" />             
+                  <Label layoutX="-20.0" layoutY="469.0" prefHeight="20.0" prefWidth="110.0" text="Spiel um Platz 3:" />
+                  <Label layoutX="-20.0" layoutY="502.0" prefHeight="20.0" prefWidth="110.0" text="Finale:" />             
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+   </left>
+</BorderPane>

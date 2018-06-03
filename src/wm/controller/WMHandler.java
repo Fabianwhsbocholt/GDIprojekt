@@ -77,8 +77,8 @@ public class WMHandler implements EventHandler
 		case "Aktuelles Ranking ansehen" : 
 			rankingAusgeben(mainapp, ausgabe);
 			break;
-		case "Tabellen berechnen und anzeigen" :
-
+		case "KO-Spiele eintragen" :
+			mainapp.getFxml().showKOSpiele(mainapp, ausgabe);
 			break;
 		case "Verbindung trennen" :
 			ausgabe.appendText(mainapp.getPrep().getDbConnect().close());

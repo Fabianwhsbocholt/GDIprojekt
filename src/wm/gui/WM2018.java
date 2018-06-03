@@ -16,6 +16,8 @@ public class WM2018 extends Application
 	private BorderPane DialogLayout;
 	private Stage eingabeStage;
 	private BorderPane eingabeLayout;
+	private Stage kospieleStage;
+	private BorderPane kospieleLayout;
 	private FXML_Loader fxml;
 	private Preparation prep;
 
@@ -40,10 +42,34 @@ public class WM2018 extends Application
 		this.DialogLayout = new BorderPane();
 		this.eingabeStage = new Stage();
 		this.eingabeLayout = new BorderPane();
+		this.kospieleStage = new Stage();
+		this.kospieleLayout = new BorderPane();
 		this.fxml = new FXML_Loader();
 		this.prep = new Preparation();
 	}
 	
+	
+	
+	public Stage getKospieleStage() {
+		return kospieleStage;
+	}
+
+
+	public void setKospieleStage(Stage kospieleStage) {
+		this.kospieleStage = kospieleStage;
+	}
+
+
+	public BorderPane getKospieleLayout() {
+		return kospieleLayout;
+	}
+
+
+	public void setKospieleLayout(BorderPane kospieleLayout) {
+		this.kospieleLayout = kospieleLayout;
+	}
+
+
 	public Stage getEingabeStage() {
 		return eingabeStage;
 	}

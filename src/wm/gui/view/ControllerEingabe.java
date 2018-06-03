@@ -59,15 +59,7 @@ public class ControllerEingabe implements Initializable  {
    @FXML TextField gastelfmeter = new TextField();
 
    String id;
-  
-   
-   //Check
-   static TextField verlaengerung;
-   static TextField spieleid;
-   static boolean hzcheck;
-   static boolean endecheck;
-   static boolean verlcheck;
-   static boolean elfcheck;
+
   
    @Override
    public void initialize(URL location, ResourceBundle resources) {
@@ -83,11 +75,10 @@ public class ControllerEingabe implements Initializable  {
 	}
  
 	public void festeWerte(WM2018 mainapp, TextArea ausgabe, TextField gruppe, TextField datetime, TextField heimmannschaft, TextField gastmannschaft) {
-	  // Stage stage = mainapp.getEingabeStage();
-	List<String []> spieleSammeln = mainapp.getPrep().getDbConnect().spieleSammeln();
+	
+		List<String []> spieleSammeln = mainapp.getPrep().getDbConnect().spieleSammeln();
 	   
 		for(String [] spiele : spieleSammeln) {
-		//ausgabe.appendText(spiele[1] + spiele[3] + spiele[4] + spiele[5] + "\n");
 		
 		
 			setId(spiele[0]);
@@ -165,8 +156,7 @@ public class ControllerEingabe implements Initializable  {
    }
 	
    public void setTextArea(TextArea ausgabe) {
-		this.ausgabe = ausgabe;
-		
+		this.ausgabe = ausgabe;	
 	}
 
 	public TextArea getAusgabeVerb() {

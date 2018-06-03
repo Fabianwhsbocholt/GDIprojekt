@@ -76,7 +76,7 @@ public class ControllerEingabe implements Initializable  {
    @FXML
    public void speichern ()
 	{
-	   WMHandler.spielergebnisseEingabe(mainapp, ausgabe, getId(), toreheimhz, toregasthz, toreheimende, toregastende, heimgelb, gastgelb, heimrot, 
+	   WMHandler.spielergebnisseEingabe(mainapp, ausgabe, getId(), toreheimhz, toregasthz, toreheimende, toregastende, heimverlÃ¤ngerung, gastverlÃ¤ngerung, heimelfmeter, gastelfmeter, heimgelb, gastgelb, heimrot, 
 			   gastrot, heimgelbrot, gastgelbrot);
 	   festeWerte(mainapp, ausgabe, gruppe, datetime, heimmannschaft, gastmannschaft);
 	   
@@ -96,6 +96,23 @@ public class ControllerEingabe implements Initializable  {
 			heimmannschaft.setText(spiele[4]);
 			gastmannschaft.setText(spiele[5]);
 		}
+	}
+	
+	public void kospieleprüfen (WM2018 mainapp, TextArea eingabe, TextField heimverlängerung, TextField gastverlängerung, TextField heimelf, TextField gastelf)
+	{
+		List<String []> spieleSammeln = mainapp.getPrep().getDbConnect().spieleSammeln();
+		
+		
+			for(String[] spiele : spieleSammeln)
+			{
+				if ((Integer.parseInt(spiele[0]) > 48)) 
+				 {
+						heimverlängerung.setVisible(true);
+						gastverlängerung.setVisible(true);
+						heimelf.setVisible(true);
+						gastelf.setVisible(true);
+				 }
+			}
 	}
 	
 	public String getId() {

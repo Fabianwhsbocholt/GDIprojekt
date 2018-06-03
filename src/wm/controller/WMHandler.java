@@ -198,22 +198,54 @@ public class WMHandler implements EventHandler
 
 	
 	public void spielergebnisseEingabe(WM2018 mainapp, TextArea ausgabe, String id, TextField toreheimhz, TextField toregasthz, 		
-		TextField toreheimende, TextField toregastende, TextField heimgelb, TextField gastgelb, 
-		TextField heimrot, TextField gastrot, TextField heimgelbrot, TextField  gastgelbrot) {
+		TextField toreheimende, TextField toregastende, TextField heimverlängerung, TextField gastverlängerung, TextField heimelf, TextField gastelf, TextField heimgelb, TextField gastgelb, 
+		TextField heimrot, TextField gastrot, TextField heimgelbrot, TextField  gastgelbrot) 
+	{
 	
 		String [] eingetrageneErgebnisse = new String [22];
 		
-		eingetrageneErgebnisse[6] = toreheimhz.getText();
-		eingetrageneErgebnisse[7] = toregasthz.getText();
-		eingetrageneErgebnisse[8] = toreheimende.getText();
-		eingetrageneErgebnisse[9] = toregastende.getText();		
-		eingetrageneErgebnisse[16] = heimgelb.getText();
-		eingetrageneErgebnisse[17] = gastgelb.getText();	
-		eingetrageneErgebnisse[20] = heimrot.getText();
-		eingetrageneErgebnisse[21] = gastrot.getText();
-		eingetrageneErgebnisse[18] = heimgelbrot.getText();
-		eingetrageneErgebnisse[19] = gastgelbrot.getText();
-		eingetrageneErgebnisse[0] =  id;
+		
+		List<String []> spieleSammeln = mainapp.getPrep().getDbConnect().spieleSammeln();
+		
+			
+			for(String[] spiele : spieleSammeln)
+			{
+				if (Integer.parseInt(spiele[0]) > 48) 
+				 {
+					eingetrageneErgebnisse[6] = toreheimhz.getText();
+					eingetrageneErgebnisse[7] = toregasthz.getText();
+					eingetrageneErgebnisse[8] = toreheimende.getText();
+					eingetrageneErgebnisse[9] = toregastende.getText();	
+					
+					eingetrageneErgebnisse[11] = heimverlängerung.getText();	
+					eingetrageneErgebnisse[12] = gastverlängerung.getText();	
+					eingetrageneErgebnisse[14] = heimelf.getText();	
+					eingetrageneErgebnisse[15] = gastelf.getText();	
+					
+					eingetrageneErgebnisse[16] = heimgelb.getText();
+					eingetrageneErgebnisse[17] = gastgelb.getText();	
+					eingetrageneErgebnisse[20] = heimrot.getText();
+					eingetrageneErgebnisse[21] = gastrot.getText();
+					eingetrageneErgebnisse[18] = heimgelbrot.getText();
+					eingetrageneErgebnisse[19] = gastgelbrot.getText();
+					eingetrageneErgebnisse[0] =  id;
+				 }
+				else 
+				{
+					eingetrageneErgebnisse[6] = toreheimhz.getText();
+					eingetrageneErgebnisse[7] = toregasthz.getText();
+					eingetrageneErgebnisse[8] = toreheimende.getText();
+					eingetrageneErgebnisse[9] = toregastende.getText();	
+					eingetrageneErgebnisse[16] = heimgelb.getText();
+					eingetrageneErgebnisse[17] = gastgelb.getText();	
+					eingetrageneErgebnisse[20] = heimrot.getText();
+					eingetrageneErgebnisse[21] = gastrot.getText();
+					eingetrageneErgebnisse[18] = heimgelbrot.getText();
+					eingetrageneErgebnisse[19] = gastgelbrot.getText();
+					eingetrageneErgebnisse[0] =  id;	
+				}
+			}
+		
 		
 		ausgabe.appendText(mainapp.getPrep().getDbConnect().ergebnisseEintragen(eingetrageneErgebnisse));
 		
@@ -221,6 +253,10 @@ public class WMHandler implements EventHandler
 		toregasthz.clear();
 		toreheimende.clear();
 		toregastende.clear();
+		heimverlängerung.clear();
+		gastverlängerung.clear();
+		heimelf.clear();
+		gastelf.clear();
 		heimgelb.clear();
 		gastgelb.clear();
 		heimrot.clear();
@@ -235,8 +271,6 @@ public class WMHandler implements EventHandler
 	     * Punkte und traegt diese dann in der Rangliste (ranking Tabelle) der Datenbank ein.
 	     *
 	     * Bei Erfolg wird TRUE zurueckgegeben bei einem Fehler wird FALSE zurueckgegeben
-	     *
-	     * @param dbConnector
 	     * @return boolean Erfolg oder Miserfolg
 	     */
     public static boolean neuesRankingErstellen(WM2018 mainapp, TextArea ausgabe){

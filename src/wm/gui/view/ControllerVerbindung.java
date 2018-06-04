@@ -56,9 +56,11 @@ public class ControllerVerbindung {
 
 		if(radio2.isSelected()) {
 			WMHandler.verbindungLive(mainapp, ausgabeVerb);
+			//mainapp.getDialogStage().close();
 		}
 		else {
 			WMHandler.verbindungManuelle(mainapp, ausgabeVerb, ip, datenbank, port, benutzer ,passwort);
+			//mainapp.getDialogStage().close();
 		}
 	}
 

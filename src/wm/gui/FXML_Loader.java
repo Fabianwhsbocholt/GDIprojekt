@@ -80,7 +80,7 @@ public class FXML_Loader
             FXMLLoader loader=new FXMLLoader();
             loader.setLocation(WM2018.class.getResource("view/Eingabe.fxml"));	         
 			mainapp.setEingabeLayout((BorderPane)loader.load());
-			mainapp.getEingabeStage().setTitle("Eingabe");
+			mainapp.getEingabeStage().setTitle("Eingabe Spielergebnisse");
             ControllerEingabe ConEing = loader.getController();
             ConEing.setMainapp(mainapp);
             ConEing.setTextArea(ausgabe);
@@ -90,6 +90,13 @@ public class FXML_Loader
             TextField heim = ConEing.getHeimmannschaft();
             TextField gast = ConEing.getGastmannschaft();
             ConEing.festeWerte(mainapp, ausgabe, gruppe, datetime, heim, gast);
+            
+          /*  TextField heimverlängerung = ConEing.getHeimverlängerung();
+            TextField gastverlängerung = ConEing.getGastverlängerung();
+            TextField heimelfmeter = ConEing.getHeimelfmeter();
+            TextField gastelfmeter = ConEing.getGastelfmeter();
+            
+            ConEing.kospieleprüfen(mainapp, ausgabe, heimverlängerung, gastverlängerung, heimelfmeter, gastelfmeter);*/
             
             Scene scene=new Scene(mainapp.getEingabeLayout());
             mainapp.getEingabeStage().setScene(scene);

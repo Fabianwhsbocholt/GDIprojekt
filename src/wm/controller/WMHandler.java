@@ -32,6 +32,7 @@ public class WMHandler implements EventHandler
 
 	DBConnector connect = new DBConnector();
 	Connection connection;
+	Hilfsfunktionen hf = new Hilfsfunktionen();
 
 	public WMHandler() {
 		
@@ -66,7 +67,6 @@ public class WMHandler implements EventHandler
 			break;
 		case "Spielergebnisse eingeben" : 
 			mainapp.getFxml().showEingabe(mainapp, ausgabe);
-			//festeWerte(mainapp);
 			break;
 		case "Ergebnisse ausgeben" :
 			ergebnisseAusgeben(mainapp, ausgabe);
@@ -86,44 +86,40 @@ public class WMHandler implements EventHandler
 		case "Programm beenden" :
 			beenden(mainapp);
 			break;
-		
-			
-		}	
-		
-		
+		}			
 	}
 		
-	
-	
 	public void verbindungManuelle(WM2018 mainapp, TextArea ausgabeVerb, TextField ip, TextField datenbank, TextField port, TextField benutzer, TextField passwort) throws IOException {
 		//manuelle Verbindung
 
-		//Prüfen ob alle Felder gefüllt wurden
-		if(ip.getText().equals("") | datenbank.getText().equals("") | port.getText().equals("") | benutzer.getText().equals("") | passwort.getText().equals("")) {
-			ausgabeVerb.appendText("Bitte alle Felder ausfüllen. \n");
-		}
-		else {
+		String ip1 = Hilfsfunktionen.nullTest(ip.getText());
+		String db = Hilfsfunktionen.nullTest(datenbank.getText());
+		String po = Hilfsfunktionen.nullTest(port.getText());
+		String bn = Hilfsfunktionen.nullTest(benutzer.getText());
+		String pw = Hilfsfunktionen.nullTest(passwort.getText());
+		
+		if(ip1 != "null" && db != "null" && po != "null" && bn != "null" && pw != "null") {
 			
 			ausgabeVerb.appendText("Verbinde mich mit der Datenbank...\n");
 			try {
 				connection=DriverManager.getConnection(
 					    "jdbc:mariadb://"+ip.getText()+":"+port.getText()+"/"+datenbank.getText()+"?useSSL=false",
 					    benutzer.getText(), passwort.getText());
-
-				if(connection.isValid(3)){
-					ausgabeVerb.appendText("Verbindung zur Datenbank "+datenbank.getText()+" hergestellt!\n");
-				}
-				else {
-					ausgabeVerb.appendText("Verbindung zur Datenbank "+datenbank.getText()+" konnte mit \nBenutzername: "
-						    +benutzer.getText()+" und\nPasswort: "+passwort.getText()+"\nnicht hergestellt werden!\n");		
-				}
+		
+				
+			ausgabeVerb.appendText("Verbindung zur Datenbank "+datenbank.getText()+" hergestellt!\n");
+			mainapp.getDialogStage().close();
+			
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				ausgabeVerb.appendText("Verbindung zur Datenbank "+datenbank.getText()+" konnte mit \nBenutzername: "
+			    +benutzer.getText()+" und\nPasswort: "+passwort.getText()+"\nnicht hergestellt werden!\n");
 			}	
-				 
+			 
 		}
-		
+		else {
+			ausgabeVerb.appendText("Bitte alle Felder ausfüllen. \n");
+		}				
 	}
 	
 	public void verbindungLive(WM2018 mainapp, TextArea ausgabeVerb) throws IOException{
@@ -132,6 +128,7 @@ public class WMHandler implements EventHandler
 		ausgabeVerb.appendText("Konfiguration erstellt...\n");
 		ausgabeVerb.appendText("Verbinde mich mit der Datenbank...\n");
 		ausgabeVerb.appendText(mainapp.getPrep().getDbConnect().connect(mainapp.getPrep().getConfig()));
+		mainapp.getDialogStage().close();
 	}
 	
 	public void tabellenAnlegen (WM2018 mainapp, TextArea ausgabe) {
@@ -148,11 +145,12 @@ public class WMHandler implements EventHandler
 		
 		//Funktion für datum umwandeln aus der Klasse Hilfsfunktionen
 		
-		ausgabe.appendText("| Spielbezeichnung \t | DatumUhrzeit \t \t \t \t | Heimmannschaft \t | Gastmannschaft \t \t | Spielort| \n");
-		
+		ausgabe.appendText("|Spielbezeichnung"+Hilfsfunktionen.leerzeichen(29, "Spielbezeichnung", mainapp, ausgabe)+"|DatumUhrzeit"+Hilfsfunktionen.leerzeichen(37, "DatumUhrzeit", mainapp, ausgabe)+"|Heimmannschaft" +Hilfsfunktionen.leerzeichen(35, "Heimmannschaft", mainapp, ausgabe)+"|Gastmannschaft"+Hilfsfunktionen.leerzeichen(30, "Gastmannschaft", mainapp, ausgabe)+ "|Spielort" +Hilfsfunktionen.leerzeichen(30, "Spielort", mainapp, ausgabe)+"| \n");
+		//ausgabe.appendText("|Hallo"+Hilfsfunktionen.leerzeichen(60, "Hallo")+"|");
 		//Jedes Spiel aus der Liste spielplan durchlaufen
 		for(String[] spiel : spielplan) {
-			ausgabe.appendText("| "+spiel[0]+" \t \t \t | "+spiel[1]+" \t \t | "+spiel[2]+" \t \t \t | "+spiel[3]+" \t \t| "+spiel[4]+" | \n");
+			
+			ausgabe.appendText("|"+spiel[0]+Hilfsfunktionen.leerzeichen(35, spiel[0], mainapp, ausgabe)+"|"+Hilfsfunktionen.datumWandeln(spiel[1], mainapp, ausgabe)+"|"+spiel[2]+""+Hilfsfunktionen.leerzeichen(40, spiel[2], mainapp, ausgabe)+"|"+spiel[3]+""+Hilfsfunktionen.leerzeichen(30, spiel[3], mainapp, ausgabe)+"|"+spiel[4]+""+Hilfsfunktionen.leerzeichen(30, spiel[4], mainapp, ausgabe)+"|\n");
 		}
 	}
 
@@ -173,6 +171,8 @@ public class WMHandler implements EventHandler
 		
 		}
 	}
+	
+	
 	
 	public static void rankingAusgeben(WM2018 mainapp, TextArea ausgabe)
 	{
@@ -195,18 +195,37 @@ public class WMHandler implements EventHandler
 	}
 	
 	
-
+	public void koSpieleEingeben(WM2018 mainapp, TextArea ausgabe, TextField achtelfinaleheim1, TextField achtelfinaleheim2, 
+			TextField achtelfinaleheim3, TextField achtelfinaleheim4, TextField achtelfinaleheim5, TextField achtelfinaleheim6, 
+			TextField achtelfinaleheim7, TextField achtelfinaleheim8, TextField achtelfinalegast1,  TextField achtelfinalegast2,  
+			TextField achtelfinalegast3,  TextField achtelfinalegast4,  TextField achtelfinalegast5,  TextField achtelfinalegast6,  
+			TextField achtelfinalegast7,  TextField achtelfinalegast8, TextField viertelfinaleheim1, TextField viertelfinaleheim2, 
+			TextField viertelfinaleheim3, TextField viertelfinaleheim4, TextField viertelfinalegast1, TextField viertelfinalegast2, 
+			TextField viertelfinalegast3, TextField viertelfinalegast4, TextField halbfinaleheim1, TextField halbfinaleheim2, 
+			TextField halbfinalegast1, TextField halbfinalegast2, TextField platz3heim, TextField platz3gast, TextField finaleheim, 
+			TextField finalegast) {
+		
+			String [] kospiele = new String[32];
+			
+	}
 	
 	public void spielergebnisseEingabe(WM2018 mainapp, TextArea ausgabe, String id, TextField toreheimhz, TextField toregasthz, 		
-		TextField toreheimende, TextField toregastende, TextField heimgelb, TextField gastgelb, 
-		TextField heimrot, TextField gastrot, TextField heimgelbrot, TextField  gastgelbrot) {
+		TextField toreheimende, TextField toregastende, TextField heimverlängerung, TextField gastverlängerung, TextField heimelf, TextField gastelf, TextField heimgelb, TextField gastgelb, 
+		TextField heimrot, TextField gastrot, TextField heimgelbrot, TextField  gastgelbrot) 
+	{
 	
 		String [] eingetrageneErgebnisse = new String [22];
-		
+
 		eingetrageneErgebnisse[6] = toreheimhz.getText();
 		eingetrageneErgebnisse[7] = toregasthz.getText();
 		eingetrageneErgebnisse[8] = toreheimende.getText();
-		eingetrageneErgebnisse[9] = toregastende.getText();		
+		eingetrageneErgebnisse[9] = toregastende.getText();	
+		
+		eingetrageneErgebnisse[11] = heimverlängerung.getText();	
+		eingetrageneErgebnisse[12] = gastverlängerung.getText();	
+		eingetrageneErgebnisse[14] = heimelf.getText();	
+		eingetrageneErgebnisse[15] = gastelf.getText();	
+		
 		eingetrageneErgebnisse[16] = heimgelb.getText();
 		eingetrageneErgebnisse[17] = gastgelb.getText();	
 		eingetrageneErgebnisse[20] = heimrot.getText();
@@ -221,6 +240,10 @@ public class WMHandler implements EventHandler
 		toregasthz.clear();
 		toreheimende.clear();
 		toregastende.clear();
+		heimverlängerung.clear();
+		gastverlängerung.clear();
+		heimelf.clear();
+		gastelf.clear();
 		heimgelb.clear();
 		gastgelb.clear();
 		heimrot.clear();
@@ -235,8 +258,6 @@ public class WMHandler implements EventHandler
 	     * Punkte und traegt diese dann in der Rangliste (ranking Tabelle) der Datenbank ein.
 	     *
 	     * Bei Erfolg wird TRUE zurueckgegeben bei einem Fehler wird FALSE zurueckgegeben
-	     *
-	     * @param dbConnector
 	     * @return boolean Erfolg oder Miserfolg
 	     */
     public static boolean neuesRankingErstellen(WM2018 mainapp, TextArea ausgabe){

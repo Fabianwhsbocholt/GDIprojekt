@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import wm.objekte.Configuration;
@@ -57,7 +58,8 @@ public class ControllerEingabe implements Initializable  {
    @FXML TextField gastverlängerung = new TextField();
    @FXML TextField heimelfmeter = new TextField();
    @FXML TextField gastelfmeter = new TextField();
-
+   @FXML Label verlängerung = new Label();
+   @FXML Label elfmeter = new Label();
    String id;
 
   
@@ -68,8 +70,9 @@ public class ControllerEingabe implements Initializable  {
    @FXML
    public void speichern ()
 	{
-	   WMHandler.spielergebnisseEingabe(mainapp, ausgabe, getId(), toreheimhz, toregasthz, toreheimende, toregastende, heimgelb, gastgelb, heimrot, 
-			   gastrot, heimgelbrot, gastgelbrot);
+	   WMHandler.spielergebnisseEingabe(mainapp, ausgabe, getId(), toreheimhz, toregasthz, 
+			   toreheimende, toregastende, heimverlängerung, gastverlängerung, heimelfmeter, 
+			   gastelfmeter, heimgelb, gastgelb, heimrot, gastrot, heimgelbrot, gastgelbrot);
 	   festeWerte(mainapp, ausgabe, gruppe, datetime, heimmannschaft, gastmannschaft);
 	   
 	}
@@ -78,15 +81,35 @@ public class ControllerEingabe implements Initializable  {
 	
 		List<String []> spieleSammeln = mainapp.getPrep().getDbConnect().spieleSammeln();
 	   
+		
 		for(String [] spiele : spieleSammeln) {
-		
-		
+
 			setId(spiele[0]);
 			gruppe.setText(spiele[1]);
 			datetime.setText(spiele[3]);
 			heimmannschaft.setText(spiele[4]);
 			gastmannschaft.setText(spiele[5]);
+		
 		}
+		
+		if((Integer.parseInt(getId())  >= 48)) {
+			kospieleprüfen(mainapp, verlängerung, elfmeter, heimverlängerung, gastverlängerung, heimelfmeter, gastelfmeter);
+		}
+		
+		
+	}
+	
+	public void kospieleprüfen (WM2018 mainapp, Label verlängerung, Label elfmeter, TextField heimverlängerung, TextField gastverlängerung, TextField heimelf, TextField gastelf)
+	{
+	
+		verlängerung.setVisible(true);
+		elfmeter.setVisible(true);
+		heimverlängerung.setVisible(true);
+		gastverlängerung.setVisible(true);
+		heimelf.setVisible(true);
+		gastelf.setVisible(true);
+				
+			
 	}
 	
 	public String getId() {

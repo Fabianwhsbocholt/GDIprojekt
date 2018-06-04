@@ -40,7 +40,9 @@ public class DBConnector implements DBConnectorI
 			return "Verbindung zur Datenbank "+config.getDb()+" konnte mit \nBenutzername: "
 			    +config.getUser()+" und\nPasswort: "+config.getPass()+"\nnicht hergestellt werden!\n";
 		}
+		
 		return "Verbindung zur Datenbank "+config.getDb()+" hergestellt!\n";
+		
 	}
 	
 	@Override
@@ -108,7 +110,7 @@ public class DBConnector implements DBConnectorI
 			{
 				return "Vorgang fehlgeschlagen!\n";
 			}
-			return "Tabellen gel�scht.\n"+"Tabellen benutzer, spiele, tipps und ranking neu erstellt!\n";
+			return "Tabellen gelöscht.\n"+"Tabellen benutzer, spiele, tipps und ranking neu erstellt!\n";
 		}
 		else
 			return "Bitte erst eine Verbindung herstellen!\n";
@@ -184,7 +186,6 @@ public class DBConnector implements DBConnectorI
 	@Override
 	public String ergebnisseEintragen (String[] rsInhalte)
 	{
-		//System.out.println(rsInhalte[6]);
 		if (connection!=null)
 		{
 			try

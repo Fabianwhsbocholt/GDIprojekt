@@ -8,6 +8,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javafx.scene.control.TextArea;
+import wm.gui.WM2018;
+
 public class Hilfsfunktionen
 {
 	public static String[] leseConfig (String datei)
@@ -45,13 +48,13 @@ public class Hilfsfunktionen
 				}
 				catch (IOException e)
 				{
-					configDaten[0]="Fehler beim Schließen des Readers!";
+					configDaten[0]="Fehler beim Schlieï¿½en des Readers!";
 				}
 		}
 		return configDaten;
 	}
 	
-	public static String leerzeichen (int anzahl, String text)
+	public static String leerzeichen (int anzahl, String text, WM2018 mainapp, TextArea ausgabe)
 	{
 		String ergebnis="";
 		for (int space=0; space<(anzahl-text.length()); space++)
@@ -59,7 +62,7 @@ public class Hilfsfunktionen
 		return ergebnis;
 	}
 	
-	public static String datumWandeln (String datum)
+	public static String datumWandeln (String datum, WM2018 mainapp, TextArea ausgabe)
 	{
 		SimpleDateFormat simpleDateFormatParse=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		try

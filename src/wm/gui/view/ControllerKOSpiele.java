@@ -60,7 +60,15 @@ import wm.gui.WM2018;
 	
 	@FXML
 	public void speichern () {
-		
+		WMHandler.koSpieleEingeben(mainapp, ausgabe, achtelfinaleheim1, achtelfinaleheim2,
+					achtelfinaleheim3, achtelfinaleheim4, achtelfinaleheim5, achtelfinaleheim6,
+					achtelfinaleheim7, achtelfinaleheim8, achtelfinalegast1, achtelfinalegast2,
+					achtelfinalegast3, achtelfinalegast4, achtelfinalegast5, achtelfinalegast6,
+					achtelfinalegast7, achtelfinalegast8, viertelfinaleheim1,viertelfinaleheim2,
+					viertelfinaleheim3, viertelfinaleheim4, viertelfinalegast1, viertelfinalegast2,
+					viertelfinalegast3, viertelfinalegast4, halbfinaleheim1, halbfinaleheim2,
+					halbfinalegast1, halbfinalegast2, platz3heim, platz3gast, finaleheim,
+					finalegast);
 	}
 	
 	public WM2018 getMainapp() {

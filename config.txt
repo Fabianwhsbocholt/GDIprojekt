@@ -1,5 +1,5 @@
-server-IP:127.0.0.1
-datenbank:wm2018
+server-IP:193.175.198.25
+datenbank:wm_2018_team_o
 port:3306
-benutzer:root
-passwort:admin
+benutzer:wm_projekt_team_o
+passwort:1#(Hs%6p

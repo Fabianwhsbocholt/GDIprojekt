@@ -93,14 +93,13 @@ public class ControllerEingabe implements Initializable  {
 		}
 		
 		if((Integer.parseInt(getId())  >= 48)) {
-			kospieleprüfen(mainapp, verlängerung, elfmeter, heimverlängerung, gastverlängerung, heimelfmeter, gastelfmeter);
+			kospielepruefen(mainapp, verlängerung, elfmeter, heimverlängerung, gastverlängerung, heimelfmeter, gastelfmeter);
 		}
 			
 	}
 	
-	public void kospieleprüfen (WM2018 mainapp, Label verlängerung, Label elfmeter, TextField heimverlängerung, TextField gastverlängerung, TextField heimelf, TextField gastelf)
+	public void kospielepruefen (WM2018 mainapp, Label verlängerung, Label elfmeter, TextField heimverlängerung, TextField gastverlängerung, TextField heimelf, TextField gastelf)
 	{
-	
 		verlängerung.setVisible(true);
 		elfmeter.setVisible(true);
 		heimverlängerung.setVisible(true);

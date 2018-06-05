@@ -53,7 +53,7 @@ public class WMHandler implements EventHandler
 		case "Verbindung zur Datenbank aufbauen" : 
 			mainapp.getFxml().showVerbindung(mainapp, ausgabe);
 			break;
-		case "Tabellen löschen und neu anlegen" :
+		case "Tabellen loeschen und neu anlegen" :
 			tabellenAnlegen(mainapp, ausgabe);
 			break;
 		case "Echtdaten einlesen" :
@@ -178,12 +178,18 @@ public class WMHandler implements EventHandler
 	{
 		List<String[]> ranking = mainapp.getPrep().getDbConnect().rankingAusgeben();
 		
-		ausgabe.appendText("Platz Tipper Punkte Gruppe \n");
+		ausgabe.appendText("Platz" +Hilfsfunktionen.leerzeichen(5, "Platz", mainapp, ausgabe)+"Tipper"+Hilfsfunktionen.leerzeichen(10, "Tipper", mainapp, ausgabe)+ "Punkte"+Hilfsfunktionen.leerzeichen(10, "Punkte", mainapp, ausgabe)+"Gruppe"+Hilfsfunktionen.leerzeichen(10, "Gruppe", mainapp, ausgabe)+  "\n");
 		//System.out.println(" Platz \t Tipper \t Punkte \t Gruppe");
 		
 		for (String[] rank : ranking)
 		{
-			ausgabe.appendText(rank[1]+" \t "+rank[2]+ " \t "+rank[3]+" \t" +rank[4] + "\n");
+			String eins = rank[1];
+			String zwei = rank[2];
+			String drei = rank[3];
+			String vier = rank[4];
+			
+			ausgabe.appendText(Hilfsfunktionen.leerzeichen(10, rank[1] + rank[2] + rank[3]+rank[4], mainapp, ausgabe));
+			//ausgabe.appendText(rank[1]+Hilfsfunktionen.leerzeichen(10,eins + zwei + drei + vier, mainapp, ausgabe)+rank[2]+Hilfsfunktionen.leerzeichen(15,zwei, mainapp, ausgabe)+ rank[3] + Hilfsfunktionen.leerzeichen(25,drei, mainapp, ausgabe)+ rank[4]+Hilfsfunktionen.leerzeichen(35, vier, mainapp, ausgabe)+ "\n");
 			//System.out.println(rank[1]+" \t "+rank[2]+ " \t "+rank[3]+" \t" +rank[4]);
 		}
 	}
@@ -203,9 +209,119 @@ public class WMHandler implements EventHandler
 			TextField viertelfinaleheim3, TextField viertelfinaleheim4, TextField viertelfinalegast1, TextField viertelfinalegast2, 
 			TextField viertelfinalegast3, TextField viertelfinalegast4, TextField halbfinaleheim1, TextField halbfinaleheim2, 
 			TextField halbfinalegast1, TextField halbfinalegast2, TextField platz3heim, TextField platz3gast, TextField finaleheim, 
-			TextField finalegast) {
+			TextField finalegast) 
+	{
+		
+		List<String[]> koSpiele = mainapp.getPrep().getDbConnect().koSpieleSammeln();
+
+			for(String[] koSpiel : koSpiele)
+			{
+				achtelfinaleheim1.setText(koSpiel[0]);
+				achtelfinalegast1.setText(koSpiel[1]);
+				achtelfinaleheim2.setText(koSpiel[2]);
+				achtelfinalegast2.setText(koSpiel[3]);
+				achtelfinaleheim3.setText(koSpiel[4]);
+				achtelfinalegast3.setText(koSpiel[5]);
+				achtelfinaleheim4.setText(koSpiel[6]);
+				achtelfinalegast4.setText(koSpiel[7]);
+				achtelfinaleheim5.setText(koSpiel[8]);
+				achtelfinalegast5.setText(koSpiel[9]);
+				achtelfinaleheim6.setText(koSpiel[10]);
+				achtelfinalegast6.setText(koSpiel[11]);
+				achtelfinaleheim7.setText(koSpiel[12]);
+				achtelfinalegast7.setText(koSpiel[13]);
+				achtelfinaleheim8.setText(koSpiel[14]);
+				achtelfinalegast8.setText(koSpiel[15]);
+				viertelfinaleheim1.setText(koSpiel[16]);
+				viertelfinalegast1.setText(koSpiel[17]);
+				viertelfinaleheim2.setText(koSpiel[18]);
+				viertelfinalegast2.setText(koSpiel[19]);
+				viertelfinaleheim3.setText(koSpiel[20]);
+				viertelfinalegast3.setText(koSpiel[21]);
+				viertelfinaleheim4.setText(koSpiel[22]);
+				viertelfinalegast4.setText(koSpiel[23]);
+				halbfinaleheim1.setText(koSpiel[24]);
+				halbfinalegast1.setText(koSpiel[25]);
+				halbfinaleheim2.setText(koSpiel[26]);
+				halbfinalegast2.setText(koSpiel[27]);
+				platz3heim.setText(koSpiel[28]);
+				platz3gast.setText(koSpiel[29]);
+				finaleheim.setText(koSpiel[30]);
+				finalegast.setText(koSpiel[31]);
+			}
+		
 		
 			String [] kospiele = new String[32];
+			
+			kospiele[0] = achtelfinaleheim1.getText();
+			kospiele[1] = achtelfinalegast1.getText();
+			kospiele[2] = achtelfinaleheim2.getText();
+			kospiele[3] = achtelfinalegast2.getText();
+			kospiele[4] = achtelfinaleheim3.getText();
+			kospiele[5] = achtelfinalegast3.getText();
+			kospiele[6] = achtelfinaleheim4.getText();
+			kospiele[7] = achtelfinalegast4.getText();
+			kospiele[8] = achtelfinaleheim5.getText();
+			kospiele[9] = achtelfinalegast5.getText();
+			kospiele[10] = achtelfinaleheim6.getText();
+			kospiele[11] = achtelfinalegast6.getText();
+			kospiele[12] = achtelfinaleheim7.getText();
+			kospiele[13] = achtelfinalegast7.getText();
+			kospiele[14] = achtelfinaleheim8.getText();
+			kospiele[15] = achtelfinalegast8.getText();
+			kospiele[16] = viertelfinaleheim1.getText();
+			kospiele[17] = viertelfinalegast1.getText();
+			kospiele[18] = viertelfinaleheim2.getText();
+			kospiele[19] = viertelfinalegast2.getText();
+			kospiele[20] = viertelfinaleheim3.getText();
+			kospiele[20] = viertelfinalegast3.getText();
+			kospiele[20] = viertelfinaleheim4.getText();
+			kospiele[20] = viertelfinalegast4.getText();
+			kospiele[20] = halbfinaleheim1.getText();
+			kospiele[20] = halbfinalegast1.getText();
+			kospiele[20] = halbfinaleheim2.getText();
+			kospiele[20] = halbfinalegast2.getText();
+			kospiele[20] = platz3heim.getText();
+			kospiele[20] = platz3gast.getText();
+			kospiele[20] = finaleheim.getText();
+			kospiele[20] = finalegast.getText();
+				
+			
+			ausgabe.appendText(mainapp.getPrep().getDbConnect().koSpieleEintragen(kospiele));
+			
+/*			 achtelfinaleheim1.clear();
+				achtelfinalegast1.clear();
+				achtelfinaleheim2.clear();
+				achtelfinalegast2.clear();
+				achtelfinaleheim3.clear();
+				achtelfinalegast3.clear();
+				achtelfinaleheim4.clear();
+				achtelfinalegast4.clear();
+				achtelfinaleheim5.clear();
+				achtelfinalegast5.clear();
+				achtelfinaleheim6.clear();
+				achtelfinalegast6.clear();
+				achtelfinaleheim7.clear();
+				achtelfinalegast7.clear();
+				achtelfinaleheim8.clear();
+				achtelfinalegast8.clear();
+				viertelfinaleheim1.clear();
+				viertelfinalegast1.clear();
+				viertelfinaleheim2.clear();
+				viertelfinalegast2.clear();
+				viertelfinaleheim3.clear();
+				viertelfinalegast3.clear();
+				viertelfinaleheim4.clear();
+				viertelfinalegast4.clear();
+				halbfinaleheim1.clear();
+				halbfinalegast1.clear();
+				halbfinaleheim2.clear();
+				halbfinalegast2.clear();
+				platz3heim.clear();
+				platz3gast.clear();
+				finaleheim.clear();
+				finalegast.clear(); */
+							
 			
 	}
 	

@@ -18,7 +18,7 @@
    <left>
       <ImageView fitHeight="440.0" fitWidth="701.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@../../../../../../../Documents/Uni/2.%20Semester/GDI_2_Neu/Projekt/WM2018_Framework_GUI_1.30/bilder/rasen.png" />
+            <Image url="@../../../../bilder/rasen.png" />
          </image>
          <BorderPane.margin>
             <Insets top="130.0" />
@@ -58,7 +58,7 @@
            		<FXCollections fx:factory="observableArrayList">
            			<String fx:value="Auswählen..." />
            			<String fx:value="Verbindung zur Datenbank aufbauen" />
-           			<String fx:value="Tabellen löschen und neu anlegen" />
+           			<String fx:value="Tabellen loeschen und neu anlegen" />
            			<String fx:value="Echtdaten einlesen" />
            			<String fx:value="Testdaten einlesen" />           
            			<String fx:value="Spielplan ausgeben" />

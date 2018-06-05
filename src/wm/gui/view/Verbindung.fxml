@@ -18,7 +18,7 @@
    <center>
       <ImageView fitHeight="447.0" fitWidth="614.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="1.4" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@../../../../../../../Documents/Uni/2.%20Semester/GDI_2_Neu/Projekt/WM2018_Framework_GUI_1.30/bilder/rasen.png" />
+            <Image url="@../../../../bilder/rasen.png" />
          </image>
          <BorderPane.margin>
             <Insets right="50.0" top="150.0" />

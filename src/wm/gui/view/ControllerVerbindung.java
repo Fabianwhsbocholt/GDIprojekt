@@ -26,9 +26,7 @@ import java.sql.Connection;
 
 
 public class ControllerVerbindung {
-	
-	
-	
+
 	//private WMHandler handler = new WMHandler();
 	@FXML Button absenden = new Button();
 	@FXML RadioButton radio1 = new RadioButton();

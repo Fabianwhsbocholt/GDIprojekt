@@ -54,7 +54,7 @@ public class Hilfsfunktionen
 		return configDaten;
 	}
 	
-	public static String leerzeichen (int anzahl, String text, WM2018 mainapp, TextArea ausgabe)
+	public static String leerzeichen (int anzahl, String text)
 	{
 		String ergebnis="";
 		for (int space=0; space<(anzahl-text.length()); space++)
@@ -62,7 +62,7 @@ public class Hilfsfunktionen
 		return ergebnis;
 	}
 	
-	public static String datumWandeln (String datum, WM2018 mainapp, TextArea ausgabe)
+	public static String datumWandeln (String datum)
 	{
 		SimpleDateFormat simpleDateFormatParse=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		try

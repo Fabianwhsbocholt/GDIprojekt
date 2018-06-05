@@ -23,8 +23,7 @@ public class WM2018MainController
 	@FXML
 	// Diese Funktion wird ausgef�hrt, wenn sich das Formular �ffnet
 	private void initialize ()
-	{
-		
+	{	
 		
 	}
 	
@@ -42,9 +41,5 @@ public class WM2018MainController
 	public void setMainapp(WM2018 mainapp) {
 		this.mainapp = mainapp;
 	}
-	
-	
-	
-
 	
 }

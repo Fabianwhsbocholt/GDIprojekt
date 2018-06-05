@@ -58,6 +58,7 @@ import wm.gui.WM2018;
 		
 	}
 	
+	@FXML
 	public void speichern () {
 		
 	}

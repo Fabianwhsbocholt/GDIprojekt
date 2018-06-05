@@ -20,8 +20,6 @@ import wm.gui.WM2018;
 import wm.objekte.DBConnector;
 import wm.objekte.WM2018Benutzer;
 
-
-
 // In dieser Klasse k�nnen die Funktionen ausprogrammiert werden, die beim Ausl�sen von Events
 // (z.B. Dr�cken eines Buttons) ausgef�hrt werden sollen
 
@@ -139,18 +137,16 @@ public class WMHandler implements EventHandler
 	//Spielplan ausgeben (Fabian)
 	public static void spielplanAusgabe(WM2018 mainapp, TextArea ausgabe)
 	{
-	
-		
+
 		List<String[]> spielplan = mainapp.getPrep().getDbConnect().spielplanAusgeben();
 		
 		//Funktion für datum umwandeln aus der Klasse Hilfsfunktionen
 		
-		ausgabe.appendText("|Spielbezeichnung"+Hilfsfunktionen.leerzeichen(29, "Spielbezeichnung", mainapp, ausgabe)+"|DatumUhrzeit"+Hilfsfunktionen.leerzeichen(37, "DatumUhrzeit", mainapp, ausgabe)+"|Heimmannschaft" +Hilfsfunktionen.leerzeichen(35, "Heimmannschaft", mainapp, ausgabe)+"|Gastmannschaft"+Hilfsfunktionen.leerzeichen(30, "Gastmannschaft", mainapp, ausgabe)+ "|Spielort" +Hilfsfunktionen.leerzeichen(30, "Spielort", mainapp, ausgabe)+"| \n");
-		//ausgabe.appendText("|Hallo"+Hilfsfunktionen.leerzeichen(60, "Hallo")+"|");
+		ausgabe.appendText("|Spielbezeichnung"+Hilfsfunktionen.leerzeichen(17, "Spielbezeichnung")+"|DatumUhrzeit"+Hilfsfunktionen.leerzeichen(22, "DatumUhrzeit")+"|Heimmannschaft" +Hilfsfunktionen.leerzeichen(17, "Heimmannschaft")+"|Gastmannschaft"+Hilfsfunktionen.leerzeichen(17, "Gastmannschaft")+ "|Spielort" +Hilfsfunktionen.leerzeichen(17, "Spielort")+"| \n");
 		//Jedes Spiel aus der Liste spielplan durchlaufen
 		for(String[] spiel : spielplan) {
 			
-			ausgabe.appendText("|"+spiel[0]+Hilfsfunktionen.leerzeichen(35, spiel[0], mainapp, ausgabe)+"|"+Hilfsfunktionen.datumWandeln(spiel[1], mainapp, ausgabe)+"|"+spiel[2]+""+Hilfsfunktionen.leerzeichen(40, spiel[2], mainapp, ausgabe)+"|"+spiel[3]+""+Hilfsfunktionen.leerzeichen(30, spiel[3], mainapp, ausgabe)+"|"+spiel[4]+""+Hilfsfunktionen.leerzeichen(30, spiel[4], mainapp, ausgabe)+"|\n");
+			ausgabe.appendText("|"+spiel[0]+Hilfsfunktionen.leerzeichen(17, spiel[0])+"|"+Hilfsfunktionen.datumWandeln(spiel[1])+Hilfsfunktionen.leerzeichen(22, spiel[1])+"|"+spiel[2]+""+Hilfsfunktionen.leerzeichen(17, spiel[2])+"|"+spiel[3]+""+Hilfsfunktionen.leerzeichen(17, spiel[3])+"|"+spiel[4]+""+Hilfsfunktionen.leerzeichen(17, spiel[4])+"|\n");
 		}
 	}
 
@@ -160,15 +156,11 @@ public class WMHandler implements EventHandler
 		List<String[]> ergebnisse = mainapp.getPrep().getDbConnect().ergebnisseAusgeben();
 		
 		ausgabe.appendText(" Spielmodus \t  Heimmanschaft - Gastmanschaft \t Halbzeit \t Regul. Spielz. \t Verl�ngerung \t Elfmeter \t Gelbe Karten \t Rote Katen \n");
-		//System.out.println(" Spielmodus \t  Heimmanschaft - Gastmanschaft \t Halbzeit \t Regul. Spielz. \t Verl�ngerung \t Elfmeter \t Gelbe Karten \t Rote Katen");;
 		
 		
 		for(String[] ergebnis : ergebnisse) {
 			ausgabe.appendText(ergebnis[0]+" \t "+ergebnis[4]+" - "+ergebnis[5]+" \t "+ergebnis[6] +":" +ergebnis[7]+" \t "+ergebnis[8]+":"+ergebnis[9]+"\t"+ergebnis[11]+":"+ergebnis[12]+ "\t"+
 					ergebnis[14]+":"+ergebnis[15]+"\t"+ergebnis[16]+" - "+ergebnis[17]+"\t"+ergebnis[20]+" - "+ergebnis[21] +"\n");
-		//System.out.println(ergebnis[0]+" \t "+ergebnis[4]+" - "+ergebnis[5]+" \t "+ergebnis[6] +":" +ergebnis[7]+" \t "+ergebnis[8]+":"+ergebnis[9]+"\t"+ergebnis[11]+":"+ergebnis[12]+ "\t"+
-		//		ergebnis[14]+":"+ergebnis[15]+"\t"+ergebnis[16]+" - "+ergebnis[17]+"\t"+ergebnis[20]+" - "+ergebnis[21]);;
-		
 		}
 	}
 	
@@ -179,12 +171,10 @@ public class WMHandler implements EventHandler
 		List<String[]> ranking = mainapp.getPrep().getDbConnect().rankingAusgeben();
 		
 		ausgabe.appendText("Platz Tipper Punkte Gruppe \n");
-		//System.out.println(" Platz \t Tipper \t Punkte \t Gruppe");
 		
 		for (String[] rank : ranking)
 		{
 			ausgabe.appendText(rank[1]+" \t "+rank[2]+ " \t "+rank[3]+" \t" +rank[4] + "\n");
-			//System.out.println(rank[1]+" \t "+rank[2]+ " \t "+rank[3]+" \t" +rank[4]);
 		}
 	}
 	
@@ -297,7 +287,6 @@ public class WMHandler implements EventHandler
             rankingList.add(wm2018Benutzer);
         }
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String s = formatter.format(date);

@@ -10,6 +10,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wm.gui.view.WM2018MainController">
    <children>
@@ -18,7 +19,7 @@
    <left>
       <ImageView fitHeight="440.0" fitWidth="701.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@../../../../../../../Documents/Uni/2.%20Semester/GDI_2_Neu/Projekt/WM2018_Framework_GUI_1.30/bilder/rasen.png" />
+            <Image url="@../../../../bilder/rasen.png" />
          </image>
          <BorderPane.margin>
             <Insets top="130.0" />
@@ -28,7 +29,7 @@
    <center>
       <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_CENTER">
          <image>
-            <Image url="@../../../../../../../Documents/Uni/2.%20Semester/GDI_2_Neu/Projekt/WM2018_Framework_GUI_1.30/bilder/wm2018.png" />
+            <Image url="@../../../../bilder/wm2018.png" />
          </image>
          <BorderPane.margin>
             <Insets bottom="30.0" right="600.0" />
@@ -50,6 +51,9 @@
          <BorderPane.margin>
             <Insets bottom="20.0" left="50.0" right="50.0" />
          </BorderPane.margin>
+         <font>
+            <Font name="Courier" size="13.0" />
+         </font>
       </TextArea>
    </bottom>
    <top>

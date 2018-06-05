@@ -142,25 +142,67 @@ public class WMHandler implements EventHandler
 		
 		//Funktion für datum umwandeln aus der Klasse Hilfsfunktionen
 		
-		ausgabe.appendText("|Spielbezeichnung"+Hilfsfunktionen.leerzeichen(17, "Spielbezeichnung")+"|DatumUhrzeit"+Hilfsfunktionen.leerzeichen(22, "DatumUhrzeit")+"|Heimmannschaft" +Hilfsfunktionen.leerzeichen(17, "Heimmannschaft")+"|Gastmannschaft"+Hilfsfunktionen.leerzeichen(17, "Gastmannschaft")+ "|Spielort" +Hilfsfunktionen.leerzeichen(17, "Spielort")+"| \n");
+		ausgabe.appendText("|Spielbezeichnung"+Hilfsfunktionen.leerzeichen(20, "Spielbezeichnung")
+		+"|DatumUhrzeit"+Hilfsfunktionen.leerzeichen(25,"DatumUhrzeit")
+		+"|Heimmannschaft" +Hilfsfunktionen.leerzeichen(17,"Heimmannschaft")
+		+"|Gastmannschaft"+Hilfsfunktionen.leerzeichen(17,"Gastmannschaft")
+		+"|Spielort" +Hilfsfunktionen.leerzeichen(17,"Spielort")+"| \n");
+		
 		//Jedes Spiel aus der Liste spielplan durchlaufen
 		for(String[] spiel : spielplan) {
 			
-			ausgabe.appendText("|"+spiel[0]+Hilfsfunktionen.leerzeichen(17, spiel[0])+"|"+Hilfsfunktionen.datumWandeln(spiel[1])+Hilfsfunktionen.leerzeichen(22, spiel[1])+"|"+spiel[2]+""+Hilfsfunktionen.leerzeichen(17, spiel[2])+"|"+spiel[3]+""+Hilfsfunktionen.leerzeichen(17, spiel[3])+"|"+spiel[4]+""+Hilfsfunktionen.leerzeichen(17, spiel[4])+"|\n");
+			ausgabe.appendText("|"
+			+spiel[0]+Hilfsfunktionen.leerzeichen(20, spiel[0])
+			+"|"+Hilfsfunktionen.datumWandeln(spiel[1])+""+Hilfsfunktionen.leerzeichen(25, spiel[1])
+			+"|"+spiel[2]+""+Hilfsfunktionen.leerzeichen(17, spiel[2])+""
+			+"|"+spiel[3]+""+Hilfsfunktionen.leerzeichen(17, spiel[3])
+			+"|"+spiel[4]+""+Hilfsfunktionen.leerzeichen(17, spiel[4])+"|\n");
 		}
 	}
+
 
 	
 	public static void ergebnisseAusgeben(WM2018 mainapp, TextArea ausgabe) 
 	{
 		List<String[]> ergebnisse = mainapp.getPrep().getDbConnect().ergebnisseAusgeben();
 		
-		ausgabe.appendText(" Spielmodus \t  Heimmanschaft - Gastmanschaft \t Halbzeit \t Regul. Spielz. \t Verl�ngerung \t Elfmeter \t Gelbe Karten \t Rote Katen \n");
+		ausgabe.appendText
+				("Spielmodus"+Hilfsfunktionen.leerzeichen(15, "Spielmodus") 
+				+"Heimmanschaft"+Hilfsfunktionen.leerzeichen(18, "Heimmanschaft")
+				+"-"+Hilfsfunktionen.leerzeichen(11,"-")
+				+"Gastmanschaft"+Hilfsfunktionen.leerzeichen(18, "Gastmanschaft") 
+				+"Halbzeit"+Hilfsfunktionen.leerzeichen(15, "Halbzeit")
+				+"Regul. Spielz."+Hilfsfunktionen.leerzeichen(15, "Regul. Spielz.") 
+				+"Verlaengerung"+Hilfsfunktionen.leerzeichen(15,"Verlaengerung")
+				+"Elfmeter"+Hilfsfunktionen.leerzeichen(15, "Elfmeter") 
+				+"Gelbe Karten"+Hilfsfunktionen.leerzeichen(17, "Gelbe Karten") 
+				+"Rote Karten"+Hilfsfunktionen.leerzeichen(17,"Rote Karten") +"\n");
 		
 		
 		for(String[] ergebnis : ergebnisse) {
-			ausgabe.appendText(ergebnis[0]+" \t "+ergebnis[4]+" - "+ergebnis[5]+" \t "+ergebnis[6] +":" +ergebnis[7]+" \t "+ergebnis[8]+":"+ergebnis[9]+"\t"+ergebnis[11]+":"+ergebnis[12]+ "\t"+
-					ergebnis[14]+":"+ergebnis[15]+"\t"+ergebnis[16]+" - "+ergebnis[17]+"\t"+ergebnis[20]+" - "+ergebnis[21] +"\n");
+			ausgabe.appendText
+				(ergebnis[0]+Hilfsfunktionen.leerzeichen(15,ergebnis[0]) 
+				+ergebnis[4]+Hilfsfunktionen.leerzeichen(18,ergebnis[4])
+				+"-"+Hilfsfunktionen.leerzeichen(11, "-")
+				+ergebnis[5]+Hilfsfunktionen.leerzeichen(18,ergebnis[5]) 
+				+ergebnis[6]+Hilfsfunktionen.leerzeichen(1,ergebnis[6]) 
+				+":"+Hilfsfunktionen.leerzeichen(1,":") 
+				+ergebnis[7]+Hilfsfunktionen.leerzeichen(13,ergebnis[7])
+				+ergebnis[8]+Hilfsfunktionen.leerzeichen(1, ergebnis[8])
+				+":"+Hilfsfunktionen.leerzeichen(1, ":")
+				+ergebnis[9]+Hilfsfunktionen.leerzeichen(13, ergebnis[9])
+				+ergebnis[11]+Hilfsfunktionen.leerzeichen(1,ergebnis[11])
+				+":"+Hilfsfunktionen.leerzeichen(1,":")
+				+ergebnis[12]+Hilfsfunktionen.leerzeichen(13,ergebnis[12])
+				+ergebnis[14]+Hilfsfunktionen.leerzeichen(1, ergebnis[14])
+				+":"+Hilfsfunktionen.leerzeichen(1, ":")
+				+ergebnis[15]+Hilfsfunktionen.leerzeichen(13, ergebnis[15]) 
+				+ergebnis[16]+Hilfsfunktionen.leerzeichen(2,ergebnis[16])
+				+"-"+Hilfsfunktionen.leerzeichen(2,"-")
+				+ergebnis[17]+Hilfsfunktionen.leerzeichen(13,ergebnis[17])
+				+ergebnis[20]+Hilfsfunktionen.leerzeichen(2,ergebnis[20])
+				+"-"+Hilfsfunktionen.leerzeichen(2,"-")
+				+ergebnis[21]+Hilfsfunktionen.leerzeichen(13,ergebnis[21])+"\n");
 		}
 	}
 	
@@ -171,24 +213,23 @@ public class WMHandler implements EventHandler
 		List<String[]> ranking = mainapp.getPrep().getDbConnect().rankingAusgeben();
 		
 
-		ausgabe.appendText("Platz Tipper Punkte Gruppe \n");
+		ausgabe.appendText
+		("Platz"+Hilfsfunktionen.leerzeichen(10, "Platz")
+		+"Tipper"+Hilfsfunktionen.leerzeichen(15, "Tipper")
+		+"Punkte"+Hilfsfunktionen.leerzeichen(8, "Punkte")
+		+"Gruppe"+Hilfsfunktionen.leerzeichen(15, "Gruppe") +"\n");
 		
-		/*for (String[] rank : ranking)
+		for (String[] rank : ranking)
 		{
-			ausgabe.appendText(rank[1]+" \t "+rank[2]+ " \t "+rank[3]+" \t" +rank[4] + "\n");
+			ausgabe.appendText
+			(rank[1]+Hilfsfunktionen.leerzeichen(10, rank[1])
+			+rank[2]+Hilfsfunktionen.leerzeichen(15, rank[2])
+			+rank[3]+Hilfsfunktionen.leerzeichen(8, rank[3])
+			+rank[4]+Hilfsfunktionen.leerzeichen(15, rank[4]) + "\n");
 
-		//ausgabe.appendText("Platz" +Hilfsfunktionen.leerzeichen(5, "Platz", mainapp, ausgabe)+"Tipper"+Hilfsfunktionen.leerzeichen(10, "Tipper", mainapp, ausgabe)+ "Punkte"+Hilfsfunktionen.leerzeichen(10, "Punkte", mainapp, ausgabe)+"Gruppe"+Hilfsfunktionen.leerzeichen(10, "Gruppe", mainapp, ausgabe)+  "\n");
-		
-		/*for (String[] rank : ranking)
-		{
-			String eins = rank[1];
-			String zwei = rank[2];
-			String drei = rank[3];
-			String vier = rank[4];
-			
-			ausgabe.appendText(Hilfsfunktionen.leerzeichen(10, rank[1] + rank[2] + rank[3]+rank[4], mainapp, ausgabe));
+	
 
-		}*/
+		}
 	}
 	
 	
@@ -231,17 +272,17 @@ public class WMHandler implements EventHandler
 			kospiele[18] = viertelfinaleheim2.getText();
 			kospiele[19] = viertelfinalegast2.getText();
 			kospiele[20] = viertelfinaleheim3.getText();
-			kospiele[20] = viertelfinalegast3.getText();
-			kospiele[20] = viertelfinaleheim4.getText();
-			kospiele[20] = viertelfinalegast4.getText();
-			kospiele[20] = halbfinaleheim1.getText();
-			kospiele[20] = halbfinalegast1.getText();
-			kospiele[20] = halbfinaleheim2.getText();
-			kospiele[20] = halbfinalegast2.getText();
-			kospiele[20] = platz3heim.getText();
-			kospiele[20] = platz3gast.getText();
-			kospiele[20] = finaleheim.getText();
-			kospiele[20] = finalegast.getText();
+			kospiele[21] = viertelfinalegast3.getText();
+			kospiele[22] = viertelfinaleheim4.getText();
+			kospiele[23] = viertelfinalegast4.getText();
+			kospiele[24] = halbfinaleheim1.getText();
+			kospiele[25] = halbfinalegast1.getText();
+			kospiele[26] = halbfinaleheim2.getText();
+			kospiele[27] = halbfinalegast2.getText();
+			kospiele[28] = platz3heim.getText();
+			kospiele[29] = platz3gast.getText();
+			kospiele[30] = finaleheim.getText();
+			kospiele[31] = finalegast.getText();
 				
 			
 			ausgabe.appendText(mainapp.getPrep().getDbConnect().koSpieleEintragen(kospiele));

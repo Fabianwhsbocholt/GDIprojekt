@@ -199,55 +199,15 @@ public class WMHandler implements EventHandler
 	
 	
 	public void koSpieleEingeben(WM2018 mainapp, TextArea ausgabe, TextField achtelfinaleheim1, TextField achtelfinaleheim2, 
-			TextField achtelfinaleheim3, TextField achtelfinaleheim4, TextField achtelfinaleheim5, TextField achtelfinaleheim6, 
-			TextField achtelfinaleheim7, TextField achtelfinaleheim8, TextField achtelfinalegast1,  TextField achtelfinalegast2,  
-			TextField achtelfinalegast3,  TextField achtelfinalegast4,  TextField achtelfinalegast5,  TextField achtelfinalegast6,  
-			TextField achtelfinalegast7,  TextField achtelfinalegast8, TextField viertelfinaleheim1, TextField viertelfinaleheim2, 
-			TextField viertelfinaleheim3, TextField viertelfinaleheim4, TextField viertelfinalegast1, TextField viertelfinalegast2, 
-			TextField viertelfinalegast3, TextField viertelfinalegast4, TextField halbfinaleheim1, TextField halbfinaleheim2, 
-			TextField halbfinalegast1, TextField halbfinalegast2, TextField platz3heim, TextField platz3gast, TextField finaleheim, 
-			TextField finalegast) 
+	TextField achtelfinaleheim3, TextField achtelfinaleheim4, TextField achtelfinaleheim5, TextField achtelfinaleheim6, 
+	TextField achtelfinaleheim7, TextField achtelfinaleheim8, TextField achtelfinalegast1,  TextField achtelfinalegast2,  
+	TextField achtelfinalegast3,  TextField achtelfinalegast4,  TextField achtelfinalegast5,  TextField achtelfinalegast6,  
+	TextField achtelfinalegast7,  TextField achtelfinalegast8, TextField viertelfinaleheim1, TextField viertelfinaleheim2, 
+	TextField viertelfinaleheim3, TextField viertelfinaleheim4, TextField viertelfinalegast1, TextField viertelfinalegast2, 
+	TextField viertelfinalegast3, TextField viertelfinalegast4, TextField halbfinaleheim1, TextField halbfinaleheim2, 
+	TextField halbfinalegast1, TextField halbfinalegast2, TextField platz3heim, TextField platz3gast, TextField finaleheim, 
+	TextField finalegast) 
 	{
-		
-		List<String[]> koSpiele = mainapp.getPrep().getDbConnect().koSpieleSammeln();
-
-			for(String[] koSpiel : koSpiele)
-			{
-				achtelfinaleheim1.setText(koSpiel[0]);
-				achtelfinalegast1.setText(koSpiel[1]);
-				achtelfinaleheim2.setText(koSpiel[2]);
-				achtelfinalegast2.setText(koSpiel[3]);
-				achtelfinaleheim3.setText(koSpiel[4]);
-				achtelfinalegast3.setText(koSpiel[5]);
-				achtelfinaleheim4.setText(koSpiel[6]);
-				achtelfinalegast4.setText(koSpiel[7]);
-				achtelfinaleheim5.setText(koSpiel[8]);
-				achtelfinalegast5.setText(koSpiel[9]);
-				achtelfinaleheim6.setText(koSpiel[10]);
-				achtelfinalegast6.setText(koSpiel[11]);
-				achtelfinaleheim7.setText(koSpiel[12]);
-				achtelfinalegast7.setText(koSpiel[13]);
-				achtelfinaleheim8.setText(koSpiel[14]);
-				achtelfinalegast8.setText(koSpiel[15]);
-				viertelfinaleheim1.setText(koSpiel[16]);
-				viertelfinalegast1.setText(koSpiel[17]);
-				viertelfinaleheim2.setText(koSpiel[18]);
-				viertelfinalegast2.setText(koSpiel[19]);
-				viertelfinaleheim3.setText(koSpiel[20]);
-				viertelfinalegast3.setText(koSpiel[21]);
-				viertelfinaleheim4.setText(koSpiel[22]);
-				viertelfinalegast4.setText(koSpiel[23]);
-				halbfinaleheim1.setText(koSpiel[24]);
-				halbfinalegast1.setText(koSpiel[25]);
-				halbfinaleheim2.setText(koSpiel[26]);
-				halbfinalegast2.setText(koSpiel[27]);
-				platz3heim.setText(koSpiel[28]);
-				platz3gast.setText(koSpiel[29]);
-				finaleheim.setText(koSpiel[30]);
-				finalegast.setText(koSpiel[31]);
-			}
-		
-		
 			String [] kospiele = new String[32];
 			
 			kospiele[0] = achtelfinaleheim1.getText();
@@ -286,40 +246,7 @@ public class WMHandler implements EventHandler
 			
 			ausgabe.appendText(mainapp.getPrep().getDbConnect().koSpieleEintragen(kospiele));
 			
-/*			 achtelfinaleheim1.clear();
-				achtelfinalegast1.clear();
-				achtelfinaleheim2.clear();
-				achtelfinalegast2.clear();
-				achtelfinaleheim3.clear();
-				achtelfinalegast3.clear();
-				achtelfinaleheim4.clear();
-				achtelfinalegast4.clear();
-				achtelfinaleheim5.clear();
-				achtelfinalegast5.clear();
-				achtelfinaleheim6.clear();
-				achtelfinalegast6.clear();
-				achtelfinaleheim7.clear();
-				achtelfinalegast7.clear();
-				achtelfinaleheim8.clear();
-				achtelfinalegast8.clear();
-				viertelfinaleheim1.clear();
-				viertelfinalegast1.clear();
-				viertelfinaleheim2.clear();
-				viertelfinalegast2.clear();
-				viertelfinaleheim3.clear();
-				viertelfinalegast3.clear();
-				viertelfinaleheim4.clear();
-				viertelfinalegast4.clear();
-				halbfinaleheim1.clear();
-				halbfinalegast1.clear();
-				halbfinaleheim2.clear();
-				halbfinalegast2.clear();
-				platz3heim.clear();
-				platz3gast.clear();
-				finaleheim.clear();
-				finalegast.clear(); */
-							
-			
+		
 	}
 	
 	public void spielergebnisseEingabe(WM2018 mainapp, TextArea ausgabe, String id, TextField toreheimhz, TextField toregasthz, 		

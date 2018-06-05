@@ -3,6 +3,7 @@ package wm.gui;
 import java.io.IOException;
 import java.util.List;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
@@ -114,6 +115,47 @@ public class FXML_Loader
             kospiele.setMainapp(mainapp);
             kospiele.setTextArea(ausgabe);
             
+            TextField achtelfinalegast1=kospiele.getAchtelfinalegast1();
+            TextField achtelfinalegast2=kospiele.getAchtelfinalegast2();
+            TextField achtelfinalegast3=kospiele.getAchtelfinalegast3();
+            TextField achtelfinalegast4=kospiele.getAchtelfinalegast4();
+            TextField achtelfinalegast5=kospiele.getAchtelfinalegast5();
+            TextField achtelfinalegast6=kospiele.getAchtelfinalegast6();
+            TextField achtelfinalegast7=kospiele.getAchtelfinalegast7();
+            TextField achtelfinalegast8=kospiele.getAchtelfinalegast8();
+            TextField achtelfinaleheim1 = kospiele.getAchtelfinaleheim1();
+            TextField achtelfinaleheim2 = kospiele.getAchtelfinaleheim2();
+            TextField achtelfinaleheim3 = kospiele.getAchtelfinaleheim3();
+            TextField achtelfinaleheim4 = kospiele.getAchtelfinaleheim4();
+            TextField achtelfinaleheim5 = kospiele.getAchtelfinaleheim5();
+            TextField achtelfinaleheim6 = kospiele.getAchtelfinaleheim6();
+            TextField achtelfinaleheim7 = kospiele.getAchtelfinaleheim7();
+            TextField achtelfinaleheim8 = kospiele.getAchtelfinaleheim8();
+            TextField viertelfinaleheim1 = kospiele.getViertelfinaleheim1();
+            TextField viertelfinaleheim2 = kospiele.getViertelfinaleheim2();
+            TextField viertelfinaleheim3 = kospiele.getViertelfinaleheim3();
+            TextField viertelfinaleheim4 = kospiele.getViertelfinaleheim4();
+            TextField viertelfinalegast1 = kospiele.getViertelfinalegast1();
+            TextField viertelfinalegast2 = kospiele.getViertelfinalegast2();
+            TextField viertelfinalegast3 = kospiele.getViertelfinalegast3();
+            TextField viertelfinalegast4 = kospiele.getViertelfinalegast4();
+            TextField halbfinaleheim1 = kospiele.getHalbfinaleheim1();
+        	TextField halbfinalegast1 =  kospiele.getHalbfinalegast1();
+        	TextField halbfinaleheim2 =  kospiele.getHalbfinaleheim2();
+        	TextField halbfinalegast2 =  kospiele.getHalbfinalegast2();
+        	TextField platz3heim = kospiele.getPlatz3heim();
+        	TextField platz3gast = kospiele.getPlatz3gast();
+        	TextField finaleheim = kospiele.getFinaleheim();
+        	TextField finalegast = kospiele.getFinalegast();
+        	
+        	kospiele.festeWerte(mainapp, ausgabe, achtelfinaleheim1, achtelfinaleheim2, achtelfinaleheim3, achtelfinaleheim4, 
+			achtelfinaleheim5, achtelfinaleheim6, achtelfinaleheim7, achtelfinaleheim8, achtelfinalegast1, 
+			achtelfinalegast2, achtelfinalegast3, achtelfinalegast4, achtelfinalegast5, achtelfinalegast6, 
+			achtelfinalegast7, achtelfinalegast8, viertelfinaleheim1, viertelfinaleheim2, viertelfinaleheim3, 
+			viertelfinaleheim4, viertelfinalegast1, viertelfinalegast2, viertelfinalegast3, viertelfinalegast4, 
+			halbfinaleheim1, halbfinaleheim2, halbfinalegast1, halbfinalegast2, platz3heim, platz3gast, finaleheim, 
+			finalegast);
+        	
             Scene scene=new Scene(mainapp.getKospieleLayout());
             mainapp.getKospieleStage().setScene(scene);
             mainapp.getKospieleStage().show();

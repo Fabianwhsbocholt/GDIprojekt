@@ -319,7 +319,7 @@ public class WMHandler implements EventHandler
     
 
     //Berechnet die Punkte die ein Tipp dem Benutzer eingebracht hat
-   
+    
     private static int berechnePunkteFuerTipp(String[] tipp, String[] spielergebnis){
 
         int erreichtePunkte = 0;
@@ -332,10 +332,17 @@ public class WMHandler implements EventHandler
                 erreichtePunkte = erreichtePunkte + 6;
             }
             // 3 Punkte fuer Halbzeitergebnis korrekte Tendenz
-            else if (Integer.parseInt(tipp[5]) - Integer.parseInt(tipp[4]) ==
-                    Integer.parseInt(spielergebnis[7]) - Integer.parseInt(spielergebnis[6])) {
-                erreichtePunkte = erreichtePunkte + 3;
-            }
+            else if(Integer.parseInt(tipp[4])-Integer.parseInt(tipp[5]) > 0
+					&& Integer.parseInt(spielergebnis[6]) - Integer.parseInt(spielergebnis[7]) > 0 ||
+					Integer.parseInt(tipp[4])-Integer.parseInt(tipp[5]) < 0
+							&& Integer.parseInt(spielergebnis[6]) - Integer.parseInt(spielergebnis[7]) < 0 ||
+					Integer.parseInt(tipp[4])-Integer.parseInt(tipp[5]) == 0
+							&& Integer.parseInt(spielergebnis[6]) - Integer.parseInt(spielergebnis[7]) == 0){
+				erreichtePunkte = erreichtePunkte + 3;
+			}
+
+
+
         }
         //Endergebis!
             // 11 Punkte fuer Endergbnis korrekt
@@ -344,11 +351,15 @@ public class WMHandler implements EventHandler
                     Integer.parseInt(tipp[6]) == Integer.parseInt(spielergebnis[8])) {
                 erreichtePunkte = erreichtePunkte + 11;
             }
-            // 3 Punkte fuer Endergebnis korrekte Tendenz 
-            else if (Integer.parseInt(tipp[7]) - Integer.parseInt(tipp[6]) ==
-                    Integer.parseInt(spielergebnis[9]) - Integer.parseInt(spielergebnis[8])) {
-                erreichtePunkte = erreichtePunkte + 5;
-            }
+            // 5 Punkte fuer Endergebnis korrekte Tendenz
+			else if(Integer.parseInt(tipp[6])-Integer.parseInt(tipp[7]) > 0
+					&& Integer.parseInt(spielergebnis[8]) - Integer.parseInt(spielergebnis[9]) > 0 ||
+					Integer.parseInt(tipp[6])-Integer.parseInt(tipp[7]) < 0
+							&& Integer.parseInt(spielergebnis[8]) - Integer.parseInt(spielergebnis[9]) < 0 ||
+					Integer.parseInt(tipp[6])-Integer.parseInt(tipp[7]) == 0
+							&& Integer.parseInt(spielergebnis[8]) - Integer.parseInt(spielergebnis[9]) == 0){
+				erreichtePunkte = erreichtePunkte + 5;
+			}
         }
         //Verlaengerung!
         if(tipp[8]!=null && tipp[9] != null && spielergebnis[11] !=null && spielergebnis[12] !=null) {
@@ -359,11 +370,15 @@ public class WMHandler implements EventHandler
                         Integer.parseInt(tipp[8]) == Integer.parseInt(spielergebnis[11])) {
                     erreichtePunkte = erreichtePunkte + 11;
                 }
-                // 3 Punkte fuer Verlaengerung korrekte Tendenz  
-                else if (Integer.parseInt(tipp[9]) - Integer.parseInt(tipp[8]) ==
-                        Integer.parseInt(spielergebnis[12]) - Integer.parseInt(spielergebnis[11])) {
-                    erreichtePunkte = erreichtePunkte + 5;
-                }
+                // 5 Punkte fuer Verlaengerung korrekte Tendenz
+				else if(Integer.parseInt(tipp[8])-Integer.parseInt(tipp[9]) > 0
+						&& Integer.parseInt(spielergebnis[11]) - Integer.parseInt(spielergebnis[12]) > 0 ||
+						Integer.parseInt(tipp[8])-Integer.parseInt(tipp[9]) < 0
+								&& Integer.parseInt(spielergebnis[11]) - Integer.parseInt(spielergebnis[12]) < 0 ||
+						Integer.parseInt(tipp[8])-Integer.parseInt(tipp[9]) == 0
+								&& Integer.parseInt(spielergebnis[11]) - Integer.parseInt(spielergebnis[12]) == 0){
+					erreichtePunkte = erreichtePunkte + 5;
+				}
 
             }
         }
@@ -372,14 +387,18 @@ public class WMHandler implements EventHandler
             if (Integer.parseInt(spielergebnis[13]) == 1) {
                 // 11 Punkte fuer Elfmeterschiessen korrekt
                 if (Integer.parseInt(tipp[11]) == Integer.parseInt(spielergebnis[15]) &&
-                        tipp[10] == spielergebnis[14]) {
+						Integer.parseInt(tipp[10]) == Integer.parseInt(spielergebnis[14])) {
                     erreichtePunkte = erreichtePunkte + 11;
                 }
-                // 3 Punkte fuer Elfmeterschiessen korrekte Tendenz 
-                else if (Integer.parseInt(tipp[11]) - Integer.parseInt(tipp[10]) ==
-                        Integer.parseInt(spielergebnis[15]) - Integer.parseInt(spielergebnis[14])) {
-                    erreichtePunkte = erreichtePunkte + 5;
-                }
+                // 5 Punkte fuer Elfmeterschiessen korrekte Tendenz
+				else if(Integer.parseInt(tipp[10])-Integer.parseInt(tipp[11]) > 0
+						&& Integer.parseInt(spielergebnis[14]) - Integer.parseInt(spielergebnis[15]) > 0 ||
+						Integer.parseInt(tipp[10])-Integer.parseInt(tipp[11]) < 0
+								&& Integer.parseInt(spielergebnis[14]) - Integer.parseInt(spielergebnis[15]) < 0 ||
+						Integer.parseInt(tipp[10])-Integer.parseInt(tipp[11]) == 0
+								&& Integer.parseInt(spielergebnis[14]) - Integer.parseInt(spielergebnis[15]) == 0){
+					erreichtePunkte = erreichtePunkte + 5;
+				}
             }
         }
         //Gelbe Karten

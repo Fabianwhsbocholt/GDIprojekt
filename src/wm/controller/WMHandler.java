@@ -142,23 +142,24 @@ public class WMHandler implements EventHandler
 
 		List<String[]> spielplan = mainapp.getPrep().getDbConnect().spielplanAusgeben();
 		
-		//Funktion für datum umwandeln aus der Klasse Hilfsfunktionen
-		
-		ausgabe.appendText("|Spielbezeichnung"+Hilfsfunktionen.leerzeichen(20, "Spielbezeichnung")
-		+"|DatumUhrzeit"+Hilfsfunktionen.leerzeichen(25,"DatumUhrzeit")
-		+"|Heimmannschaft" +Hilfsfunktionen.leerzeichen(17,"Heimmannschaft")
-		+"|Gastmannschaft"+Hilfsfunktionen.leerzeichen(17,"Gastmannschaft")
-		+"|Spielort" +Hilfsfunktionen.leerzeichen(17,"Spielort")+"| \n\n");
+		//Funktion fuer datum umwandeln aus der Klasse Hilfsfunktionen
+		ausgabe.appendText("====================================================================================================="+"\n");
+		ausgabe.appendText("Spielbezeichnung"+Hilfsfunktionen.leerzeichen(20, "Spielbezeichnung")
+		+"DatumUhrzeit"+Hilfsfunktionen.leerzeichen(24,"DatumUhrzeit")
+		+"Heimmannschaft" +Hilfsfunktionen.leerzeichen(18,"Heimmannschaft")
+		+"Gastmannschaft"+Hilfsfunktionen.leerzeichen(18,"Gastmannschaft")
+		+"Spielort" +Hilfsfunktionen.leerzeichen(17,"Spielort")+ "\n");
+		ausgabe.appendText("====================================================================================================="+"\n");
 		
 		//Jedes Spiel aus der Liste spielplan durchlaufen
-		for(String[] spiel : spielplan) {
-			
-			ausgabe.appendText("|"
-			+spiel[0]+Hilfsfunktionen.leerzeichen(20, spiel[0])
-			+"|"+Hilfsfunktionen.datumWandeln(spiel[1])+""+Hilfsfunktionen.leerzeichen(25, spiel[1])
-			+"|"+spiel[2]+""+Hilfsfunktionen.leerzeichen(17, spiel[2])+""
-			+"|"+spiel[3]+""+Hilfsfunktionen.leerzeichen(17, spiel[3])
-			+"|"+spiel[4]+""+Hilfsfunktionen.leerzeichen(17, spiel[4])+"|\n\n");
+		for(String[] spiel : spielplan) 
+		{		
+			ausgabe.appendText
+			(spiel[0]+Hilfsfunktionen.leerzeichen(20, spiel[0])
+			+Hilfsfunktionen.datumWandeln(spiel[1])+""+Hilfsfunktionen.leerzeichen(25, spiel[1])
+			+spiel[2]+""+Hilfsfunktionen.leerzeichen(18, spiel[2])
+			+spiel[3]+""+Hilfsfunktionen.leerzeichen(18, spiel[3])
+			+spiel[4]+""+Hilfsfunktionen.leerzeichen(17, spiel[4])+"\n");
 		}
 	}
 	
@@ -210,19 +211,21 @@ public class WMHandler implements EventHandler
 	public static void ergebnisseAusgeben(WM2018 mainapp, TextArea ausgabe) 
 	{
 		List<String[]> ergebnisse = mainapp.getPrep().getDbConnect().ergebnisseAusgeben();
-		
+		ausgabe.appendText("=============================================================================================================================================================="+"\n");
+
 		ausgabe.appendText
 				("Spielmodus"+Hilfsfunktionen.leerzeichen(15, "Spielmodus") 
 				+"Heimmanschaft"+Hilfsfunktionen.leerzeichen(18, "Heimmanschaft")
 				+"-"+Hilfsfunktionen.leerzeichen(11,"-")
-				+"Gastmanschaft"+Hilfsfunktionen.leerzeichen(18, "Gastmanschaft") 
-				+"Halbzeit"+Hilfsfunktionen.leerzeichen(15, "Halbzeit")
-				+"Regul. Spielz."+Hilfsfunktionen.leerzeichen(15, "Regul. Spielz.") 
-				+"Verlaengerung"+Hilfsfunktionen.leerzeichen(15,"Verlaengerung")
-				+"Elfmeter"+Hilfsfunktionen.leerzeichen(15, "Elfmeter") 
+				+"Gastmanschaft"+Hilfsfunktionen.leerzeichen(18,"Gastmanschaft") 
+				+"Halbzeit"+Hilfsfunktionen.leerzeichen(17, "Halbzeit")
+				+"Regul. Spielz."+Hilfsfunktionen.leerzeichen(17, "Regul. Spielz.") 
+				+"Verlaengerung"+Hilfsfunktionen.leerzeichen(17,"Verlaengerung")
+				+"Elfmeter"+Hilfsfunktionen.leerzeichen(17, "Elfmeter") 
 				+"Gelbe Karten"+Hilfsfunktionen.leerzeichen(17, "Gelbe Karten") 
-				+"Rote Karten"+Hilfsfunktionen.leerzeichen(17,"Rote Karten") +"\n\n");
-		
+				+"Rote Karten"+Hilfsfunktionen.leerzeichen(17,"Rote Karten") +"\n");
+		ausgabe.appendText("=============================================================================================================================================================="+"\n");
+
 		
 		for(String[] ergebnis : ergebnisse) {
 			ausgabe.appendText
@@ -232,22 +235,22 @@ public class WMHandler implements EventHandler
 				+ergebnis[5]+Hilfsfunktionen.leerzeichen(18,ergebnis[5]) 
 				+ergebnis[6]+Hilfsfunktionen.leerzeichen(1,ergebnis[6]) 
 				+":"+Hilfsfunktionen.leerzeichen(1,":") 
-				+ergebnis[7]+Hilfsfunktionen.leerzeichen(13,ergebnis[7])
+				+ergebnis[7]+Hilfsfunktionen.leerzeichen(15,ergebnis[7])
 				+ergebnis[8]+Hilfsfunktionen.leerzeichen(1, ergebnis[8])
 				+":"+Hilfsfunktionen.leerzeichen(1, ":")
-				+ergebnis[9]+Hilfsfunktionen.leerzeichen(13, ergebnis[9])
+				+ergebnis[9]+Hilfsfunktionen.leerzeichen(15, ergebnis[9])
 				+ergebnis[11]+Hilfsfunktionen.leerzeichen(1,ergebnis[11])
 				+":"+Hilfsfunktionen.leerzeichen(1,":")
-				+ergebnis[12]+Hilfsfunktionen.leerzeichen(13,ergebnis[12])
+				+ergebnis[12]+Hilfsfunktionen.leerzeichen(15,ergebnis[12])
 				+ergebnis[14]+Hilfsfunktionen.leerzeichen(1, ergebnis[14])
 				+":"+Hilfsfunktionen.leerzeichen(1, ":")
-				+ergebnis[15]+Hilfsfunktionen.leerzeichen(13, ergebnis[15]) 
+				+ergebnis[15]+Hilfsfunktionen.leerzeichen(15, ergebnis[15]) 
 				+ergebnis[16]+Hilfsfunktionen.leerzeichen(2,ergebnis[16])
 				+"-"+Hilfsfunktionen.leerzeichen(2,"-")
 				+ergebnis[17]+Hilfsfunktionen.leerzeichen(13,ergebnis[17])
 				+ergebnis[20]+Hilfsfunktionen.leerzeichen(2,ergebnis[20])
 				+"-"+Hilfsfunktionen.leerzeichen(2,"-")
-				+ergebnis[21]+Hilfsfunktionen.leerzeichen(13,ergebnis[21])+"\n\n");
+				+ergebnis[21]+Hilfsfunktionen.leerzeichen(13,ergebnis[21])+"\n");
 		}
 	}
 	
@@ -424,20 +427,22 @@ public class WMHandler implements EventHandler
 	{
 		List<String[]> ranking = mainapp.getPrep().getDbConnect().rankingAusgeben();
 		
+		ausgabe.appendText("====================================================="+"\n");
 
 		ausgabe.appendText
 		("Platz"+Hilfsfunktionen.leerzeichen(10, "Platz")
 		+"Tipper"+Hilfsfunktionen.leerzeichen(15, "Tipper")
-		+"Punkte"+Hilfsfunktionen.leerzeichen(8, "Punkte")
-		+"Gruppe"+Hilfsfunktionen.leerzeichen(15, "Gruppe") +"\n\n");
-		
+		+"Punkte"+Hilfsfunktionen.leerzeichen(15, "Punkte")
+		+"Gruppe"+Hilfsfunktionen.leerzeichen(15, "Gruppe") +"\n");
+		ausgabe.appendText("====================================================="+"\n");
+
 		for (String[] rank : ranking)
 		{
 			ausgabe.appendText
 			(rank[1]+Hilfsfunktionen.leerzeichen(10, rank[1])
 			+rank[2]+Hilfsfunktionen.leerzeichen(15, rank[2])
-			+rank[3]+Hilfsfunktionen.leerzeichen(8, rank[3])
-			+rank[4]+Hilfsfunktionen.leerzeichen(15, rank[4]) + "\n\n");
+			+rank[3]+Hilfsfunktionen.leerzeichen(15, rank[3])
+			+rank[4]+Hilfsfunktionen.leerzeichen(15, rank[4]) + "\n");
 		}
 	}
     

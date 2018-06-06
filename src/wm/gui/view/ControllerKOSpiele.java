@@ -15,7 +15,7 @@ import wm.gui.WM2018;
 	public class ControllerKOSpiele implements Initializable{
 		
 	@FXML private Button speichern = new Button();
-	@FXML private Button schließen = new Button();
+	@FXML private Button schliessen = new Button();
 	@FXML TextArea ausgabe = new TextArea();
 	private WMHandler wmHandler = new WMHandler();
 	WM2018 mainapp;
@@ -63,7 +63,7 @@ import wm.gui.WM2018;
 	}
 	
 	@FXML
-	public void schließen() {
+	public void schliessen() {
 		mainapp.getKospieleStage().close();
 	}
 

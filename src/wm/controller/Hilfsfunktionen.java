@@ -8,8 +8,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javafx.scene.control.TextArea;
-import wm.gui.WM2018;
 
 public class Hilfsfunktionen
 {

@@ -1,33 +1,21 @@
 package wm.gui.view;
 
 import java.io.IOException;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import wm.objekte.DBConnector;
-import wm.controller.Hilfsfunktionen;
+import javafx.scene.control.ToggleGroup;
 import wm.controller.WMHandler;
 import wm.gui.WM2018;
-import wm.main.WM2018main;
-import wm.objekte.Configuration;
 import wm.objekte.Preparation;
-import wm.controller.Hilfsfunktionen;
-import wm.objekte.Configuration;
-import wm.objekte.DBConnector;
-import java.sql.Connection;
+
 
 
 public class ControllerVerbindung {
 
-	//private WMHandler handler = new WMHandler();
 	@FXML Button absenden = new Button();
 	@FXML RadioButton radio1 = new RadioButton();
 	@FXML RadioButton radio2 = new RadioButton();
@@ -37,6 +25,7 @@ public class ControllerVerbindung {
 	@FXML TextField port = new TextField();
 	@FXML TextField benutzer = new TextField();
 	@FXML PasswordField passwort = new PasswordField();
+	@FXML ToggleGroup verbindungsart = new ToggleGroup();
 
 	WM2018 mainapp;
 	Preparation prep;

@@ -24,7 +24,7 @@
                            </image>
                         </ImageView>
                         <Button fx:id="speichern" layoutX="131.0" layoutY="540.0" mnemonicParsing="false" onAction="#speichern" prefHeight="32.0" prefWidth="275.0" text="Speichern" />
-                        <Button fx:id="schließen" layoutX="-23.0" layoutY="540.0" mnemonicParsing="false" onAction="#schließen" prefHeight="32.0" prefWidth="110.0" text="Schließen" />
+                        <Button fx:id="schliessen" layoutX="-23.0" layoutY="540.0" mnemonicParsing="false" onAction="#schliessen" prefHeight="32.0" prefWidth="110.0" text="Schließen" />
                      </children>
                   </Pane>
                 

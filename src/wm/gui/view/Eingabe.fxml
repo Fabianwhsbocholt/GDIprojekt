@@ -24,7 +24,7 @@
                            </image>
                         </ImageView>
                         <Button fx:id="speichern" layoutX="122.0" layoutY="290.0" mnemonicParsing="false" onAction="#speichern" prefHeight="32.0" prefWidth="260.0" text="Speichern" />
-                        <Button fx:id="schließen" layoutX="-18.0" layoutY="290.0" mnemonicParsing="false" onAction="#schließen" prefHeight="32.0" prefWidth="118.0" text="Schließen" />
+                        <Button fx:id="schliessen" layoutX="-18.0" layoutY="290.0" mnemonicParsing="false" onAction="#schliessen" prefHeight="32.0" prefWidth="118.0" text="Schließen" />
                      </children>
                   </Pane>
                   <TextField fx:id="datetime" editable="false" layoutX="121.0" layoutY="34.0" prefHeight="27.0" prefWidth="260.0" />
@@ -40,8 +40,8 @@
                   <TextField fx:id="gastrot" layoutX="251.0" layoutY="169.0" prefHeight="27.0" prefWidth="130.0" />
                   <TextField fx:id="heimgelbrot" layoutX="121.0" layoutY="196.0" prefHeight="27.0" prefWidth="130.0" />
                   <TextField fx:id="gastgelbrot" layoutX="251.0" layoutY="196.0" prefHeight="27.0" prefWidth="130.0" />
-                  <TextField fx:id="heimverlängerung" layoutX="121.0" layoutY="223.0" prefHeight="27.0" prefWidth="130.0" visible="false" />
-                  <TextField fx:id="gastverlängerung" layoutX="251.0" layoutY="223.0" prefHeight="27.0" prefWidth="130.0" visible="false" />
+                  <TextField fx:id="heimverlaengerung" layoutX="121.0" layoutY="223.0" prefHeight="27.0" prefWidth="130.0" visible="false" />
+                  <TextField fx:id="gastverlaengerung" layoutX="251.0" layoutY="223.0" prefHeight="27.0" prefWidth="130.0" visible="false" />
                   <TextField fx:id="heimelfmeter" layoutX="121.0" layoutY="250.0" prefHeight="27.0" prefWidth="130.0" visible="false" />
                   <TextField fx:id="gastelfmeter" layoutX="251.0" layoutY="250.0" prefHeight="27.0" prefWidth="130.0" visible="false" />
 

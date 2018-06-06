@@ -35,7 +35,7 @@ import wm.interfaces.DBConnectorI;
 public class ControllerEingabe implements Initializable  {
  
    @FXML private Button speichern = new Button();
-   @FXML private Button schließen = new Button();
+   @FXML private Button schliessen = new Button();
    @FXML TextArea ausgabe = new TextArea();
    private WMHandler WMHandler = new WMHandler();
    WM2018 mainapp;
@@ -55,8 +55,8 @@ public class ControllerEingabe implements Initializable  {
    @FXML TextField gastrot = new TextField();
    @FXML TextField heimgelbrot = new TextField();
    @FXML TextField gastgelbrot = new TextField();
-   @FXML TextField heimverlängerung = new TextField();  
-   @FXML TextField gastverlängerung = new TextField();
+   @FXML TextField heimverlaengerung = new TextField();  
+   @FXML TextField gastverlaengerung = new TextField();
    @FXML TextField heimelfmeter = new TextField();
    @FXML TextField gastelfmeter = new TextField();
    @FXML Label verlängerung = new Label();
@@ -70,7 +70,7 @@ public class ControllerEingabe implements Initializable  {
    }
    
 	@FXML
-	public void schließen() {
+	public void schliessen() {
 		mainapp.getEingabeStage().close();
 	}
 
@@ -78,7 +78,7 @@ public class ControllerEingabe implements Initializable  {
    public void speichern ()
 	{
 	   WMHandler.spielergebnisseEingabe(mainapp, ausgabe, getId(), toreheimhz, toregasthz, 
-			   toreheimende, toregastende, heimverlängerung, gastverlängerung, heimelfmeter, 
+			   toreheimende, toregastende, heimverlaengerung, gastverlaengerung, heimelfmeter, 
 			   gastelfmeter, heimgelb, gastgelb, heimrot, gastrot, heimgelbrot, gastgelbrot);
 	   festeWerte(mainapp, ausgabe, gruppe, datetime, heimmannschaft, gastmannschaft);
 	   
@@ -100,7 +100,7 @@ public class ControllerEingabe implements Initializable  {
 		}
 		
 		if((Integer.parseInt(getId())  >= 48)) {
-			kospielepruefen(mainapp, verlängerung, elfmeter, heimverlängerung, gastverlängerung, heimelfmeter, gastelfmeter);
+			kospielepruefen(mainapp, verlängerung, elfmeter, heimverlaengerung, gastverlaengerung, heimelfmeter, gastelfmeter);
 		}
 			
 	}
@@ -125,18 +125,22 @@ public class ControllerEingabe implements Initializable  {
 		this.id = id;
 	}
 	
-    public TextField getHeimverlängerung() {
-		return heimverlängerung;
+   public TextField getHeimverlaengerung() {
+		return heimverlaengerung;
 	}
-	public void setHeimverlängerung(TextField heimverlängerung) {
-		this.heimverlängerung = heimverlängerung;
+
+	public void setHeimverlaengerung(TextField heimverlaengerung) {
+		this.heimverlaengerung = heimverlaengerung;
 	}
-	public TextField getGastverlängerung() {
-		return gastverlängerung;
+
+	public TextField getGastverlaengerung() {
+		return gastverlaengerung;
 	}
-	public void setGastverlängerung(TextField gastverlängerung) {
-		this.gastverlängerung = gastverlängerung;
+
+	public void setGastverlaengerung(TextField gastverlaengerung) {
+		this.gastverlaengerung = gastverlaengerung;
 	}
+   
 	public TextField getHeimelfmeter() {
 		return heimelfmeter;
 	}

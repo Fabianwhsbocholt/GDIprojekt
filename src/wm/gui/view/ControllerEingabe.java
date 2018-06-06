@@ -59,7 +59,7 @@ public class ControllerEingabe implements Initializable  {
    @FXML TextField gastverlaengerung = new TextField();
    @FXML TextField heimelfmeter = new TextField();
    @FXML TextField gastelfmeter = new TextField();
-   @FXML Label verlängerung = new Label();
+   @FXML Label verlaengerung = new Label();
    @FXML Label elfmeter = new Label();
    String id;
 
@@ -100,17 +100,17 @@ public class ControllerEingabe implements Initializable  {
 		}
 		
 		if((Integer.parseInt(getId())  >= 48)) {
-			kospielepruefen(mainapp, verlängerung, elfmeter, heimverlaengerung, gastverlaengerung, heimelfmeter, gastelfmeter);
+			kospielepruefen(mainapp, verlaengerung, elfmeter, heimverlaengerung, gastverlaengerung, heimelfmeter, gastelfmeter);
 		}
 			
 	}
 	
-	public void kospielepruefen (WM2018 mainapp, Label verlängerung, Label elfmeter, TextField heimverlängerung, TextField gastverlängerung, TextField heimelf, TextField gastelf)
+	public void kospielepruefen (WM2018 mainapp, Label verlaengerung, Label elfmeter, TextField heimverlaengerung, TextField gastverlaengerung, TextField heimelf, TextField gastelf)
 	{
-		verlängerung.setVisible(true);
+		verlaengerung.setVisible(true);
 		elfmeter.setVisible(true);
-		heimverlängerung.setVisible(true);
-		gastverlängerung.setVisible(true);
+		heimverlaengerung.setVisible(true);
+		gastverlaengerung.setVisible(true);
 		heimelf.setVisible(true);
 		gastelf.setVisible(true);
 				

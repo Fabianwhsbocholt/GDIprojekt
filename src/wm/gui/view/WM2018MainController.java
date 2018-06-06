@@ -27,10 +27,8 @@ public class WM2018MainController
 		
 	}
 	
-	public void ok() {
-			
-		WMHandler.wahl(mainapp, StatusBox, ausgabe);
-		
+	public void ok() {			
+		WMHandler.wahl(mainapp, StatusBox, ausgabe);		
 	}
 	
 	

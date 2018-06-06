@@ -165,8 +165,8 @@ public class WMHandler implements EventHandler
 	
 
 	public void spielergebnisseEingabe(WM2018 mainapp, TextArea ausgabe, String id, TextField toreheimhz, TextField toregasthz, 		
-	TextField toreheimende, TextField toregastende, TextField heimverlängerung, TextField gastverlängerung, TextField heimelf, TextField gastelf, TextField heimgelb, TextField gastgelb, 
-	TextField heimrot, TextField gastrot, TextField heimgelbrot, TextField  gastgelbrot) {
+	TextField toreheimende, TextField toregastende, TextField heimverlaengerung, TextField gastverlaengerung, TextField heimelf, 
+	TextField gastelf, TextField heimgelb, TextField gastgelb, TextField heimrot, TextField gastrot, TextField heimgelbrot, TextField  gastgelbrot) {
 		
 			String [] eingetrageneErgebnisse = new String [22];
 
@@ -175,8 +175,8 @@ public class WMHandler implements EventHandler
 			eingetrageneErgebnisse[8] = toreheimende.getText();
 			eingetrageneErgebnisse[9] = toregastende.getText();	
 			
-			eingetrageneErgebnisse[11] = heimverlängerung.getText();	
-			eingetrageneErgebnisse[12] = gastverlängerung.getText();	
+			eingetrageneErgebnisse[11] = heimverlaengerung.getText();	
+			eingetrageneErgebnisse[12] = gastverlaengerung.getText();	
 			eingetrageneErgebnisse[14] = heimelf.getText();	
 			eingetrageneErgebnisse[15] = gastelf.getText();	
 			
@@ -194,8 +194,8 @@ public class WMHandler implements EventHandler
 			toregasthz.clear();
 			toreheimende.clear();
 			toregastende.clear();
-			heimverlängerung.clear();
-			gastverlängerung.clear();
+			heimverlaengerung.clear();
+			gastverlaengerung.clear();
 			heimelf.clear();
 			gastelf.clear();
 			heimgelb.clear();

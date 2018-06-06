@@ -50,7 +50,7 @@
                   <Label layoutX="-20.0" layoutY="146.0" prefHeight="20.0" prefWidth="90.0" text="Gelbe Karten:" />
                   <Label layoutX="-20.0" layoutY="173.0" prefHeight="20.0" prefWidth="82.0" text="Rote Karten:" />
                   <Label layoutX="-20.0" layoutY="200.0" prefHeight="20.0" prefWidth="148.0" text="Gelb-Rote Karten:" />  
-                  <Label fx:id="verlängerung" layoutX="-20.0" layoutY="227.0" prefHeight="20.0" prefWidth="148.0" text="Verlängerung:" visible="false" />             
+                  <Label fx:id="verlaengerung" layoutX="-20.0" layoutY="227.0" prefHeight="20.0" prefWidth="148.0" text="Verlaengerung:" visible="false" />             
                   <Label fx:id="elfmeter" layoutX="-20.0" layoutY="254.0" prefHeight="20.0" prefWidth="148.0" text="Elfmeterschießen:" visible="false" />                                        
                   <TextField fx:id="gruppe" editable="false" layoutX="-20.0" layoutY="34.0" prefHeight="27.0" prefWidth="118.0" />
                   <Label layoutX="-20.0" layoutY="61.0" prefHeight="20.0" prefWidth="97.0" text="Spielpaarung:" />

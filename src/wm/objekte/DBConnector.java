@@ -38,10 +38,10 @@ public class DBConnector implements DBConnectorI
 		catch (Exception e)
 		{
 			return "Verbindung zur Datenbank "+config.getDb()+" konnte mit \nBenutzername: "
-			    +config.getUser()+" und\nPasswort: "+config.getPass()+"\nnicht hergestellt werden!\n";
+			    +config.getUser()+" und\nPasswort: "+config.getPass()+"\nnicht hergestellt werden!\n\n";
 		}
 		
-		return "Verbindung zur Datenbank "+config.getDb()+" hergestellt!\n";
+		return "Verbindung zur Datenbank "+config.getDb()+" hergestellt!\n\n";
 		
 	}
 	
@@ -108,12 +108,12 @@ public class DBConnector implements DBConnectorI
 			}
 			catch (SQLException e)
 			{
-				return "Vorgang fehlgeschlagen!\n";
+				return "Vorgang fehlgeschlagen!\n\n";
 			}
-			return "Tabellen gelöscht.\n"+"Tabellen benutzer, spiele, tipps und ranking neu erstellt!\n";
+			return "Tabellen geloescht.\n"+"Tabellen benutzer, spiele, tipps und ranking neu erstellt!\n\n";
 		}
 		else
-			return "Bitte erst eine Verbindung herstellen!\n";
+			return "Bitte erst eine Verbindung herstellen!\n\n";
 	}
 	
 	@Override
@@ -147,13 +147,13 @@ public class DBConnector implements DBConnectorI
 			}
 			catch (SQLException e)
 			{
-				return "Fehler beim Einlesen der Daten!\n";
+				return "Fehler beim Einlesen der Daten!\n\n";
 			}
 			
 			return meldung;
 		}
 		else
-			return "Bitte erst eine Verbindung herstellen!\n";
+			return "Bitte erst eine Verbindung herstellen!\n\n";
 	}
 	
 	@Override
@@ -296,10 +296,10 @@ public class DBConnector implements DBConnectorI
 			{
 				e.printStackTrace();
 			}
-			return ("Ranking in die Datenbank eingetragen!\n");
+			return ("Ranking in die Datenbank eingetragen!\n\n");
 		}
 		else
-			return ("Keine Verbindung!\n");
+			return ("Keine Verbindung!\n\n");
 	}
 	
 	@Override
@@ -375,10 +375,10 @@ public class DBConnector implements DBConnectorI
 			{
 				e.printStackTrace();
 			}
-			return ("Daten gespeichert!\n");
+			return ("Daten gespeichert!\n\n");
 		}
 		else
-			return ("Keine Verbindung!\n");
+			return ("Keine Verbindung!\n\n");
 	}
 	
 	@Override
@@ -396,10 +396,10 @@ public class DBConnector implements DBConnectorI
 			{
 				System.out.println("Fehler beim Beenden der Verbindung!\n");
 			}
-			return "Verbindung getrennt!\n";
+			return "Verbindung getrennt!\n\n";
 		}
 		else
-			return "Es ist keine Verbindung vorhanden!\n";
+			return "Es ist keine Verbindung vorhanden!\n\n";
 	}
 	
 	private List<String[]> datenAusDBholen (String sql)

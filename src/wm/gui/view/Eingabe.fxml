@@ -24,6 +24,7 @@
                            </image>
                         </ImageView>
                         <Button fx:id="speichern" layoutX="122.0" layoutY="290.0" mnemonicParsing="false" onAction="#speichern" prefHeight="32.0" prefWidth="260.0" text="Speichern" />
+                        <Button fx:id="schließen" layoutX="-18.0" layoutY="290.0" mnemonicParsing="false" onAction="#schließen" prefHeight="32.0" prefWidth="118.0" text="Schließen" />
                      </children>
                   </Pane>
                   <TextField fx:id="datetime" editable="false" layoutX="121.0" layoutY="34.0" prefHeight="27.0" prefWidth="260.0" />

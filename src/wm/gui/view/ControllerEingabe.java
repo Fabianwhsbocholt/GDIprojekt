@@ -35,6 +35,7 @@ import wm.interfaces.DBConnectorI;
 public class ControllerEingabe implements Initializable  {
  
    @FXML private Button speichern = new Button();
+   @FXML private Button schließen = new Button();
    @FXML TextArea ausgabe = new TextArea();
    private WMHandler WMHandler = new WMHandler();
    WM2018 mainapp;
@@ -67,6 +68,12 @@ public class ControllerEingabe implements Initializable  {
    public void initialize(URL location, ResourceBundle resources) {
        // TODO (don't really need to do anything here).
    }
+   
+	@FXML
+	public void schließen() {
+		mainapp.getEingabeStage().close();
+	}
+
    @FXML
    public void speichern ()
 	{

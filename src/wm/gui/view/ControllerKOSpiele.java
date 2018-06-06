@@ -15,6 +15,7 @@ import wm.gui.WM2018;
 	public class ControllerKOSpiele implements Initializable{
 		
 	@FXML private Button speichern = new Button();
+	@FXML private Button schließen = new Button();
 	@FXML TextArea ausgabe = new TextArea();
 	private WMHandler wmHandler = new WMHandler();
 	WM2018 mainapp;
@@ -60,6 +61,11 @@ import wm.gui.WM2018;
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@FXML
+	public void schließen() {
+		mainapp.getKospieleStage().close();
+	}
 
 	@FXML
 	public void speichern () {
@@ -74,6 +80,7 @@ import wm.gui.WM2018;
 					finalegast);
 		
 	}
+
 	
 	public void festeWerte(WM2018 mainapp, TextArea ausgabe, TextField achtelfinaleheim1, TextField achtelfinaleheim2,
 	TextField achtelfinaleheim3, TextField achtelfinaleheim4, TextField achtelfinaleheim5, TextField achtelfinaleheim6,
